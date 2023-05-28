@@ -1,0 +1,22 @@
+dateModified: 1685279900
+email:
+  fromEmail: seppe.huysegoms@student.howest.be
+  fromName: integration4
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    2a983d2f-5b08-4712-b777-c73be7e5f1a1: integration4 # integration4
+    3c84ce92-1a69-4c08-bce9-4faf902e5241: Common # Common
+    2702fca6-f017-40e8-8716-3427116cc428: integration4 # integration4
+system:
+  edition: solo
+  live: true
+  name: integration4
+  schemaVersion: 4.4.0.4
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
