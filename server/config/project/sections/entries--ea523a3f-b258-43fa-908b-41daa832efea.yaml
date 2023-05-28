@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: entries
+name: entries
+propagationMethod: all
+siteSettings:
+  2a983d2f-5b08-4712-b777-c73be7e5f1a1: # integration4
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/_entry
+    uriFormat: 'entries/{slug}'
+type: channel
