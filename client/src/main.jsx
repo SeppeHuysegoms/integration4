@@ -7,7 +7,7 @@ import "./index.css";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import Login, { action as loginAction } from "./routes/Login";
-import Register, { action as registerAction} from "./routes/register";
+import Register, { action as registerAction} from "./routes/Register";
 import Error from "./components/Error";
 
 const router = createBrowserRouter([
