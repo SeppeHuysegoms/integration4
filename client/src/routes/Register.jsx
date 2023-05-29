@@ -14,8 +14,9 @@ console.log(jwt, user)
 
 const Login = () => {
   return (
-    <div style={{ padding: "2rem" }}>
+    <div>
       <h1>Register</h1>
+      <p>Test</p>
       <Form method="post" id="contact-form">
         <label className="flexColumn">
 

@@ -2,21 +2,20 @@ import { Form, redirect } from "react-router-dom";
 import { authenticate } from "../auth";
 
 export async function action({ request, params }) {
-    console.log("action");
+  console.log("action");
   const formData = await request.formData();
   const { email, password } = Object.fromEntries(formData);
-console.log(email, password)
+  console.log(email, password);
   const { jwt, user } = await authenticate(email, password);
-console.log(jwt, user)
+  console.log(jwt, user);
   localStorage.setItem("jwt", jwt);
   localStorage.setItem("user", JSON.stringify(user));
-
   return redirect("/");
 }
 
 const Login = () => {
   return (
-    <div style={{ padding: "2rem" }}>
+    <div>
       <h1>Login</h1>
       <Form method="post" id="contact-form">
         <label className="flexColumn">
