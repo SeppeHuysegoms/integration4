@@ -8,6 +8,7 @@ import Root from "./routes/Root";
 import Home from "./routes/Home";
 import Login, { action as loginAction } from "./routes/Login";
 import Register, { action as registerAction} from "./routes/Register";
+import Plant from "./routes/Plant";
 import Error from "./components/Error";
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             path: "register",
             element: <Register />,
             action: registerAction,
+          },
+          {
+            path: "plant",
+            element: <Plant />,
           },
         ],
       },
