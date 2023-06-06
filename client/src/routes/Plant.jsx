@@ -1,35 +1,57 @@
-import { useState, useMemo } from "react";
-import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
-
+import { useState, useMemo, useEffect, useRef } from "react";
+import { Wrapper } from "@googlemaps/react-wrapper";
+import {useAutocomplete} from "@ubilabs/google-maps-react-hooks";
 
 import "../App.css";
-
+import { createRoot } from "react-dom/client";
 const App = () => {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ",
-    libraries: ["places"],
-  });
-
-  if (!isLoaded) return <div>Loading...</div>;
-  return <Map />;
+  return (
+    <Wrapper
+      apiKey="AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ"
+      version="beta"
+      libraries={["marker, places"]}
+    >
+      <AutoComplete />
+      <MyMap />
+    </Wrapper>
+  );
 };
 
-function Map() {
-    const center = useMemo(() => ({ lat: 50.8268, lng: 3.2544 }), []);
-    const [selected, setSelected] = useState(null);
+const mapOptions = {
+  mapId: "AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ",
+  center: { lat: 50.8659, lng: 4.6309 },
+  zoom: 13,
+  disableDefaultUI: true,
+};
+
+function MyMap() {
+  const [map, setMap] = useState();
+  const ref = useRef();
+
+  useEffect(() => {
+    setMap(new window.google.maps.Map(ref.current, mapOptions));
+  }, []);
   return (
-    <GoogleMap
-      mapContainerClassName="map-container"
-      center={{ lat: 50.8268, lng: 3.2544 }}
-      zoom={10}
-    >
-      <MarkerF position={{ lat: 50.8268, lng: 3.2544 }} />
-    </GoogleMap>
+    <>
+      <div ref={ref} id="map" />
+    </>
   );
 }
+
+function AutoComplete() {
+  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef(null);
+
+  useAutocomplete({
+    inputField: inputRef && inputRef.current,
+  });
+  console.log(inputRef);
+
+  return (
+    <input ref={inputRef} value={inputValue} onChange={event => setInputValue(event.target.value)} />
+  );
+}
+
+
 
 export default App;
