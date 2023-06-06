@@ -9,6 +9,7 @@ import Home from "./routes/Home";
 import Login, { action as loginAction } from "./routes/Login";
 import Register, { action as registerAction} from "./routes/Register";
 import Plant from "./routes/Plant";
+import Kaart from "./routes/Kaart"
 import Error from "./components/Error";
 
 const router = createBrowserRouter([
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
             path: "plant",
             element: <Plant />,
           },
+          {
+            path: "kaart",
+            element : <Kaart />,
+
+          }
         ],
       },
     ],
