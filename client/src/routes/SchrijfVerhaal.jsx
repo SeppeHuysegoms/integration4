@@ -28,7 +28,7 @@ export default function Index() {
         onClick={() => {
           localStorage.setItem("story", story);
         }}
-        to="/schrijfverhaal"
+        to="/register"
       >
         Volgende
       </Link>
