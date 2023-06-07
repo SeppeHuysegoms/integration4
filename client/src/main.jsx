@@ -10,6 +10,9 @@ import Login, { action as loginAction } from "./routes/Login";
 import Register, { action as registerAction} from "./routes/Register";
 import Plant from "./routes/Plant";
 import Kaart from "./routes/Kaart"
+import OverOns from "./routes/OverOns"
+import Profiel from "./routes/Profiel"
+import Stadsgids from "./routes/Stadsgids"
 import Error from "./components/Error";
 
 const router = createBrowserRouter([
@@ -41,9 +44,20 @@ const router = createBrowserRouter([
           },
           {
             path: "kaart",
-            element : <Kaart />,
-
-          }
+            element: <Kaart />,
+          },
+          {
+            path: "overons",
+            element: <OverOns />,
+          },
+          {
+            path: "profiel",
+            element: <Profiel />,
+          },
+          {
+            path: "stadsgids",
+            element: <Stadsgids />,
+          },
         ],
       },
     ],

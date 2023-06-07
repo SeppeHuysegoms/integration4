@@ -1,3 +1,3 @@
 export default function Index() {
-  return <h2> Profiel </h2>;
+  return <h2> Stadsgids </h2>;
 }

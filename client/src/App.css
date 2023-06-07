@@ -33,3 +33,33 @@ a {
   width: 100%;
   padding: 0.5rem;
 }
+.marker{
+  cursor: pointer;
+  padding: 2rem;
+  position: relative;
+}
+
+.yNHHyP-marker-view{
+  cursor: pointer;
+}
+
+.marker2{
+  cursor: pointer;
+  padding: 2rem;
+  position: relative;
+  background-color: green;
+}
+
+.test{
+  cursor: wait;
+}
+
+.hover{
+  cursor: wait;
+  color: red;
+}
+
+.navbar__list{
+  display: flex;
+  gap: 2rem;
+}
