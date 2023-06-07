@@ -13,6 +13,9 @@ import Kaart from "./routes/Kaart"
 import OverOns from "./routes/OverOns"
 import Profiel from "./routes/Profiel"
 import Stadsgids from "./routes/Stadsgids"
+import SelecteerLocatie from "./routes/SelecteerLocatie"
+import Locatie from "./routes/Locatie"
+import SchrijfVerhaal from "./routes/SchrijfVerhaal"
 import Error from "./components/Error";
 
 const router = createBrowserRouter([
@@ -57,6 +60,18 @@ const router = createBrowserRouter([
           {
             path: "stadsgids",
             element: <Stadsgids />,
+          },
+          {
+            path: "selecteerlocatie",
+            element: <SelecteerLocatie />,
+          },
+          {
+            path: "locatie",
+            element: <Locatie />,
+          },
+          {
+            path: "schrijfverhaal",
+            element: <SchrijfVerhaal />,
           },
         ],
       },
