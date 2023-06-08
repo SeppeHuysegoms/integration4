@@ -2,9 +2,9 @@ isPublic: false
 name: 'Private Schema'
 scope:
   - 'sites.2a983d2f-5b08-4712-b777-c73be7e5f1a1:read' # integration4
-  - 'sections.ea523a3f-b258-43fa-908b-41daa832efea:read' # entries
+  - 'sections.ea523a3f-b258-43fa-908b-41daa832efea:read' # verhalen
   - 'entrytypes.2f4f1f6d-5f3a-4d3b-8ba0-61ae0da32b3b:read' # Default
-  - 'sections.ea523a3f-b258-43fa-908b-41daa832efea:edit' # entries
+  - 'sections.ea523a3f-b258-43fa-908b-41daa832efea:edit' # verhalen
   - 'entrytypes.2f4f1f6d-5f3a-4d3b-8ba0-61ae0da32b3b:edit' # Default
   - 'entrytypes.2f4f1f6d-5f3a-4d3b-8ba0-61ae0da32b3b:create' # Default
   - 'entrytypes.2f4f1f6d-5f3a-4d3b-8ba0-61ae0da32b3b:save' # Default

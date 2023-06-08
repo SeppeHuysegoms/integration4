@@ -13,7 +13,7 @@ fieldLayouts:
             elementCondition: null
             id: null
             instructions: null
-            label: null
+            label: plaatsNaam
             max: null
             min: null
             name: null
@@ -30,13 +30,61 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 59c3f366-b40a-41db-93cb-9f04c11e413d # placeId
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 78f6be8d-3e37-4c5b-b2d9-0a90a25f7c66
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 1c79b5d7-455e-4e6e-96ff-ed2b9882f24d # latitude
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1d50717b-81dd-485e-940e-fc31b25564fa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 7a69dc36-fb93-4af9-8cbe-6b30cc3c3fa4 # longitude
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: edac6793-0f15-4631-afc0-3c91ea3e056c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 77f258a6-7d65-40d3-9c55-b31cc72a5b0a # verhaal
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b5b8cbb9-08d7-4730-b9f8-5c4e39800441
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: abbe0d9b-6f4c-4c0f-ad68-0dbcb25aa168
         userCondition: null
 handle: default
 hasTitleField: true
 name: Default
-section: ea523a3f-b258-43fa-908b-41daa832efea # entries
+section: ea523a3f-b258-43fa-908b-41daa832efea # verhalen
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

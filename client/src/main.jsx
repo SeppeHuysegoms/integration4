@@ -7,16 +7,17 @@ import "./index.css";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import Login, { action as loginAction } from "./routes/Login";
-import Register, { action as registerAction} from "./routes/Register";
+import Register, { action as registerAction } from "./routes/Register";
 import Plant from "./routes/Plant";
-import Kaart from "./routes/Kaart"
-import OverOns from "./routes/OverOns"
-import Profiel from "./routes/Profiel"
-import Stadsgids from "./routes/Stadsgids"
-import SelecteerLocatie from "./routes/SelecteerLocatie"
-import Locatie from "./routes/Locatie"
-import SchrijfVerhaal from "./routes/SchrijfVerhaal"
+import Kaart from "./routes/Kaart";
+import OverOns from "./routes/OverOns";
+import Profiel from "./routes/Profiel";
+import Stadsgids from "./routes/Stadsgids";
+import SelecteerLocatie from "./routes/SelecteerLocatie";
+import Locatie from "./routes/Locatie";
+import SchrijfVerhaal from "./routes/SchrijfVerhaal";
 import Error from "./components/Error";
+import { Wrapper } from "@googlemaps/react-wrapper";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Wrapper
+      apiKey="AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ"
+      version="beta"
+      libraries={["marker"]}
+    >
+      <RouterProvider router={router} />
+    </Wrapper>
   </React.StrictMode>
 );

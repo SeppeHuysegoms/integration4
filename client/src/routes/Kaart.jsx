@@ -7,14 +7,10 @@ import { createRoot } from "react-dom/client";
 const App = () => {
   const [selectedStory, setSelectedStory] = useState();
   return (
-    <Wrapper
-      apiKey="AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ"
-      version="beta"
-      libraries={["marker"]}
-    >
+    <>
       <InfoWindow selectedStory={selectedStory} />
       <MyMap setSelectedStory={setSelectedStory} />
-    </Wrapper>
+    </>
   );
 };
 
@@ -143,24 +139,27 @@ function Bloeiend({ map, setSelectedStory }) {
           map={map}
           position={data[0].position}
           size={data.length}
-          onMouseEnter={() => {
-            console.log("click");
-          }}
+          // on={() => {
+          //   console.log("click");
+          // }}
         >
           <div
             className={`marker ${hover ? "hover" : ""}`}
-            onMouseEnter={() => {
-              setHover(key);
-              console.log("click");
-              setSelectedStory(data);
-              console.log(data);
-            }}
+            // onMouseEnter={() => {
+            //   setHover(key);
+            //   console.log("click");
+            //   setSelectedStory(data);
+            //   console.log(data);
+            // }}
           >
-            <h2>Test</h2>
+            <h2>TESTEEEEE</h2>
             <img
               src="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
               alt="bachflag"
               style={{ width: data.length * 10, height: data.length * 10 }}
+              onClick={() => {
+                console.log("click");
+              }}
             />
           </div>
         </Marker>
@@ -178,7 +177,7 @@ const Marker = ({ map, position, children, size }) => {
   useEffect(() => {
     if (!rootRef.current) {
       const container = document.createElement("div");
-      
+
       container.className = "marker2";
       container.style.color = "red";
       rootRef.current = createRoot(container);
@@ -190,7 +189,6 @@ const Marker = ({ map, position, children, size }) => {
   }, []);
 
   useEffect(() => {
-  
     rootRef.current.render(children);
     markerRef.current.size = size;
     markerRef.current.position = position;
