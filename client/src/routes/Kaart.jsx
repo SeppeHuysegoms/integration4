@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
+import { Link } from "react-router-dom";
 
 import "../App.css";
 import { createRoot } from "react-dom/client";
@@ -8,8 +9,40 @@ const App = () => {
   const [selectedStory, setSelectedStory] = useState();
   return (
     <>
+      <h1>B(l)oeiende plekken</h1>
+      <p>
+        Elk verhaal laat Kortrijk meer en meer bloeien. Kijk voor wie jouw
+        plaats ook b(l)oeit of ontdek misschien een nieuwe plek.
+      </p>
+      <a href="#map">Bekijk kaart</a>
+      <div>
+        <div>
+          <p>120</p>
+          <p>Dagen om deel te nemen</p>
+        </div>
+        <div>
+          <p>1305</p>
+          <p>Zaadjes geplant</p>
+        </div>
+        <div>
+          <p>60</p>
+          <p>Verschillende b(l)oeiende plekken</p>
+        </div>
+      </div>
       <InfoWindow selectedStory={selectedStory} />
-      <MyMap setSelectedStory={setSelectedStory} />
+      <MyMap setSelectedStory={setSelectedStory} id="map" />
+      <h2>Wat is jouw verhaal?</h2>
+      <p>
+        Heb jij zelf ook een plek die je zou laten willen bloeien in Kortrijk?
+        Zoek onze posters in de stad of houd onze Instagram pagina in de gaten.
+        Je kan namelijk kans maken op een leuke extra!
+      </p>
+      <a>@Bloeiend!</a>
+      <p>
+        Te veel moeite voor je? Don’t worry! Je kan ook vanaf hier simpelweg je
+        verhaal planten.
+      </p>
+      <Link to="/plant">Plant jouw verhaal</Link>
     </>
   );
 };
@@ -28,6 +61,7 @@ function MyMap(setSelectedStory) {
   useEffect(() => {
     setMap(new window.google.maps.Map(ref.current, mapOptions));
   }, []);
+  console.log(ref);
   return (
     <>
       <div ref={ref} className="test" id="map" />
@@ -172,7 +206,6 @@ const Marker = ({ map, position, children, size }) => {
   const markerRef = useRef();
   const rootRef = useRef();
 
-  rootRef.className = "marker2";
 
   useEffect(() => {
     if (!rootRef.current) {
