@@ -1,6 +1,16 @@
 import { useEffect } from "react";
+import icon from "../assets/flower.png";
 
 const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen }) => {
+  const southWest = new google.maps.LatLng(
+    50.82040292260651,
+    3.2133969501072177
+  );
+  const northEast = new google.maps.LatLng(
+    50.83216251839117,
+    3.3122555150254587
+  );
+  const KortrijkBounds = new google.maps.LatLngBounds(southWest, northEast);
   if (input) {
     useEffect(() => {
       console.log("test");
@@ -12,7 +22,9 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen }) => {
         const service = new AutocompleteService();
         const prediction = await service.getPlacePredictions({
           input: `${input}`,
-          types: ["(cities)"],
+          CompositionRestrictions: { country: "be" },
+          locationRestriction: KortrijkBounds,
+          fields: ["place_id", "name", "address_components", "geometry "],
         });
         console.log(prediction);
         let arrayPrediction = [];
@@ -39,7 +51,9 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen }) => {
       {voorstellen && input && (
         <ul>
           {voorstellen.map((voorstel) => (
-            <li key={voorstel.place_id}>{voorstel.description}</li>
+            <li key={voorstel.place_id} onClick={()=>addMarker(voorstel.place_id)}>
+              {voorstel.description}
+            </li>
           ))}
         </ul>
       )}
@@ -48,3 +62,36 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen }) => {
 };
 
 export default ZoekVeld;
+
+const addMarker = (placeID) => {
+  console.log(`${placeID}`);
+  
+  placesDemo();
+
+  /*const iconBloem = document.createElement("img");
+  iconBloem.src = icon;
+  iconBloem.className = "markerBloem";
+  let mark = new google.maps.marker.AdvancedMarkerElement({
+    position: location,
+    map: map,
+    content: iconBloem,
+  });
+  if (selectedLocation != null) {
+    selectedLocation.setMap(null);
+  }
+  selectedLocation = mark;*/
+};
+
+  const placesDemo = async () => {
+    const { PlacesService } = await google.maps.importLibrary("places");
+    const service = new PlacesService();
+    console.log(service.getDetails());
+
+    const details = await service.getDetails({
+      placeId: "ChIJXeWW5CY7w0cRdvPij3Vrp58",
+      fields: ["formatted_addres", "geometry "],
+    });
+
+    console.log(details);
+  };
+
