@@ -9,19 +9,19 @@ import { useEffect } from "react";
 const Root = () => {
   const navigation = useNavigation();
 
-  // useEffect(() => {
-  //   const placesDemo = async () => {
-  //     const { AutocompleteService } = await google.maps.importLibrary("places");
-  //     const service = new AutocompleteService();
-  //     const predictions = await service.getPlacePredictions({
-  //       input: "Br",
-  //       types: ["(cities)"],
-  //     });
-  //     console.log(predictions);
-  //   };
+ /* useEffect(() => {
+    const placesDemo = async () => {
+      const { AutocompleteService } = await google.maps.importLibrary("places");
+      const service = new AutocompleteService();
+      const predictions = await service.getPlacePredictions({
+        input: "Br",
+        types: ["(cities)"],
+      });
+      console.log(predictions);
+    };
 
-  //   placesDemo();
-  // }, []);
+    placesDemo();
+  }, []);*/
   return (
     <>
       <header>
