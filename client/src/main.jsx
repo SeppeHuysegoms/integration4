@@ -12,6 +12,9 @@ import Plant from "./routes/Plant";
 import Kaart from "./routes/Kaart";
 import OverOns from "./routes/OverOns";
 import Profiel from "./routes/Profiel";
+import ProfielLogin from "./routes/ProfielLogin";
+import ProfielEditSory from "./routes/ProfielEditStory";
+import ProdielEditGegevens from "./routes/ProfielEditGegevens";
 import Stadsgids from "./routes/Stadsgids";
 import SelecteerLocatie from "./routes/SelecteerLocatie";
 import Locatie from "./routes/Locatie";
@@ -73,6 +76,14 @@ const router = createBrowserRouter([
           {
             path: "schrijfverhaal",
             element: <SchrijfVerhaal />,
+          },
+          {
+            path: "profiellogin",
+            element: <ProfielLogin />,
+          },
+          {
+            path: "profielstory",
+            element: <ProfielEditSory />,
           },
         ],
       },
