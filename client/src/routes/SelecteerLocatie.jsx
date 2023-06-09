@@ -136,9 +136,7 @@ const getName = async (position) => {
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Wrapper } from "@googlemaps/react-wrapper";
 import icon from "../assets/flower.png";
-import Suggesties from "../components/Suggesties";
 import ZoekVeld from "../components/InputZoek"
 
 import "../App.css";
@@ -242,12 +240,8 @@ function Locatie(location) {
 }
 
 const onMapClick = (event, setMarker, setCenter, map, marker) => {
-  setMarker({
-    lat: event.latLng.lat(),
-    lng: event.latLng.lng(),
-    time: new Date(),
-  });
-  setCenter({
+
+  map.setCenter({
     lat: event.latLng.lat(),
     lng: event.latLng.lng(),
   });
@@ -270,19 +264,23 @@ const addMarker = (location, map) => {
     selectedLocation.setMap(null);
   }
   selectedLocation = mark;
+  getName(location);
 };
 
 const getName = async (position) => {
-  let details = new URL(
-    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${position.lat()},${position.lng()}&radius=10&key=AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ`
-  );
-  let response = await fetch(details);
-  let data = await response.json();
-  console.log(data);
+
+  const { PlacesService, RankBy } = await google.maps.importLibrary("places");
+  console.log(PlacesService);
+  const order = RankBy.DISTANCE;
+  const service = new PlacesService();
+  console.log(service.nearbySearch);
+  const locations = await service.nearbySearch({
+    location: position,
+    rankBy: order,
+  });
+  console.log(locations);
+
 };
 
-const test = () => {
-  console.log("test");
-};
 
 export default App;

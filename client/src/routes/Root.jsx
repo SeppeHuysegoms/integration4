@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const Root = () => {
   const navigation = useNavigation();
 
- /* useEffect(() => {
+  /*useEffect(() => {
     const placesDemo = async () => {
       const { AutocompleteService } = await google.maps.importLibrary("places");
       const service = new AutocompleteService();
@@ -21,7 +21,8 @@ const Root = () => {
     };
 
     placesDemo();
-  }, []);*/
+  }, []);
+  */
   return (
     <>
       <header>
