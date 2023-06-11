@@ -4,10 +4,9 @@ import { useState } from "react";
 export default function Index() {
   const [story, setStory] = useState();
   let verhaal
-  /*if (localStorage.getItem("story")) {
-    setStory(localStorage.getItem("story"));
-    console.log(story);
-  }*/
+  if (localStorage.getItem("story")) {
+    verhaal = localStorage.getItem("story");
+  }
 
   return (
     <>
@@ -20,8 +19,8 @@ export default function Index() {
       <textarea
         name="name"
         placeholder="Typ hier je verhaal"
-        //onChange={(e) => handleChange(e, setStory)}
-        //value={story}
+        onChange={(e) => handleChange(e, verhaal)}
+        value={verhaal}
         rows="3"
       />
       <Link
@@ -36,6 +35,7 @@ export default function Index() {
   );
 }
 
-const handleChange = (event, setStory) => {
-  setStory(event.target.value);
+const handleChange = (event, verhaal) => {
+  localStorage.setItem("story", event.target.value);
+  verhaal = event.target.value;
 };
