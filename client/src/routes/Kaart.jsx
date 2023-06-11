@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { Link } from "react-router-dom";
-
+import icon from "../assets/flower.png";
 import "../App.css";
 import { createRoot } from "react-dom/client";
 
@@ -29,7 +29,6 @@ const App = () => {
           <p>Verschillende b(l)oeiende plekken</p>
         </div>
       </div>
-      <InfoWindow selectedStory={selectedStory} />
       <MyMap setSelectedStory={setSelectedStory} id="map" />
       <h2>Wat is jouw verhaal?</h2>
       <p>
@@ -65,12 +64,12 @@ function MyMap(setSelectedStory) {
   return (
     <>
       <div ref={ref} className="test" id="map" />
-      {map && <Bloeiend map={map} setSelectedStory={setSelectedStory} />}
+      {map && <Bloeiend map={map} />}
     </>
   );
 }
 
-const InfoWindow = (selectedStory) => {
+/*const InfoWindow = (selectedStory) => {
   const [data, setData] = useState(selectedStory);
   console.log(data);
   if (!data) {
@@ -90,7 +89,7 @@ const InfoWindow = (selectedStory) => {
   } else {
     return null;
   }
-};
+};*/
 
 let stories = [
   {
@@ -149,7 +148,87 @@ let stories = [
   },
 ];
 
+const Bloeiend = ({ map }) => {
+  const [data, setData] = useState();
+  useEffect(() => {
+    console.log(map);
+    const groupByPlaceId = Object.values(
+      stories.reduce((group, story) => {
+        const { placeId } = story;
+        group[placeId] = group[placeId] ?? [];
+        group[placeId].push(story);
+        return group;
+      }, {})
+    );
+    setData(groupByPlaceId);
+    console.log(groupByPlaceId);
+
+    const setMarkers = async (data) => {
+      const { Marker } = await google.maps.importLibrary("marker");
+      const { InfoWindow } = await google.maps.importLibrary("maps");
+      const infoWindow = new InfoWindow();
+      const markers = data.map((data) => {
+        let basis;
+        let size;
+        if (data.length < 25) {
+          basis = 8;
+          size = 0.75;
+        } else if (data.length < 50) {
+          basis = 15;
+          size = 0.5;
+        } else if (data.length < 100) {
+           basis = 29;
+           size = 0.25;
+        } else if (data.length < 200) {
+          basis = 51;
+          size = 0.125;
+        } else {
+          basis = 62;
+          size = 0.0625;
+        }
+        const image = {
+          url: icon,
+          scaledSize: new window.google.maps.Size(
+            basis + data.length * size,
+            basis + data.length * size
+          ),
+          className: "markerBloem",
+        };
+        console.log(data);
+        const marker = new Marker({
+          map,
+          position: data[0].position,
+          icon: image,
+          content: {
+            html: `<div class="markerBloem">`,
+          },
+          size: data.length,
+          title: data[0].title,
+          placeId: data[0].placeId,
+        });
+        marker.setClass = "markerKaart";
+        marker.addListener("click", () => {
+           infoWindow.close();
+           infoWindow.setContent(`<div class="infoWindow"><h2>${marker.title}</h2> <ul>`+data.map((story) => ( `<li key=${story.title}>${story.title}</li>`))+` 
+           </ul></div>`);
+           infoWindow.open(marker.map, marker);
+          console.log("click");
+          console.log(marker.placeId);
+        });
+        return marker;
+      });
+      console.log(markers);
+      return markers;
+    };
+
+    console.log(data);
+    setMarkers(groupByPlaceId);
+  }, [stories]);
+};
+
+/*
 function Bloeiend({ map, setSelectedStory }) {
+
   const groupByPlaceId = Object.values(
     stories.reduce((group, story) => {
       const { placeId } = story;
@@ -158,6 +237,7 @@ function Bloeiend({ map, setSelectedStory }) {
       return group;
     }, {})
   );
+  
   console.log(groupByPlaceId);
   const [data, setData] = useState(groupByPlaceId);
   const [hover, setHover] = useState();
@@ -173,9 +253,7 @@ function Bloeiend({ map, setSelectedStory }) {
           map={map}
           position={data[0].position}
           size={data.length}
-          // on={() => {
-          //   console.log("click");
-          // }}
+
         >
           <div
             className={`marker ${hover ? "hover" : ""}`}
@@ -227,6 +305,6 @@ const Marker = ({ map, position, children, size }) => {
     markerRef.current.position = position;
     markerRef.current.map = map;
   }, [map, position, children, size]);
-};
+};*/
 
 export default App;

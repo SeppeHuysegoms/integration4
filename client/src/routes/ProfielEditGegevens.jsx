@@ -29,13 +29,38 @@ export default function Index() {
       <Link to="/kaart">Bekijk de kaart</Link>
 
       <h2>Persoonlijke gegevens</h2>
-      <p>Naam</p>
-      <p>Seppe Huysegoms</p>
-      <p>Email</p>
-      <p></p>
-      <p>Wachtwoord</p>
-      <p></p>
-      <button>Bewerk</button>
+      <Form method="post" id="contact-form">
+        <label className="flexColumn">
+          <span>Naam</span>
+          <input
+            type="text"
+            name="naam"
+            placeholder="Naam"
+            defaultValue="seppe.huysegoms1@student.howest.be"
+          />
+        </label>
+        <label className="flexColumn">
+          <span>Email</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            defaultValue="seppe.huysegoms1@student.howest.be"
+          />
+        </label>
+
+        <label className="flexColumn">
+          <span>Password</span>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            defaultValue="123456"
+          />
+        </label>
+
+        <button type="submit">Login</button>
+      </Form>
     </>
   );
 }

@@ -66,3 +66,25 @@ textarea {
   resize: none;
   font-family: Arial, Helvetica, sans-serif;
 }
+.markerBloem{
+  padding: 1rem;
+  background-color: red;
+}
+
+.markerKaart{
+background-color: aqua;
+}
+
+.infoWindow>ul{
+max-height: 50px;
+overflow-y: scroll;
+}
+
+.infoWindow>ul>li{
+  list-style: none;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
