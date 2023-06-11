@@ -1,11 +1,19 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import icon from "../assets/flower.png";
 import "../App.css";
 import { createRoot } from "react-dom/client";
+import { getStories } from "../entries";
+
+export async function loader({request}) {
+  const stories = await getStories();
+  return {stories};
+}
 
 const App = () => {
+  const {stories} = useLoaderData();
+  console.log(stories);
   const [selectedStory, setSelectedStory] = useState();
   return (
     <>
@@ -29,7 +37,7 @@ const App = () => {
           <p>Verschillende b(l)oeiende plekken</p>
         </div>
       </div>
-      <MyMap setSelectedStory={setSelectedStory} id="map" />
+      <MyMap stories={stories} id="map" />
       <h2>Wat is jouw verhaal?</h2>
       <p>
         Heb jij zelf ook een plek die je zou laten willen bloeien in Kortrijk?
@@ -48,13 +56,14 @@ const App = () => {
 
 const mapOptions = {
   mapId: "AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ",
-  center: { lat: 50.8659, lng: 4.6309 },
+  center: { lat: 50.8268, lng: 3.2544 },
   zoom: 13,
   disableDefaultUI: true,
   mapId: "65d60a0f50d564df",
 };
 
-function MyMap(setSelectedStory) {
+function MyMap({stories}) {
+  console.log(stories);
   const [map, setMap] = useState();
   const ref = useRef();
 
@@ -65,7 +74,7 @@ function MyMap(setSelectedStory) {
   return (
     <>
       <div ref={ref} className="test" id="map" />
-      {map && <Bloeiend map={map} />}
+      {map && <Bloeiend map={map} stories={stories} />}
     </>
   );
 }
@@ -92,72 +101,19 @@ function MyMap(setSelectedStory) {
   }
 };*/
 
-let stories = [
-  {
-    title: "Alsemberg 1",
-    placeId:
-      "EiNBbHNlbWJlcmdsYWFuLCAzMDYwIEJlcnRlbSwgQmVsZ2l1bSIuKiwKFAoSCS3wnuC3YcFHEQChIa7Geh9UEhQKEgmjqyBgxGHBRxHr_dMUrM7KAA",
-    position: { lat: 50.86949484562017, lng: 4.638857763970963 },
-  },
-  {
-    title: "Xocolata 1",
-    placeId: "ChIJgY5y0IphwUcR5Y-xnoqmj3w",
-    position: { lat: 50.870909709745774, lng: 4.6343982666801 },
-  },
-  {
-    title: "Lekkerbek 1",
-    placeId: "ChIJ301jjbhhwUcRoHYuwzQ00F4",
-    position: { lat: 50.86773949480023, lng: 4.632807306611503 },
-  },
-  {
-    title: "Bakker 1",
-    placeId: "ChIJ9aEKUMZhwUcRG_sdZNSSVxU",
-    position: { lat: 50.86648359780457, lng: 4.63365656440537 },
-  },
-  { title: "Bertem square", placeId: "ChIJVVVVVcFhwUcRuJj1_SZAM7Q" },
-  {
-    title: "Xocolata 2",
-    placeId: "ChIJgY5y0IphwUcR5Y-xnoqmj3w",
-    position: { lat: 50.870909709745774, lng: 4.6343982666801 },
-  },
-  {
-    title: "Bib 1 ",
-    placeId: "ChIJbTp2bU1DwUcRP6tYPKZmzJo",
-    position: { lat: 50.866478141048226, lng: 4.630507323263188 },
-  },
-  {
-    title: "Alsemberg 2",
-    placeId:
-      "EiNBbHNlbWJlcmdsYWFuLCAzMDYwIEJlcnRlbSwgQmVsZ2l1bSIuKiwKFAoSCS3wnuC3YcFHEQChIa7Geh9UEhQKEgmjqyBgxGHBRxHr_dMUrM7KAA",
-    position: { lat: 50.86949484562017, lng: 4.638857763970963 },
-  },
-  {
-    title: "Bakker 2",
-    placeId: "ChIJ9aEKUMZhwUcRG_sdZNSSVxU",
-    position: { lat: 50.86648359780457, lng: 4.63365656440537 },
-  },
-  {
-    title: "Lekkerbek 2",
-    placeId: "ChIJ301jjbhhwUcRoHYuwzQ00F4",
-    position: { lat: 50.86773949480023, lng: 4.632807306611503 },
-  },
-  {
-    title: "Alsemberg 3",
-    placeId:
-      "EiNBbHNlbWJlcmdsYWFuLCAzMDYwIEJlcnRlbSwgQmVsZ2l1bSIuKiwKFAoSCS3wnuC3YcFHEQChIa7Geh9UEhQKEgmjqyBgxGHBRxHr_dMUrM7KAA",
-    position: { lat: 50.86949484562017, lng: 4.638857763970963 },
-  },
-];
 
-const Bloeiend = ({ map }) => {
+
+const Bloeiend = ({ map, stories }) => {
+  console.log(stories);
   const [data, setData] = useState();
   useEffect(() => {
     console.log(map);
     const groupByPlaceId = Object.values(
       stories.reduce((group, story) => {
-        const { placeId } = story;
-        group[placeId] = group[placeId] ?? [];
-        group[placeId].push(story);
+        const {placeid} = story;
+        console.log(placeid);
+        group[placeid] = group[placeid] ?? [];
+        group[placeid].push(story);
         return group;
       }, {})
     );
@@ -196,21 +152,25 @@ const Bloeiend = ({ map }) => {
           className: "markerBloem",
         };
         console.log(data);
+        let position = new google.maps.LatLng(
+          data[0].latitude,
+          data[0].longitude
+        );
         const marker = new Marker({
           map,
-          position: data[0].position,
+          position: position,
           icon: image,
           content: {
             html: `<div class="markerBloem">`,
           },
           size: data.length,
           title: data[0].title,
-          placeId: data[0].placeId,
+          placeId: data[0].placeid,
         });
         marker.setClass = "markerKaart";
         marker.addListener("click", () => {
            infoWindow.close();
-           infoWindow.setContent(`<div class="infoWindow"><h2>${marker.title}</h2> <ul>`+data.map((story) => ( `<li key=${story.title}>${story.title}</li>`))+` 
+           infoWindow.setContent(`<div class="infoWindow"><h2>${marker.title}</h2> <ul>`+data.map((story) => ( `<li key=${story.title}>${story.verhaal}</li>`))+` 
            </ul></div>`);
            infoWindow.open(marker.map, marker);
           console.log("click");

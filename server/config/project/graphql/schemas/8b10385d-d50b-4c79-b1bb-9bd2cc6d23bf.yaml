@@ -6,3 +6,4 @@ scope:
   - 'entrytypes.2f4f1f6d-5f3a-4d3b-8ba0-61ae0da32b3b:read' # Default
   - 'usergroups.everyone:read'
   - 'usergroups.eaba7c1b-32b7-4b06-a390-000594be77a6:read' # Front-end users
+  - 'sections.ea523a3f-b258-43fa-908b-41daa832efea:edit' # verhalen

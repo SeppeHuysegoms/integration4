@@ -19,7 +19,6 @@ export async function register(name, email, password) {
   return result.data.register;
 }
 
-
 /*export async function plantVerhaal(email, password) {
 
   const result = await graphQLRequest(
@@ -41,3 +40,25 @@ export async function register(name, email, password) {
   }
 }`
 }*/
+
+export async function getStories() {
+  const result = await graphQLRequest(
+    `query MyQuery {
+  entries {
+    ... on entries_default_Entry {
+      id
+      adres
+      dateCreated
+      longitude
+      latitude
+      verhaal
+      title
+      placeid
+    }
+  }
+}`
+  );
+  //console.log("getStories result", result.data.entries);
+
+  return result.data.entries;
+}

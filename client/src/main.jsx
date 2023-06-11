@@ -9,7 +9,7 @@ import Home from "./routes/Home";
 import Login, { action as loginAction } from "./routes/Login";
 import Register, { action as registerAction } from "./routes/Register";
 import Plant from "./routes/Plant";
-import Kaart from "./routes/Kaart";
+import Kaart, {loader as storiesLoader } from "./routes/Kaart";
 import OverOns from "./routes/OverOns";
 import Profiel from "./routes/Profiel";
 import ProfielLogin from "./routes/ProfielLogin";
@@ -54,6 +54,7 @@ const router = createBrowserRouter([
           {
             path: "kaart",
             element: <Kaart />,
+            loader: storiesLoader,
           },
           {
             path: "overons",
