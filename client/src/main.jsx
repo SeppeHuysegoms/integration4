@@ -15,6 +15,8 @@ import Profiel from "./routes/Profiel";
 import ProfielLogin from "./routes/ProfielLogin";
 import ProfielEditSory from "./routes/ProfielEditStory";
 import ProdielEditGegevens from "./routes/ProfielEditGegevens";
+import Bevestig from "./routes/Bevestig";
+import BevestigVerhaal from "./routes/BevestigVerhaal";
 import Stadsgids from "./routes/Stadsgids";
 import SelecteerLocatie from "./routes/SelecteerLocatie";
 import Locatie from "./routes/Locatie";
@@ -84,6 +86,18 @@ const router = createBrowserRouter([
           {
             path: "profielstory",
             element: <ProfielEditSory />,
+          },
+          {
+            path: "profielgegevens",
+            element: <ProdielEditGegevens />,
+          },
+          {
+            path: "bevestig",
+            element: <Bevestig />,
+          },
+          {
+            path: "bevestigverhaal",
+            element: <BevestigVerhaal />,
           },
         ],
       },

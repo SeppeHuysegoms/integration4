@@ -20,9 +20,10 @@ const Login = () => {
     <div>
       <h1>Bevestigen</h1>
       <h2>Gekozen plek</h2>
-      <p>{verhaal}</p>
-      <h2>Persoonlijk verhaal</h2>
       <p>{locatieNaam}</p>
+      <h2>Persoonlijk verhaal</h2>
+
+      <p>{verhaal}</p>
       <h2>Login</h2>
       <p>Sla jouw verhaal op door je in te loggen</p>
       <Form method="post" id="contact-form">

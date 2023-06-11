@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Index() {
   const [story, setStory] = useState();
-  let verhaal
+  useEffect(() => {
   if (localStorage.getItem("story")) {
-    verhaal = localStorage.getItem("story");
+    setStory(localStorage.getItem("story"));
   }
+}, []);
 
   return (
     <>
@@ -19,12 +20,13 @@ export default function Index() {
       <textarea
         name="name"
         placeholder="Typ hier je verhaal"
-        onChange={(e) => handleChange(e, verhaal)}
-        value={verhaal}
+        onChange={(e) => handleChange(e, setStory)}
+        value={story}
         rows="3"
       />
       <Link
-        onClick={() => {
+        onClick={(verhaal) => {
+          console.log(verhaal);
           localStorage.setItem("story", story);
         }}
         to="/register"
@@ -35,7 +37,6 @@ export default function Index() {
   );
 }
 
-const handleChange = (event, verhaal) => {
-  localStorage.setItem("story", event.target.value);
-  verhaal = event.target.value;
+const handleChange = (event,setStory) => {
+  setStory(event.target.value)
 };
