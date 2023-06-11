@@ -51,6 +51,8 @@ const mapOptions = {
   center: { lat: 50.8659, lng: 4.6309 },
   zoom: 13,
   disableDefaultUI: true,
+  clickableIcons: false,
+  mapId: "9e75666bc6c2ee87",
 };
 
 function MyMap(setSelectedStory) {
@@ -171,7 +173,7 @@ const Bloeiend = ({ map }) => {
         let basis;
         let size;
         if (data.length < 25) {
-          basis = 8;
+          basis = 9;
           size = 0.75;
         } else if (data.length < 50) {
           basis = 15;
