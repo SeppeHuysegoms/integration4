@@ -19,27 +19,35 @@ export async function register(name, email, password) {
   return result.data.register;
 }
 
-/*export async function plantVerhaal(email, password) {
-
-  const result = await graphQLRequest(
-  `mutation plantVerhaal {
+export async function plantVerhaal(
+  latitude,
+  longitude,
+  placeid,
+  title,
+  verhaal,
+  adres,
+  authorId,
+  jwt
+) {
+  console.log("plantVerhaal", latitude, longitude, placeid, title, verhaal, adres, authorId, jwt);  
+  const {result} = await graphQLRequest(
+    `mutation plantVerhaal($latitude: Number, $longitude: Number, $placeid: String, $title: String, $verhaal: String, $authorId: ID, $adres: String) {
   save_entries_default_Entry(
-    latitude: ""
-    longitude: ""
-    placeid: ""
-    title: ""
-    verhaal: ""
-    authorId: ""
+    latitude: $latitude
+    longitude: $longitude
+    placeid: $placeid
+    title: $title
+    verhaal: $verhaal
+    authorId: $authorId
+    adres: $adres
   ) {
     id
-    title
-    verhaal
-    longitude
-    latitude
-    placeid
   }
 }`
-}*/
+  , {latitude, longitude, placeid, title, verhaal, authorId, adres}, jwt);
+  console.log("plantVerhaal result");
+  console.log("plantVerhaal result", result);
+}
 
 export async function getStories() {
   const result = await graphQLRequest(

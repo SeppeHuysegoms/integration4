@@ -16,7 +16,7 @@ import ProfielLogin from "./routes/ProfielLogin";
 import ProfielEditSory from "./routes/ProfielEditStory";
 import ProdielEditGegevens from "./routes/ProfielEditGegevens";
 import Bevestig from "./routes/Bevestig";
-import BevestigVerhaal from "./routes/BevestigVerhaal";
+import BevestigVerhaal, {action as bevestigVerhaalAction} from "./routes/BevestigVerhaal";
 import Stadsgids from "./routes/Stadsgids";
 import SelecteerLocatie from "./routes/SelecteerLocatie";
 import Locatie from "./routes/Locatie";
@@ -99,6 +99,7 @@ const router = createBrowserRouter([
           {
             path: "bevestigverhaal",
             element: <BevestigVerhaal />,
+            action: bevestigVerhaalAction,
           },
         ],
       },
