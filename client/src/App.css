@@ -66,10 +66,7 @@ textarea {
   resize: none;
   font-family: Arial, Helvetica, sans-serif;
 }
-.markerBloem{
-  padding: 1rem;
-  background-color: red;
-}
+
 
 .markerKaart{
 background-color: aqua;

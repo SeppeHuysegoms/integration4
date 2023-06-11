@@ -51,8 +51,7 @@ const mapOptions = {
   center: { lat: 50.8659, lng: 4.6309 },
   zoom: 13,
   disableDefaultUI: true,
-  clickableIcons: false,
-  mapId: "9e75666bc6c2ee87",
+  mapId: "65d60a0f50d564df",
 };
 
 function MyMap(setSelectedStory) {

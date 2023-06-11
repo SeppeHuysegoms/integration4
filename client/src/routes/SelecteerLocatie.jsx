@@ -185,8 +185,8 @@ const App = () => {
   );
 };
 const KortrijkBounds = {
-  north: 50.83216251839117,
-  south: 50.82040292260651,
+  north: 50.84516251839117,
+  south: 50.81240292260651,
   west: 3.2133969501072177,
   east: 3.3122555150254587,
 };
@@ -206,7 +206,8 @@ function MyMap() {
   useEffect(() => {
     setMap(
       new window.google.maps.Map(ref.current, {
-        mapId: "AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ",
+        clickableIcons: false,
+        mapId: "9e75666bc6c2ee87",
         center: { lat: 50.8268, lng: 3.2544 },
         zoom: 13,
         disableDefaultUI: true,
