@@ -11,10 +11,10 @@ import Register, { action as registerAction } from "./routes/Register";
 import Plant from "./routes/Plant";
 import Kaart, {loader as storiesLoader } from "./routes/Kaart";
 import OverOns from "./routes/OverOns";
-import Profiel from "./routes/Profiel";
+import Profiel, {loader as personalStoriesLoader} from "./routes/Profiel";
 import ProfielLogin from "./routes/ProfielLogin";
-import ProfielEditSory from "./routes/ProfielEditStory";
-import ProdielEditGegevens from "./routes/ProfielEditGegevens";
+import ProfielEditSory, {loader as personalStoriesLoaderES, action as editStoryAction}from "./routes/ProfielEditStory";
+import ProfielEditGegevens,{loader as personalStoriesLoaderEG, action as editPersonalData} from "./routes/ProfielEditGegevens";
 import Bevestig from "./routes/Bevestig";
 import BevestigVerhaal, {action as bevestigVerhaalAction} from "./routes/BevestigVerhaal";
 import Stadsgids from "./routes/Stadsgids";
@@ -63,6 +63,7 @@ const router = createBrowserRouter([
           {
             path: "profiel",
             element: <Profiel />,
+            loader: personalStoriesLoader,
           },
           {
             path: "stadsgids",
@@ -85,12 +86,16 @@ const router = createBrowserRouter([
             element: <ProfielLogin />,
           },
           {
-            path: "profielstory",
+            path: "profielstory/:id",
             element: <ProfielEditSory />,
+            action: editStoryAction,
+            loader: personalStoriesLoaderES,
           },
           {
             path: "profielgegevens",
-            element: <ProdielEditGegevens />,
+            element: <ProfielEditGegevens />,
+            action: editPersonalData,
+            loader: personalStoriesLoaderEG,
           },
           {
             path: "bevestig",

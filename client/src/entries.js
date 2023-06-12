@@ -65,8 +65,6 @@ export async function plantVerhaal(
   } else {
     return result.data.entries[0];
   }
-  console.log("plantVerhaal result");
-  console.log("plantVerhaal result", result);
 }
 
 export async function getStories() {
@@ -89,4 +87,60 @@ export async function getStories() {
   //console.log("getStories result", result.data.entries);
 
   return result.data.entries;
+}
+
+export async function getPersonalStories(jwt, authorId) {
+  const result = await graphQLRequest(
+    `query MyQuery {
+  entries {
+    ... on entries_default_Entry {
+      id
+      adres
+      dateCreated
+      longitude
+      latitude
+      verhaal
+      title
+      placeid
+    }
+  }
+}`,
+    {},
+    jwt
+  );
+
+  console.log("getPersonalStories result", result.data.entries);
+  return result.data.entries;
+}
+
+export async function getProfileData(jwt, authorId) {
+  const result = await graphQLRequest(
+    `query MyQuery {
+  user(id: "${authorId}") {
+    ... on User {
+      id
+      email
+      username
+    }
+  }
+}`,
+    { authorId },
+    jwt
+  );
+  console.log("getProfileData result", result.data.user);
+  return result.data.user;
+}
+
+export async function editProfile(newData, jwt) {
+  const result = await graphQLRequest(
+    `mutation MyMutation {
+  updateViewer(input: {username: "${newData.username}", email: "${newData.email}"}) {
+    id
+  }
+}`,
+    { newData },
+    jwt
+  );
+  console.log("editGegevens result", result.data.user);
+  return result.data.user;
 }
