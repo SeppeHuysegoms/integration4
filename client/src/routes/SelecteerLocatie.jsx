@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import icon from "../assets/flower.png";
 import ZoekVeld from "../components/InputZoek"
 
-import "../App.css";
+
 import { createRoot } from "react-dom/client";
 let selectedLocation = null;
 
