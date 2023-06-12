@@ -144,3 +144,21 @@ export async function editProfile(newData, jwt) {
   console.log("editGegevens result", result.data.user);
   return result.data.user;
 }
+
+export async function editStory(verhaal, jwt, idVerhaal) {
+  const { result } = await graphQLRequest(
+    `mutation editVerhaal($verhaal: String, $idVerhaal: ID) {
+  save_entries_default_Entry(
+    id: $idVerhaal
+    verhaal: $verhaal
+  ) {
+    id
+    verhaal
+  }
+}`,
+    { verhaal, idVerhaal },
+    jwt
+  );
+
+  return result.data.entries[0];
+}
