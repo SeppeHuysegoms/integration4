@@ -16,6 +16,7 @@
   --fontsize-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 9rem);
   --font-size-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
   --font-size--p: clamp(1rem, calc(0.9rem + 1.1vw), 1.3rem);
+  --font-size--footer: clamp(1rem, calc(0.7rem + 0.75vw), 1.3rem);
   --font-size-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
   --font-size--button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
 }
@@ -270,6 +271,62 @@ padding: 2vh 4vw 7vh;
 .homeBeeld33ItemTekst>p{
   padding-bottom: 0vh;
 }
+
+.footer{
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 4vh 4vw 0;
+}
+
+.footer>*>p:nth-child(1){
+  padding: 2vh 0;
+  border-bottom: #ffffff solid 1px;
+  font-size: var(--font-size-mid-intro);
+}
+
+.footer>*>p:nth-child(2){
+  padding: 2vh 0;
+  font-size: var(--font-size--p);
+  max-width: 25vw;
+  line-height: 1.5;
+}
+
+.footer__socials{
+padding: 2vh 5vw 0 0 ;
+}
+
+.footerNav__list{
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  font-size: var(--font-size--p);
+  margin-bottom: 1vh;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.footerInfo{
+  gap: 1vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerInfo > img{
+  width: 55vw;
+  margin-right: -4vw;
+  height: auto;
+}
+
+.footerInfo > * > p{
+  font-size: var(--font-size--footer);
+  line-height: 1.5;
+}
+
+
 
 
 

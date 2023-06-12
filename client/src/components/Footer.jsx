@@ -1,4 +1,8 @@
 import { NavLink } from "react-router-dom";
+import facebook from "../assets/images/facebook.png";
+import instagram from "../assets/images/instagram.png";
+import footerImage from "../assets/images/footerImage.png";
+import kortrijkLogo from "../assets/images/kortrijkLogo.png";
 const Navbar = () => {
   return (
     <div className="footer">
@@ -10,20 +14,19 @@ const Navbar = () => {
       <div>
         <p>Socials</p>
         <a href="https://www.facebook.com/bloeiendkortrijk">
-          <img
-            src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png"
-            alt="Facebook logo"
-          />
+          <img src={facebook} alt="Facebook logo" className="footer__socials" />
         </a>
         <a href="https://www.instagram.com/bloeiendkortrijk/">
           <img
-            src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png"
+            src={instagram}
             alt="instagram logo"
+            className="footer__socials"
           />
         </a>
       </div>
 
       <nav className="footerNav">
+        <p>Navigatie</p>
         <ul className="footerNav__list">
           <li className="footerNav__item">
             <NavLink className="navbar__link" to="/">
@@ -52,14 +55,15 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-
-      <div>
-        <img
-        style={{width: "50px"}}
-          src="https://d21buns5ku92am.cloudfront.net/69252/images/376305-01_Kortrijk-logo-web_ROOD-pos-682433-medium-1610974902.png"
-          alt="Kortrijk"
-        />
-        <p>© 2023 B(l)oeiend Kortrijk</p>
+      <div className="flex footerInfo">
+        <div>
+          <img
+            src={kortrijkLogo}
+            alt="Kortrijk"
+          />
+          <p>© 2023 B(l)oeiend</p>
+        </div>
+        <img src={footerImage} alt="footer image" />
       </div>
     </div>
   );
