@@ -14,18 +14,12 @@ export async function action({ request, params }) {
 }
 
 const Login = () => {
-    const verhaal = localStorage.getItem("story");
-    const locatieNaam = localStorage.getItem("locatieNaam");
+  const verhaal = localStorage.getItem("story");
+  const locatieNaam = localStorage.getItem("locatieNaam");
   return (
     <div>
-      <h1>Bevestigen</h1>
-      <h2>Gekozen plek</h2>
-      <p>{locatieNaam}</p>
-      <h2>Persoonlijk verhaal</h2>
-
-      <p>{verhaal}</p>
-      <h2>Login</h2>
-      <p>Sla jouw verhaal op door je in te loggen</p>
+      <h1>Aanmelden</h1>
+      <p>Log je in om je ingezonden verhalen te kunnen zien</p>
       <Form method="post" id="contact-form">
         <label className="flexColumn">
           <span>Email</span>
@@ -49,9 +43,9 @@ const Login = () => {
 
         <button type="submit">Login</button>
       </Form>
-      <p>Nog geen account?</p>
-      <Link to="/login">Registreer</Link>
-      <Link to="/bevestig">Bevestigen</Link>
+      <h2>Nieuw hier?</h2>
+      <p>Plant een bloem om een profiel aan, te maken</p>
+      <Link to="/plant">Plant een bloem</Link>
     </div>
   );
 };

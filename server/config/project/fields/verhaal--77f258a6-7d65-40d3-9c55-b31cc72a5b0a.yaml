@@ -1,0 +1,19 @@
+columnSuffix: syrzwuun
+contentColumnType: text
+fieldGroup: 3c84ce92-1a69-4c08-bce9-4faf902e5241 # Common
+handle: verhaal
+instructions: null
+name: verhaal
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 6
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

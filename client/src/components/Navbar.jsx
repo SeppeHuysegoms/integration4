@@ -18,6 +18,26 @@ const Navbar = () => {
             Register
           </NavLink>
         </li>
+        <li className="navbar__item">
+          <NavLink className="navbar__link" to="kaart">
+            Kaart
+          </NavLink>
+        </li>
+        <li className="navbar__item">
+          <NavLink className="navbar__link" to="overons">
+            Over ons
+          </NavLink>
+        </li>
+        <li className="navbar__item">
+          <NavLink className="navbar__link" to="stadsgids">
+            Stadsgids
+          </NavLink>
+        </li>
+        <li className="navbar__item">
+          <NavLink className="navbar__link" to="profiel">
+            Profiel
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
