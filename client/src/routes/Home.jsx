@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import headerMobile from "../assets/images/header_mobile.png";
 import arrow from "../assets/images/arrow.svg";
 import arrowThin from "../assets/images/arrowThin.png";
+import imageJaar1 from "../assets/images/imageJaar1.png";
 
 export default function Index() {
 
@@ -36,7 +37,6 @@ let feedbackLoggedIn;
           <p>Plant een bloem voor de toekomst en laat Kortrijk bloeien.</p>
           <p>Benieuwd naar meer?</p>
           <a href="#" className="button buttonGreen">
-            {" "}
             <img className="arrowButton" src={arrow}></img> Hell yeah!
           </a>
         </div>
@@ -59,21 +59,25 @@ let feedbackLoggedIn;
           </p>
         </div>
       </div>
-      <ul>
-        <li>
+      <ul className="homeBeeld3">
+        <li className="homeBeeld3Item">
+          <img src={imageJaar1} className="image2023" alt="compositie" />
           <h3>2023</h3>
-          <div>
+          <div className="homeBeeld3ItemTekst">
             <h4>Plant jouw verhaal</h4>
             <p>
               Laat jouw plek b(l)oeien via de website of vind ons gewoonweg op
               de straten en ontvang een leuke extra.
             </p>
-            <Link to="/plant"> Plant een bloem</Link>
+            <Link to="/plant" className="button buttonGreen">
+              <img className="arrowButton" src={arrow}></img> Plant een bloem
+            </Link>
           </div>
         </li>
-        <li>
+        <li className="homeBeeld3Item">
+          <img src={imageJaar1} className="image2023" alt="compositie" />
           <h3>2025</h3>
-          <div>
+          <div className="homeBeeld3ItemTekst">
             <h4>Geplant! Wat nu?</h4>
             <p>
               Tot 2025 krijg je de kans om jouw verhaal te planten. Via de kaart
@@ -81,22 +85,30 @@ let feedbackLoggedIn;
               Op deze manier kom je in contact met elkaar en leg je connecties,
               ideaal om de stad nog beter te leren kennen én begrijpen.
             </p>
-            <Link to="/kaart"> Bekijk kaart</Link>
+            <Link to="/kaart" className="button buttonGreen">
+              <img className="arrowButton" src={arrow}></img>
+              Bekijk kaart
+            </Link>
             <p>
               In de zomer van 2025 zit de tijd om jouw verhaal te planten erop.
               Na het tellen van de bloemen bepalen we de top 5 b(l)oeiendste
               plekken en bundelen we deze in een stadsgids.
             </p>
-            Deze stadsgids zal volledig door jullie opgesteld worden, over een
-            periode van 5 jaar. Jullie krijgen de kans te bepalen wat we
-            schrijven en op basis hiervan wordt een route bepaald.
-            <p></p>
-            <Link to="/stadsgids"> Ontdek de stadsgids</Link>
+            <p>
+              Deze stadsgids zal volledig door jullie opgesteld worden, over een
+              periode van 5 jaar. Jullie krijgen de kans te bepalen wat we
+              schrijven en op basis hiervan wordt een route bepaald.
+            </p>
+            <Link to="/stadsgids" className="button buttonGreen">
+              <img className="arrowButton" src={arrow}></img>
+              Ontdek de stadsgids
+            </Link>
           </div>
         </li>
-        <li>
+        <li className="homeBeeld3Item">
+          <img src={imageJaar1} className="image2023" alt="compositie" />
           <h3>2030</h3>
-          <div>
+          <div className="homeBeeld3ItemTekst homeBeeld33ItemTekst ">
             <h4>Bloeiend kortrijk</h4>
             <p>
               In 2030 wordt de stadsgids uitgebracht en kan iedereen Kortrijk

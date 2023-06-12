@@ -184,6 +184,7 @@ headerIntro>p{
 .arrowButton {
   width: 14px;
   height: auto;
+  margin-right: 1vw;
 }
 
 .homeBeeld2{
@@ -219,3 +220,60 @@ margin-bottom: 5vh;
 .homeBeeld2Tekst > p:nth-child(2){
   padding: 3vh 0 5vh;
 }
+
+.homeBeeld3Item{
+  border: #2c2c2c solid 1px;
+  margin: 10vh 4vw;
+}
+
+.homeBeeld3Item > h3{
+  padding: 2vh 4vw; ;
+  font-family: 'anton', sans-serif;
+  font-size: var(--font-size-h2);
+  
+  border-bottom: #2c2c2c solid 1px;
+}
+
+.homeBeeld3ItemTekst{
+padding: 2vh 4vw 7vh;
+}
+
+.homeBeeld3ItemTekst > h4{
+  font-family: 'questrial', sans-serif;
+  font-size: var(--font-size--p);
+  padding: 2vh 0 0;
+ 
+}
+
+.homeBeeld3ItemTekst > .button{
+  margin-top: 2vh;
+}
+
+
+.homeBeeld3ItemTekst>p{
+  padding: 3vh 0 5vh;
+  max-width: 77.5vw;
+}
+
+.image2023{
+  position: absolute;
+  right: 0;
+  margin-top: -5vh;
+  z-index: 1;
+  height : 20vh;
+}
+
+.homeBeeld3ItemTekst>p:nth-child(4){
+  padding: 7vh 0 0;
+}
+
+.homeBeeld33ItemTekst>p{
+  padding-bottom: 0vh;
+}
+
+
+
+
+
+
+
