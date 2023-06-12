@@ -1,5 +1,8 @@
-import {redirect, Link } from "react-router-dom";
+import {redirect, Link, json } from "react-router-dom";
 import { plantVerhaal } from "../entries";
+
+
+
 
 export async function action({ request }) {
     console.log("action");
@@ -7,12 +10,26 @@ export async function action({ request }) {
     const locatieNaam = localStorage.getItem("locatieNaam");
     const placeId = localStorage.getItem("placeId");
     const lat = localStorage.getItem("lat");
+    let latZero = Number(lat);
     const lng = localStorage.getItem("lng");
+    let lngZero = Number(lng)
     const adres = localStorage.getItem("adres");
     const jwt = localStorage.getItem("jwt");
     const user = localStorage.getItem("user");
-    console.log(user.id);
-  const story = await plantVerhaal(lat, lng, placeId,locatieNaam, verhaal, adres,user, jwt, );
+    const userObject =JSON.parse(user);
+
+    console.log(latZero, lngZero);
+    console.log(userObject.id);
+  const story = await plantVerhaal(
+    latZero,
+    lngZero,
+    placeId,
+    locatieNaam,
+    verhaal,
+    adres,
+    userObject.id,
+    jwt
+  );
   console.log(jwt, user);
 
   return redirect("/bevestig");

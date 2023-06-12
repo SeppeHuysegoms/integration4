@@ -29,8 +29,19 @@ export async function plantVerhaal(
   authorId,
   jwt
 ) {
-  console.log("plantVerhaal", latitude, longitude, placeid, title, verhaal, adres, authorId, jwt);  
-  const {result} = await graphQLRequest(
+  console.log(
+    "plantVerhaal",
+    latitude,
+    longitude,
+    placeid,
+    title,
+    verhaal,
+    adres,
+    authorId,
+    jwt
+  );
+  console.log("plantVerhaal", jwt);
+  const { result } = await graphQLRequest(
     `mutation plantVerhaal($latitude: Number, $longitude: Number, $placeid: String, $title: String, $verhaal: String, $authorId: ID, $adres: String) {
   save_entries_default_Entry(
     latitude: $latitude
@@ -43,8 +54,17 @@ export async function plantVerhaal(
   ) {
     id
   }
-}`
-  , {latitude, longitude, placeid, title, verhaal, authorId, adres}, jwt);
+}`,
+    { latitude, longitude, placeid, title, verhaal, authorId, adres },
+    jwt
+  );
+
+  if (result.errors) {
+    throw new Error(result.errors[0].debugMessage);
+    return null;
+  } else {
+    return result.data.entries[0];
+  }
   console.log("plantVerhaal result");
   console.log("plantVerhaal result", result);
 }
