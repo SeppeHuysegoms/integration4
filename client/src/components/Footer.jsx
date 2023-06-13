@@ -3,6 +3,7 @@ import facebook from "../assets/images/facebook.png";
 import instagram from "../assets/images/instagram.png";
 import footerImage from "../assets/images/footerImage.png";
 import kortrijkLogo from "../assets/images/kortrijkLogo.png";
+
 const Navbar = () => {
   return (
     <div className="footer">

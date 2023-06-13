@@ -37,7 +37,7 @@ p {
 h1 {
   font-family: "Anton", sans-serif;
   font-size: var(--font-size-h1);
-  max-width: 100vw;
+
   padding: 0.5vh 0 2vh;
   padding-left: 4vw;
   line-height: 0.95;
@@ -224,7 +224,7 @@ margin-bottom: 5vh;
 
 .homeBeeld3Item{
   border: #2c2c2c solid 1px;
-  margin: 10vh 4vw;
+  margin: -0.75vh 4vw 0;
 }
 
 .homeBeeld3Item > h3{
@@ -242,7 +242,7 @@ padding: 2vh 4vw 7vh;
 .homeBeeld3ItemTekst > h4{
   font-family: 'questrial', sans-serif;
   font-size: var(--font-size--p);
-  padding: 2vh 0 0;
+  padding: 3vh 0 0;
  
 }
 
@@ -256,12 +256,30 @@ padding: 2vh 4vw 7vh;
   max-width: 77.5vw;
 }
 
-.image2023{
+.tijdlijnImage{
+  height: 10vh;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  z-index: 1;
+}
+
+.image20{
   position: absolute;
   right: 0;
   margin-top: -5vh;
   z-index: 1;
-  height : 20vh;
+  height : 22.5vh;
+}
+
+.image2025{
+height: 26vh;
+}
+
+.image2030{
+  height: 14vh;
+  margin-top: 2vh;
+  right: 8vw;
 }
 
 .homeBeeld3ItemTekst>p:nth-child(4){
@@ -324,6 +342,12 @@ padding: 2vh 5vw 0 0 ;
 .footerInfo > * > p{
   font-size: var(--font-size--footer);
   line-height: 1.5;
+}
+
+.homeEindbeeld{
+text-align: center;
+display: block;
+margin: 7.5vh auto 0;
 }
 
 
