@@ -138,7 +138,7 @@ const onMapClick = (event, setMarker, setCenter, map, marker) => {
   addMarker(event.latLng, map);
 };
 
-const addMarker = (location, map) => {
+const addMarker = async (location, map) => {
   console.log("location");
   const iconBloem = document.createElement("img");
   iconBloem.src = icon;
@@ -154,26 +154,33 @@ const addMarker = (location, map) => {
     selectedLocation.setMap(null);
   }
   selectedLocation = mark;
-  // let name = getName(location);
-
-   localStorage.setItem("locatieNaam", "test");
-   localStorage.setItem("placeId", "123");
-   localStorage.setItem("lat", `${location.lat()}`);
-   localStorage.setItem("lng", `${location.lng()}`);
+  let name = await getName(location);
+/*
+  localStorage.setItem("locatieNaam", "test");
+  localStorage.setItem("placeId", "123");
+  localStorage.setItem("lat", `${location.lat()}`);
+  localStorage.setItem("lng", `${location.lng()}`);*/
 };
 
 const getName = async (position) => {
 
+
   const { PlacesService, RankBy } = await google.maps.importLibrary("places");
-  console.log(PlacesService);
-  const order = RankBy.DISTANCE;
+ // console.log(PlacesService);
+
   const service = new PlacesService();
-  console.log(service.nearbySearch);
-  const locations = await service.nearbySearch({
+  //console.log(service.nearbySearch);
+  const locations = service.nearbySearch({
     location: position,
-    rankBy: order,
+    radius: 100,
+  }, (results, status) => {
+    console.log(results,status);
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      console.log(results);
+      return results[0].name;
+    }
   });
-  console.log(locations);
+  //console.log(locations);
 
 };
 

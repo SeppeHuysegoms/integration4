@@ -117,7 +117,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Wrapper
-      apiKey={import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+      apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
       version="beta"
       libraries={["marker"]}
     >
