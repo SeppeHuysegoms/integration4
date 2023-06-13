@@ -10,12 +10,10 @@ export async function action({ request, params }) {
   console.log(jwt, user);
   localStorage.setItem("jwt", jwt);
   localStorage.setItem("user", JSON.stringify(user));
-  return redirect("/");
+  return redirect("/profiel");
 }
 
 const Login = () => {
-  const verhaal = localStorage.getItem("story");
-  const locatieNaam = localStorage.getItem("locatieNaam");
   return (
     <div>
       <h1>Aanmelden</h1>

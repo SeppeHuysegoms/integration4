@@ -154,7 +154,7 @@ const addMarker = async (location, map) => {
     selectedLocation.setMap(null);
   }
   selectedLocation = mark;
-  let name = await getName(location);
+  let name = await getName(location, map);
 /*
   localStorage.setItem("locatieNaam", "test");
   localStorage.setItem("placeId", "123");
@@ -162,13 +162,13 @@ const addMarker = async (location, map) => {
   localStorage.setItem("lng", `${location.lng()}`);*/
 };
 
-const getName = async (position) => {
+const getName = async (position, map) => {
 
 
-  const { PlacesService, RankBy } = await google.maps.importLibrary("places");
+  const { PlacesService, RankBy} = await google.maps.importLibrary("places");
  // console.log(PlacesService);
 
-  const service = new PlacesService();
+  const service = new PlacesService(map);
   //console.log(service.nearbySearch);
   const locations = service.nearbySearch({
     location: position,

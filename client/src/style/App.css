@@ -345,6 +345,7 @@ padding: 2vh 5vw 0 0 ;
 }
 
 .homeEindbeeld{
+  max-width: 85vw;
 text-align: center;
 display: block;
 margin: 7.5vh auto 0;

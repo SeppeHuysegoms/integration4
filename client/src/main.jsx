@@ -14,7 +14,7 @@ import Plant from "./routes/Plant";
 import Kaart, {loader as storiesLoader,} from "./routes/Kaart";
 import OverOns from "./routes/OverOns";
 import Profiel, {loader as personalStoriesLoader} from "./routes/Profiel";
-import ProfielLogin from "./routes/ProfielLogin";
+import ProfielLogin, {action as profielLoginAction} from "./routes/ProfielLogin";
 import ProfielEditSory, {loader as personalStoriesLoaderES, action as editStoryAction,}from "./routes/ProfielEditStory";
 import ProfielEditGegevens,{loader as personalStoriesLoaderEG, action as editPersonalData,} from "./routes/ProfielEditGegevens";
 import Bevestig from "./routes/Bevestig";
@@ -86,6 +86,7 @@ const router = createBrowserRouter([
           {
             path: "profiellogin",
             element: <ProfielLogin />,
+            action: profielLoginAction,
           },
           {
             path: "profielstory/:id",
