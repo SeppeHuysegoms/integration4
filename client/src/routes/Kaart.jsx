@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { Link, useLoaderData } from "react-router-dom";
 import icon from "../assets/flower.png";
-import "../App.css";
+
 import { createRoot } from "react-dom/client";
 import { getStories } from "../entries";
 

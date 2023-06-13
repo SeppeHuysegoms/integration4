@@ -1,0 +1,362 @@
+:root {
+  --color-black: #2c2c2c;
+  --color-white: #ffffff;
+  --color-green: #c6e7d4;
+  --color-purple: #927cd2;
+
+  --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 11vw), 19rem);
+  --font-size-h1: clamp(4.5rem, calc(1rem + 10vw), 15rem);
+  --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 4vw), 10rem);
+  --font-size--intro: clamp(1.1rem, calc(0.9rem + 1.5vw), 5rem);
+  --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 2vw), 5rem);
+  --font-size-h2: clamp(1.25rem, calc(1.2rem + 1.5vw), 7rem);
+  --fontsize-h2-span: clamp(2.2rem, calc(2.4rem + 14vw), 10rem);
+  --font-size-h3: clamp(2rem, calc(1.3rem + 5vw), 6rem);
+  --fontsize-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 10rem);
+  --fontsize-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 9rem);
+  --font-size-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
+  --font-size--p: clamp(1rem, calc(0.9rem + 1.1vw), 1.3rem);
+  --font-size--footer: clamp(1rem, calc(0.7rem + 0.75vw), 1.3rem);
+  --font-size-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
+  --font-size--button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
+}
+
+/*Algemene styling*/
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Questrial", sans-serif;
+  overflow-x: hidden;
+}
+
+p {
+  font-size: var(--font-size--p);
+}
+
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: var(--font-size-h1);
+
+  padding: 0.5vh 0 2vh;
+  padding-left: 4vw;
+  line-height: 0.95;
+  border-bottom: #2c2c2c solid 1px;
+}
+
+h1 > span {
+  color: var(--color-purple);
+}
+
+.uitroepteken {
+  display: inline-block;
+  font-family: "carbon", sans-serif;
+  font-size: var(--font-size-uitroepteken);
+  font-weight: 700;
+  -webkit-text-stroke: 1px #fff;
+  font-style: normal;
+  transform: rotate(7deg);
+  margin-left: -2vw;
+  position: relative;
+  top: 3.75vw;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.places-container {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 300px;
+}
+
+.map-container,
+#map,
+.mapContainer {
+  width: 50vw;
+  height: 50vh;
+}
+
+.combobox-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+.marker {
+  cursor: pointer;
+  padding: 2rem;
+  position: relative;
+}
+
+.markerBloem {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.navbar__list {
+  display: flex;
+  gap: 2rem;
+}
+
+.markerBloem {
+  object-fit: cover;
+}
+
+textarea {
+  display: block;
+  width: 50vw;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.markerKaart {
+  background-color: aqua;
+}
+.infoWindow {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: black;
+}
+.infoWindow > ul {
+  color: black;
+  max-height: 50px;
+  overflow-y: scroll;
+}
+
+.infoWindow > ul > li {
+  color: black;
+  list-style: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/*Styling  mobile*/
+.headerImage {
+  width: 100vw;
+  height: auto;
+}
+
+.headerIntro > p {
+  font-size: var(--font-size--intro);
+}
+
+.headerIntro {
+  padding: 5.75vh 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3vh;
+  border-bottom: #2c2c2c solid 1px;
+}
+
+headerIntro>p{
+  max-width: 85vw;
+}
+
+.button {
+  font-size: var(--font-size--p);
+  padding: 1vh 6vw;
+  border: none;
+  background-color: var(--color-green);
+  color: var(--color-black);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: #2c2c2c 1px solid;
+}
+
+.arrowButton {
+  width: 14px;
+  height: auto;
+  margin-right: 1vw;
+}
+
+.homeBeeld2{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  padding: 5vh 0 0 4vw;
+  align-items: end;
+  gap: 5vw;
+margin-bottom: 5vh;
+}
+
+.homeBeeld2Title > h2{
+  writing-mode:vertical-lr;
+  transform: rotate(180deg);
+  font-family: 'anton', sans-serif;
+  font-size: var(--font-size-h2);
+}
+
+.homeBeeld2Title{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 2vh;
+  
+}
+
+.homeBeeld2Tekst{
+  max-width: 77.5vw;
+}
+
+.homeBeeld2Tekst > p:nth-child(2){
+  padding: 3vh 0 5vh;
+}
+
+.homeBeeld3Item{
+  border: #2c2c2c solid 1px;
+  margin: -0.75vh 4vw 0;
+}
+
+.homeBeeld3Item > h3{
+  padding: 2vh 4vw; ;
+  font-family: 'anton', sans-serif;
+  font-size: var(--font-size-h2);
+  
+  border-bottom: #2c2c2c solid 1px;
+}
+
+.homeBeeld3ItemTekst{
+padding: 2vh 4vw 7vh;
+}
+
+.homeBeeld3ItemTekst > h4{
+  font-family: 'questrial', sans-serif;
+  font-size: var(--font-size--p);
+  padding: 3vh 0 0;
+ 
+}
+
+.homeBeeld3ItemTekst > .button{
+  margin-top: 2vh;
+}
+
+
+.homeBeeld3ItemTekst>p{
+  padding: 3vh 0 5vh;
+  max-width: 77.5vw;
+}
+
+.tijdlijnImage{
+  height: 10vh;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  z-index: 1;
+}
+
+.image20{
+  position: absolute;
+  right: 0;
+  margin-top: -5vh;
+  z-index: 1;
+  height : 22.5vh;
+}
+
+.image2025{
+height: 26vh;
+}
+
+.image2030{
+  height: 14vh;
+  margin-top: 2vh;
+  right: 8vw;
+}
+
+.homeBeeld3ItemTekst>p:nth-child(4){
+  padding: 7vh 0 0;
+}
+
+.homeBeeld33ItemTekst>p{
+  padding-bottom: 0vh;
+}
+
+.footer{
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 4vh 4vw 0;
+}
+
+.footer>*>p:nth-child(1){
+  padding: 2vh 0;
+  border-bottom: #ffffff solid 1px;
+  font-size: var(--font-size-mid-intro);
+}
+
+.footer>*>p:nth-child(2){
+  padding: 2vh 0;
+  font-size: var(--font-size--p);
+  max-width: 25vw;
+  line-height: 1.5;
+}
+
+.footer__socials{
+padding: 2vh 5vw 0 0 ;
+}
+
+.footerNav__list{
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  font-size: var(--font-size--p);
+  margin-bottom: 1vh;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.footerInfo{
+  gap: 1vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerInfo > img{
+  width: 55vw;
+  margin-right: -4vw;
+  height: auto;
+}
+
+.footerInfo > * > p{
+  font-size: var(--font-size--footer);
+  line-height: 1.5;
+}
+
+.homeEindbeeld{
+text-align: center;
+display: block;
+margin: 7.5vh auto 0;
+}
+
+/*Styling desktop*/
+
+
+
+
+
+
+
+
+
