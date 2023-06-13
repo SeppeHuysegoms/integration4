@@ -27,9 +27,9 @@ let feedbackLoggedIn;
       <div>
         <picture className="headerImage">
           <source
-            media="(min-width: 650px)"
-            sizes="(min-width: 650px) 100vw, 650px"
-            srcSet={"{headerMobile} 650w,"}
+            media="(min-width: 850px)"
+            sizes="(min-width: 850px) 100vw, 850px"
+            srcSet={"{headerMobile} 850w,"}
           />
           <img src={headerMobile} alt="header" className="headerImage" />
         </picture>

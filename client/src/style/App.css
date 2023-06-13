@@ -167,8 +167,8 @@ textarea {
   border-bottom: #2c2c2c solid 1px;
 }
 
-headerIntro>p{
-  max-width: 85vw;
+.headerIntro>p{
+  max-width: 75vw;
 }
 
 .button {
@@ -185,7 +185,7 @@ headerIntro>p{
 .arrowButton {
   width: 14px;
   height: auto;
-  margin-right: 1vw;
+  margin-right: 2vw;
 }
 
 .homeBeeld2{
@@ -345,10 +345,108 @@ padding: 2vh 5vw 0 0 ;
 }
 
 .homeEindbeeld{
+  max-width: 85vw;
 text-align: center;
 display: block;
 margin: 7.5vh auto 0;
 }
+
+.zoekVeld{
+  z-index: 10;
+
+}
+
+.aanmeldenTitel{
+  font-size: var(--font-size-h2);
+  font-family: 'questrial', sans-serif;
+  padding: 0 0 0 4vw;
+  color: var(--color-purple);
+  border: none;
+}
+
+.aanmeldenTitelBox, .aanmeldenNiewTitelBox{
+  gap: 5vw;
+  margin-bottom: 3vh;
+  align-items: center;
+}
+
+.aanmelden{
+  padding: 5vh 0vw 0 0vw;
+}
+
+.aanmelden > p{
+  max-width: 65vw;
+  padding: 0 4vw;
+}
+
+form, label{
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.logInForm{
+  gap: 3.5vh;
+}
+
+
+.logInForm{
+  margin-top: 3vh;
+  padding: 0 4vw;
+}
+
+.inputAanmelden>input[type="email"], .inputAanmelden>input[type="password"]{
+  width: 92vw;
+  padding: 1.5vh 3vw;
+  border: #2c2c2c solid 1px;
+  font-size: var(--font-size--footer);
+  font-family: 'questrial', sans-serif;
+}
+
+input[type="password"]{
+  font-family: 'helvetica', sans-serif;
+  font-weight: 400;
+}
+
+.logInForm>button{
+background-color: transparent;
+margin: 1vh 0 0;
+}
+.wwVergeten{
+  font-size: var(--font-size--footer);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 1vh;
+}
+
+.aanmeldenNieuw{
+  margin: 4vh 0 0;
+  background: #2c2c2c;
+  padding: 5vh 0 1vh 4vw ;
+  color: var(--color-white);
+}
+
+.aanmeldenNiewTitelBox>h2{
+  font-size: var(--font-size-h2);
+}
+
+.aanmeldenNieuw>p{
+  max-width: 60vw;
+  margin-bottom: 6.5vh;
+}
+
+.buttonWhite{
+  color: #2c2c2c;
+  background-color: var(--color-white);
+}
+
+.inloggenEindbeeld{
+  text-align: right;
+  margin: 8.5vh  0 0  auto;
+  max-width: 90vw;
+  display: block;
+}
+
 
 /*Styling desktop*/
 

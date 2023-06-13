@@ -1,24 +1,19 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import icon from "../assets/flower.png";
-import ZoekVeld from "../components/InputZoek"
-
+import ZoekVeld from "../components/InputZoek";
 
 import { createRoot } from "react-dom/client";
 let selectedLocation = null;
 
 const App = () => {
   const [location, setLocation] = useState();
-  const [input, setInput] = useState('');
-  const [voorstellen, setVoorstellen] = useState([]);
-  const [selected, setSelected] = useState(null);
 
-
-      useEffect(() => {
-        if (localStorage.getItem("locatieNaam") != null) {
-          setLocation(localStorage.getItem("locatieNaam"));
-        }
-      }, []);
+  useEffect(() => {
+    if (localStorage.getItem("locatieNaam") != null) {
+      setLocation(localStorage.getItem("locatieNaam"));
+    }
+  }, []);
 
   return (
     <>
@@ -33,20 +28,9 @@ const App = () => {
       <p>Gekozen plek</p>
 
       <Locatie />
-      <ZoekVeld
-        input={input}
-        setInput={setInput}
-        voorstellen={voorstellen}
-        setVoorstellen={setVoorstellen}
-      />
-      <MyMap  />
+      <MyMap />
 
-      <Link
-        to="/schrijfverhaal"
-      >
-        {" "}
-        Volgende
-      </Link>
+      <Link to="/schrijfverhaal"> Volgende</Link>
     </>
   );
 };
@@ -57,10 +41,12 @@ const KortrijkBounds = {
   east: 3.2892555150254587,
 };
 
-
 function MyMap() {
   const [marker, setMarker] = useState(null);
   const [center, setCenter] = useState({ lat: 50.8268, lng: 3.2544 });
+  const [input, setInput] = useState("");
+  const [voorstellen, setVoorstellen] = useState([]);
+
   const [map, setMap] = useState();
   const image = {
     url: icon,
@@ -85,25 +71,22 @@ function MyMap() {
     );
   }, []);
 
-    if (
-      localStorage.getItem("lat") != null &&
-      localStorage.getItem("lng") != null &&
-      map != null
-    ) {
-      let lat = localStorage.getItem("lat");
-      let lng = localStorage.getItem("lng");
-      console.log(lat);
-      console.log(lng);
-      let position = new google.maps.LatLng(lat, lng);
-      map.setCenter({
-        lat: position.lat(),
-        lng: position.lng(),
-      });
-      addMarker(position, map);
-    }
-
-
-
+  if (
+    localStorage.getItem("lat") != null &&
+    localStorage.getItem("lng") != null &&
+    map != null
+  ) {
+    let lat = localStorage.getItem("lat");
+    let lng = localStorage.getItem("lng");
+    console.log(lat);
+    console.log(lng);
+    let position = new google.maps.LatLng(lat, lng);
+    map.setCenter({
+      lat: position.lat(),
+      lng: position.lng(),
+    });
+    addMarker(position, map);
+  }
 
   if (map) {
     map.addListener("click", (e) => {
@@ -113,6 +96,14 @@ function MyMap() {
 
   return (
     <>
+      <ZoekVeld
+        input={input}
+        setInput={setInput}
+        voorstellen={voorstellen}
+        setVoorstellen={setVoorstellen}
+        map={map}
+        selectedLocation={selectedLocation}
+      />
       <div ref={ref} className="test" id="map" />
     </>
   );
@@ -127,7 +118,6 @@ function Locatie() {
 }
 
 const onMapClick = (event, setMarker, setCenter, map, marker) => {
-
   map.setCenter({
     lat: event.latLng.lat(),
     lng: event.latLng.lng(),
@@ -138,7 +128,7 @@ const onMapClick = (event, setMarker, setCenter, map, marker) => {
   addMarker(event.latLng, map);
 };
 
-const addMarker = (location, map) => {
+const addMarker = async (location, map) => {
   console.log("location");
   const iconBloem = document.createElement("img");
   iconBloem.src = icon;
@@ -154,28 +144,51 @@ const addMarker = (location, map) => {
     selectedLocation.setMap(null);
   }
   selectedLocation = mark;
-  // let name = getName(location);
+  let name = await getName(location, map);
 
-   localStorage.setItem("locatieNaam", "test");
-   localStorage.setItem("placeId", "123");
-   localStorage.setItem("lat", `${location.lat()}`);
-   localStorage.setItem("lng", `${location.lng()}`);
+  if (name[0].name !== "Kortrijk" && name[0].types[0] !== "route") {
+    console.log(1);
+    localStorage.setItem("locatieNaam", name[0].name);
+    localStorage.setItem("placeId", name[0].place_id);
+    localStorage.setItem("lat", `${location.lat()}`);
+    localStorage.setItem("lng", `${location.lng()}`);
+  } else if (
+    name[1] !== undefined &&
+    name[1].types[0] !== "route" &&
+    name[1].name !== "Kortrijk"
+  ) {
+    console.log(2);
+    localStorage.setItem("locatieNaam", name[1].name);
+    localStorage.setItem("placeId", name[1].place_id);
+    localStorage.setItem("lat", `${location.lat()}`);
+    localStorage.setItem("lng", `${location.lng()}`);
+  } else {
+    console.log(3);
+    if (name[0].name !== "Kortrijk") {
+      localStorage.setItem("locatieNaam", name[0].name);
+      localStorage.setItem("placeId", name[0].place_id);
+      localStorage.setItem("lat", `${location.lat()}`);
+      localStorage.setItem("lng", `${location.lng()}`);
+    }
+  }
 };
 
-const getName = async (position) => {
-
-  const { PlacesService, RankBy } = await google.maps.importLibrary("places");
-  console.log(PlacesService);
-  const order = RankBy.DISTANCE;
-  const service = new PlacesService();
-  console.log(service.nearbySearch);
-  const locations = await service.nearbySearch({
-    location: position,
-    rankBy: order,
+const getName = async (position, map) => {
+  return new Promise(async (resolve) => {
+    const { PlacesService, RankBy } = await google.maps.importLibrary("places");
+    const service = new PlacesService(map);
+    service.nearbySearch(
+      {
+        location: position,
+        radius: 20,
+        rankby: RankBy.DISTANCE,
+      },
+      (results) => {
+        console.log(results);
+        resolve(results);
+      }
+    );
   });
-  console.log(locations);
-
 };
-
 
 export default App;
