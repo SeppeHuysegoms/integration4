@@ -155,6 +155,29 @@ const addMarker = async (location, map) => {
   }
   selectedLocation = mark;
   let name = await getName(location, map);
+
+  if(name[0].name !== "Kortrijk" && name[0].types[0] !== "route"){
+    console.log(1);
+    localStorage.setItem("locatieNaam", name[0].name);
+    localStorage.setItem("placeId", name[0].place_id);
+    localStorage.setItem("lat", `${location.lat()}`);
+    localStorage.setItem("lng", `${location.lng()}`);
+  } else if(name[1] !== undefined && name[1].types[0] !== "route" && name[1].name !== "Kortrijk" ){
+    console.log(2);
+    localStorage.setItem("locatieNaam", name[1].name);
+    localStorage.setItem("placeId", name[1].place_id);
+    localStorage.setItem("lat", `${location.lat()}`);
+    localStorage.setItem("lng", `${location.lng()}`);
+  } else{
+    console.log(3);
+    if(name[0].name !== "Kortrijk"){
+      localStorage.setItem("locatieNaam", name[0].name);
+      localStorage.setItem("placeId", name[0].place_id);
+      localStorage.setItem("lat", `${location.lat()}`);
+      localStorage.setItem("lng", `${location.lng()}`);
+    }
+
+  }
 /*
   localStorage.setItem("locatieNaam", "test");
   localStorage.setItem("placeId", "123");
@@ -163,6 +186,20 @@ const addMarker = async (location, map) => {
 };
 
 const getName = async (position, map) => {
+
+  return new Promise(async (resolve) => {
+    const { PlacesService, RankBy} = await google.maps.importLibrary("places");
+    const service = new PlacesService(map);
+    service.nearbySearch({
+      location: position,
+      radius: 20,
+      rankby: RankBy.DISTANCE,
+
+    }, (results) => {
+      console.log(results);
+      resolve(results);
+    });
+  });
 
 
   const { PlacesService, RankBy} = await google.maps.importLibrary("places");
