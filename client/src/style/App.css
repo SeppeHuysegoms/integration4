@@ -167,8 +167,8 @@ textarea {
   border-bottom: #2c2c2c solid 1px;
 }
 
-headerIntro>p{
-  max-width: 85vw;
+.headerIntro>p{
+  max-width: 75vw;
 }
 
 .button {

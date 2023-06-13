@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import icon from "../assets/flower.png";
 
-const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen }) => {
+const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen, map, selectedLocation }) => {
   const southWest = new google.maps.LatLng(
     50.82040292260651,
     3.2133969501072177
@@ -51,7 +51,12 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen }) => {
       {voorstellen && input && (
         <ul>
           {voorstellen.map((voorstel) => (
-            <li key={voorstel.place_id} onClick={()=>addMarker(voorstel.place_id)}>
+            <li
+              key={voorstel.place_id}
+              onClick={() =>
+                addMarker(voorstel.place_id, map, selectedLocation)
+              }
+            >
               {voorstel.description}
             </li>
           ))}
@@ -63,12 +68,12 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen }) => {
 
 export default ZoekVeld;
 
-const addMarker = (placeID) => {
+const addMarker = async (placeID, map, selectedLocation) => {
   console.log(`${placeID}`);
-  
-  placesDemo();
 
-  /*const iconBloem = document.createElement("img");
+  let position = await getName(placeID, map)
+
+ /* const iconBloem = document.createElement("img");
   iconBloem.src = icon;
   iconBloem.className = "markerBloem";
   let mark = new google.maps.marker.AdvancedMarkerElement({
@@ -93,5 +98,24 @@ const addMarker = (placeID) => {
     });
 
     console.log(details);
+  };
+
+  const getName = async (placeID, map) => {
+    console.log(placeID);
+    return new Promise(async (resolve) => {
+      const { PlacesService} = await google.maps.importLibrary(
+        "places"
+      );
+      const service = new PlacesService(map);
+      service.getDetails(
+        {
+          placeId: `${placeID}`,
+        },
+        (results) => {
+          console.log(results);
+          resolve(results);
+        }
+      );
+    });
   };
 
