@@ -13,8 +13,6 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen, map, selectedL
   const KortrijkBounds = new google.maps.LatLngBounds(southWest, northEast);
   if (input) {
     useEffect(() => {
-      console.log("test");
-      console.log(input);
       const placesDemo = async () => {
         const { AutocompleteService } = await google.maps.importLibrary(
           "places"
@@ -26,14 +24,11 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen, map, selectedL
           locationRestriction: KortrijkBounds,
           fields: ["place_id", "name", "address_components", "geometry "],
         });
-        console.log(prediction);
         let arrayPrediction = [];
         prediction.predictions.map((prediction) => {
           arrayPrediction.push(prediction);
         });
-        console.log(arrayPrediction);
         setVoorstellen(arrayPrediction);
-        console.log(voorstellen);
       };
 
       placesDemo();
@@ -69,11 +64,13 @@ const ZoekVeld = ({ input, setInput, voorstellen, setVoorstellen, map, selectedL
 export default ZoekVeld;
 
 const addMarker = async (placeID, map, selectedLocation) => {
-  console.log(`${placeID}`);
-
   let position = await getName(placeID, map)
+  let location = new google.maps.LatLng(
+    position.geometry.location.lat(),
+    position.geometry.location.lng()
+  );
 
- /* const iconBloem = document.createElement("img");
+ const iconBloem = document.createElement("img");
   iconBloem.src = icon;
   iconBloem.className = "markerBloem";
   let mark = new google.maps.marker.AdvancedMarkerElement({
@@ -81,27 +78,15 @@ const addMarker = async (placeID, map, selectedLocation) => {
     map: map,
     content: iconBloem,
   });
+  console.log(selectedLocation);
   if (selectedLocation != null) {
     selectedLocation.setMap(null);
   }
-  selectedLocation = mark;*/
+  selectedLocation = mark;
 };
 
-  const placesDemo = async () => {
-    const { PlacesService } = await google.maps.importLibrary("places");
-    const service = new PlacesService();
-    console.log(service.getDetails());
-
-    const details = await service.getDetails({
-      placeId: "ChIJXeWW5CY7w0cRdvPij3Vrp58",
-      fields: ["formatted_addres", "geometry "],
-    });
-
-    console.log(details);
-  };
 
   const getName = async (placeID, map) => {
-    console.log(placeID);
     return new Promise(async (resolve) => {
       const { PlacesService} = await google.maps.importLibrary(
         "places"
@@ -112,7 +97,6 @@ const addMarker = async (placeID, map, selectedLocation) => {
           placeId: `${placeID}`,
         },
         (results) => {
-          console.log(results);
           resolve(results);
         }
       );
