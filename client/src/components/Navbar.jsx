@@ -9,16 +9,6 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="navbar__item">
-          <NavLink className="navbar__link" to="login">
-            Login
-          </NavLink>
-        </li>
-        <li className="navbar__item">
-          <NavLink className="navbar__link" to="register">
-            Register
-          </NavLink>
-        </li>
-        <li className="navbar__item">
           <NavLink className="navbar__link" to="kaart">
             Kaart
           </NavLink>

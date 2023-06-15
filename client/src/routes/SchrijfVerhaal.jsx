@@ -1,13 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Index() {
+  console.log(localStorage.getItem("story"));
+
+  if (
+    localStorage.getItem("locatieNaam") == null ||
+    localStorage.getItem("locatieNaam") == undefined
+  ) {
+    naviga("/selecteerlocatie");
+  }
+
   const [story, setStory] = useState();
   useEffect(() => {
-  if (localStorage.getItem("story")) {
-    setStory(localStorage.getItem("story"));
-  }
-}, []);
+    if (localStorage.getItem("story")) {
+      setStory(localStorage.getItem("story"));
+    }
+  }, []);
 
   return (
     <>
@@ -37,6 +46,6 @@ export default function Index() {
   );
 }
 
-const handleChange = (event,setStory) => {
-  setStory(event.target.value)
+const handleChange = (event, setStory) => {
+  setStory(event.target.value);
 };

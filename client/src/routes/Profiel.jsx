@@ -9,7 +9,7 @@ export async function loader({ request, params }) {
     localStorage.getItem("user") == null
   ) {
     console.log("redirect");
-    throw redirect(`/login`);
+    throw redirect(`/profiellogin`);
   }
   const jwt = localStorage.getItem("jwt");
   console.log(jwt);

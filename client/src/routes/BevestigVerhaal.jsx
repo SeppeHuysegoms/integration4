@@ -35,6 +35,9 @@ export async function action({ request }) {
   return redirect("/bevestig");
 }
 const Bevestig = () => {
+  if (localStorage.getItem("jwt" == null)) {
+    redirect("/registreer");
+  }
   const verhaal = localStorage.getItem("story");
   const locatieNaam = localStorage.getItem("locatieNaam");
   return (

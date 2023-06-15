@@ -1,4 +1,4 @@
-import { Link, useLoaderData, Form } from "react-router-dom";
+import { Link, useLoaderData, Form, redirect } from "react-router-dom";
 import { getPersonalStories } from "../entries";
 import { getProfileData } from "../entries";
 import { editStory } from "../entries";
@@ -9,7 +9,7 @@ export async function loader({ request, params }) {
     localStorage.getItem("user") == null
   ) {
     console.log("redirect");
-    throw redirect(`/login`);
+    redirect(`/login`);
   }
   const jwt = localStorage.getItem("jwt");
   console.log(jwt);
@@ -23,14 +23,19 @@ export async function loader({ request, params }) {
 }
 
 export async function action({ request, params }) {
-  console.log("action");
-  const jwt = localStorage.getItem("jwt");
-  const user = localStorage.getItem("user");
-  const userObject = JSON.parse(user);
-  const formData = await request.formData();
-  const formEntries = Object.fromEntries(formData);
-  const edit = await editStory(formEntries.verhaal, jwt, params.id);
+  console.log("action - deze werkt");
+  try {
+    const jwt = localStorage.getItem("jwt");
+    const user = localStorage.getItem("user");
+    const userObject = JSON.parse(user);
+    const formData = await request.formData();
+    const formEntries = Object.fromEntries(formData);
+    const edit = await editStory(formEntries.verhaal, jwt, params.id);
+  } catch (e) {
+    console.log(e);
+  }
 
+  console.log("we zijn al hier");
   return redirect(`/profiel`);
 }
 
@@ -69,7 +74,7 @@ export default function Index() {
                       defaultValue={story.verhaal}
                     />
                   </label>
-                  <button type="submit">Opslaan</button>
+                  <button type="submit ">Opslaan</button>
                 </Form>
               </li>
             );

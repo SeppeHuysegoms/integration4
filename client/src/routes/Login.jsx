@@ -14,6 +14,9 @@ export async function action({ request, params }) {
 }
 
 const Login = () => {
+   if (localStorage.getItem("story" == null)) {
+     redirect("/schrijfverhaal");
+   }
     const verhaal = localStorage.getItem("story");
     const locatieNaam = localStorage.getItem("locatieNaam");
   return (
@@ -22,7 +25,6 @@ const Login = () => {
       <h2>Gekozen plek</h2>
       <p>{locatieNaam}</p>
       <h2>Persoonlijk verhaal</h2>
-
       <p>{verhaal}</p>
       <h2>Login</h2>
       <p>Sla jouw verhaal op door je in te loggen</p>
