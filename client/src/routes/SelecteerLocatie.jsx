@@ -7,13 +7,35 @@ import { createRoot } from "react-dom/client";
 
 const App = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
-  // if (localStorage.getItem("locatieNaam") != null) {
-  //   selelectedLocatieNaam = localStorage.getItem("locatieNaam");
-  // }
+
+  useEffect(() => {
+  if (localStorage.getItem("locatieNaam") != null) {
+    setSelectedLocation({
+      locatieNaam: localStorage.getItem("locatieNaam"),
+      placeId: localStorage.getItem("placeId"),
+      lat: localStorage.getItem("lat"),
+      lng: localStorage.getItem("lng"),
+      adres: localStorage.getItem("adres"),
+    });
+  }
+  }, []);
 
   const handleMapSelectLocation = (location) => {
-    // console.log("handleMapSelectLocation", location);
-    setSelectedLocation(location);
+    if (location === null) {
+      setSelectedLocation(null);
+      localStorage.removeItem("locatieNaam");
+      localStorage.removeItem("placeId");
+      localStorage.removeItem("lat");
+      localStorage.removeItem("lng");
+      localStorage.removeItem("adres");
+      return;
+    }
+    setSelectedLocation(location[0]);
+    localStorage.setItem("locatieNaam", location[0].locatieNaam);
+    localStorage.setItem("placeId", location[0].placeId);
+    localStorage.setItem("lat", location[0].lat);
+    localStorage.setItem("lng", location[0].lng);
+    localStorage.setItem("adres", location[0].adres);
   };
 
   return (
@@ -46,7 +68,6 @@ const KortrijkBounds = {
 
 function MyMap({ onSelectLocation, selectedLocation }) {
   const [marker, setMarker] = useState(null);
-  const [center, setCenter] = useState({ lat: 50.8268, lng: 3.2544 });
   const [input, setInput] = useState("");
   const [voorstellen, setVoorstellen] = useState([]);
 
@@ -80,29 +101,23 @@ function MyMap({ onSelectLocation, selectedLocation }) {
       markersRef.current.forEach((marker) => marker.setMap(null));
       markersRef.current = [];
 
+      let position = new google.maps.LatLng(
+        selectedLocation.lat,
+        selectedLocation.lng
+      );
+      map.setCenter({
+        lat: position.lat(),
+        lng: position.lng(),
+      });
+
       let mark = new google.maps.marker.AdvancedMarkerElement({
-        position: selectedLocation.geometry.location,
+        position: position,
         map: map,
         content: iconBloem,
       });
       markersRef.current.push(mark);
     }
   }, [selectedLocation, map]);
-
-  // if (
-  //   localStorage.getItem("lat") != null &&
-  //   localStorage.getItem("lng") != null &&
-  //   map != null
-  // ) {
-  //   let lat = localStorage.getItem("lat");
-  //   let lng = localStorage.getItem("lng");
-  //   let position = new google.maps.LatLng(lat, lng);
-  //   map.setCenter({
-  //     lat: position.lat(),
-  //     lng: position.lng(),
-  //   });
-  //   addMarker(position, map);
-  // }
 
   if (map) {
     map.addListener("click", async (event) => {
@@ -126,37 +141,24 @@ function MyMap({ onSelectLocation, selectedLocation }) {
       markersRef.current.push(mark);
 
       const location = await nearbySearch(event.latLng, map);
-      onSelectLocation(location);
 
-      //   if (results[0].name !== "Kortrijk" && results[0].types[0] !== "route") {
-      //     onSelectLocation(results[0]);
-      //     // localStorage.setItem("locatieNaam", results[0].name);
-      //     // localStorage.setItem("placeId", results[0].place_id);
-      //     // localStorage.setItem("lat", `${location.lat()}`);
-      //     // localStorage.setItem("lng", `${location.lng()}`);
-      //     // localStorage.setItem("adres", results[0].vicinity);
-      //   } else if (
-      //     results[1] !== undefined &&
-      //     results[1].types[0] !== "route" &&
-      //     results[1].name !== "Kortrijk"
-      //   ) {
-      //     onSelectLocation(results[1]);
-      //     // localStorage.setItem("locatieNaam", results[1].name);
-      //     // localStorage.setItem("placeId", results[1].place_id);
-      //     // localStorage.setItem("lat", `${location.lat()}`);
-      //     // localStorage.setItem("lng", `${location.lng()}`);
-      //     // localStorage.setItem("adres", results[1].vicinity);
-      //   } else {
-      //     if (results[0].name !== "Kortrijk") {
-      //       onSelectLocation(results[0]);
-      //       // localStorage.setItem("locatieNaam", results[0].name);
-      //       // localStorage.setItem("placeId", results[0].place_id);
-      //       // localStorage.setItem("lat", `${location.lat()}`);
-      //       // localStorage.setItem("lng", `${location.lng()}`);
-      //       // localStorage.setItem("adres", results[0].vicinity);
-      //     }
-      //   }
-      //   // selelectedLocatieNaam = localStorage.getItem("locatieNaam");
+      if (location === null) {
+        markersRef.current.forEach((marker) => marker.setMap(null));
+        markersRef.current = [];
+        onSelectLocation(null);
+        return;
+      }
+
+      onSelectLocation([
+        {
+          locatieNaam: location.name,
+          placeId: location.place_id,
+          lat: location.geometry.location.lat(),
+          lng: location.geometry.location.lng(),
+          adres: location.vicinity,
+        },
+      ]);
+      //onSelectLocation(location);
     });
   }
 
@@ -169,6 +171,8 @@ function MyMap({ onSelectLocation, selectedLocation }) {
         setVoorstellen={setVoorstellen}
         map={map}
         selectedLocation={selectedLocation}
+        onSelectLocation={onSelectLocation}
+        markersRef={markersRef}
       />
       <div ref={ref} className="test" id="map" />
     </>
@@ -178,7 +182,7 @@ function MyMap({ onSelectLocation, selectedLocation }) {
 function Locatie({ selectedLocation }) {
   console.log(selectedLocation);
   if (selectedLocation) {
-    return <p>{selectedLocation.name}</p>;
+    return <p>{selectedLocation.locatieNaam}</p>;
   }
   return <p>Klik op een plek op de kaart</p>;
 }
@@ -190,10 +194,11 @@ const nearbySearch = async (position, map) => {
     service.nearbySearch(
       {
         location: position,
-        radius: 20,
+        radius: 30,
         rankby: RankBy.DISTANCE,
       },
       (results) => {
+        // console.log(results);
         for (let result of results) {
           if (
             result.name !== "Kortrijk" &&
@@ -221,6 +226,8 @@ const ZoekVeld = ({
   setVoorstellen,
   map,
   selectedLocation,
+  onSelectLocation,
+  markersRef,
 }) => {
   const southWest = new google.maps.LatLng(
     50.82040292260651,
@@ -248,7 +255,7 @@ const ZoekVeld = ({
         prediction.predictions.map((prediction) => {
           arrayPrediction.push(prediction);
         });
-        console.log(arrayPrediction);
+        // console.log(arrayPrediction);
         setVoorstellen(arrayPrediction);
       };
 
@@ -270,7 +277,14 @@ const ZoekVeld = ({
             <li
               key={voorstel.place_id}
               onClick={() =>
-                addMarkerZoek(voorstel.place_id, map, setInput, voorstel)
+                addMarkerZoek(
+                  voorstel.place_id,
+                  map,
+                  setInput,
+                  voorstel,
+                  markersRef,
+                  onSelectLocation
+                )
               }
             >
               {voorstel.structured_formatting.main_text}
@@ -282,24 +296,39 @@ const ZoekVeld = ({
   );
 };
 
-const addMarkerZoek = async (placeID, map, setInput, voorstel) => {
+const addMarkerZoek = async (
+  placeID,
+  map,
+  setInput,
+  voorstel,
+  markersRef,
+  onSelectLocation
+) => {
   setInput("");
   let position = await getPos(placeID, map);
-  console.log(position);
+
   let location = new google.maps.LatLng(
     position.geometry.location.lat(),
     position.geometry.location.lng()
   );
+
   map.setCenter({
     lat: location.lat(),
     lng: location.lng(),
   });
-  localStorage.setItem("locatieNaam", voorstel.structured_formatting.main_text);
-  localStorage.setItem("placeId", placeID);
-  localStorage.setItem("lat", `${location.lat()}`);
-  localStorage.setItem("lng", `${location.lng()}`);
-  localStorage.setItem("adres", position.formatted_address);
-  selelectedLocatieNaam = voorstel.structured_formatting.main_text;
+
+  markersRef.current.forEach((marker) => marker.setMap(null));
+  markersRef.current = [];
+
+  onSelectLocation([
+    {
+      locatieNaam: voorstel.structured_formatting.main_text,
+      placeId: placeID,
+      lat: location.lat(),
+      lng: location.lng(),
+      adres: position.formatted_address,
+    },
+  ]);
 
   const iconBloem = document.createElement("img");
   iconBloem.src = icon;
@@ -309,11 +338,7 @@ const addMarkerZoek = async (placeID, map, setInput, voorstel) => {
     map: map,
     content: iconBloem,
   });
-  console.log(selectedLocation);
-  if (selectedLocation != null) {
-    selectedLocation.setMap(null);
-  }
-  selectedLocation = mark;
+  markersRef.current.push(mark);
 };
 
 const getPos = async (placeID, map) => {
