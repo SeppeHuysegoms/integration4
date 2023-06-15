@@ -60,6 +60,7 @@ const Navbar = () => {
         <div>
           <img
             src={kortrijkLogo}
+            className="kortrijkLogo"
             alt="Kortrijk"
           />
           <p>© 2023 B(l)oeiend</p>

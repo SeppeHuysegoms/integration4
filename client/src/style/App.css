@@ -9,7 +9,7 @@
   --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 4vw), 10rem);
   --font-size--intro: clamp(1.1rem, calc(0.9rem + 1.5vw), 5rem);
   --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 2vw), 5rem);
-  --font-size-h2: clamp(1.25rem, calc(1.2rem + 1.5vw), 7rem);
+  --font-size-h2: 20px; /* nog aanpassen ! (voor responsive) */
   --fontsize-h2-span: clamp(2.2rem, calc(2.4rem + 14vw), 10rem);
   --font-size-h3: clamp(2rem, calc(1.3rem + 5vw), 6rem);
   --fontsize-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 10rem);
@@ -19,6 +19,9 @@
   --font-size--footer: clamp(1rem, calc(0.7rem + 0.75vw), 1.3rem);
   --font-size-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
   --font-size--button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
+
+  --font-weight-body-copy: 300;
+  --font-weight-body-copy-title: 400;
 }
 
 /*Algemene styling*/
@@ -26,26 +29,34 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Questrial", sans-serif;
+  font-family: "halyard-display", sans-serif;
+  line-height: 1.3;
   overflow-x: hidden;
 }
 
 p {
   font-size: var(--font-size--p);
+  font-weight: var(--font-weight-body-copy);
+  font-style: normal;
 }
 
 h1 {
   font-family: "Anton", sans-serif;
   font-size: var(--font-size-h1);
-
+  color: var(--color-black);
   padding: 0.5vh 0 2vh;
   padding-left: 4vw;
   line-height: 0.95;
-  border-bottom: #2c2c2c solid 1px;
+  border-bottom: var(--color-black) solid 1px;
 }
 
 h1 > span {
   color: var(--color-purple);
+}
+
+h2{
+  font-weight: var(--font-weight-body-copy-title);
+  font-size: var(--font-size-h2);
 }
 
 .uitroepteken {
@@ -64,6 +75,9 @@ h1 > span {
 a {
   color: inherit;
   text-decoration: none;
+  font-family: "halyard-display", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 * {
@@ -173,7 +187,7 @@ textarea {
 
 .button {
   font-size: var(--font-size--p);
-  padding: 1vh 6vw;
+  padding: 1.5vh 5vw;
   border: none;
   background-color: var(--color-black);
   color: var(--color-white);
@@ -200,7 +214,7 @@ textarea {
   padding: 5vh 0 0 4vw;
   align-items: end;
   gap: 5vw;
-margin-bottom: 5vh;
+  margin-bottom: 5vh;
 }
 
 .homeBeeld2Title > h2{
@@ -211,7 +225,7 @@ margin-bottom: 5vh;
 }
 
 .homeBeeld2Title{
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: start;
   align-items: center;
@@ -227,9 +241,26 @@ margin-bottom: 5vh;
   padding: 3vh 0 5vh;
 }
 
+.tijdlijnLang{
+  width: 20vw;
+}
+
+.tijdlijnFlex{
+  display: flex;
+  margin-left: 2.5vw;
+  margin-right: 2vw;
+  padding-top: 4vh;
+}
+
+.homeBeeld3{
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+}
+
 .homeBeeld3Item{
   border: #2c2c2c solid 1px;
-  margin: -0.75vh 4vw 0;
+  margin: -0.75vh 4vw 0 ;
 }
 
 .homeBeeld3Item > h3{
@@ -261,6 +292,7 @@ padding: 2vh 4vw 7vh;
   max-width: 77.5vw;
 }
 
+
 .tijdlijnImage{
   height: 10vh;
   width: auto;
@@ -279,11 +311,12 @@ padding: 2vh 4vw 7vh;
 
 .image2025{
 height: 26vh;
+margin-top: -10vh;
 }
 
 .image2030{
   height: 14vh;
-  margin-top: 2vh;
+  margin-top: -3vh;
   right: 8vw;
 }
 
@@ -315,7 +348,8 @@ height: 26vh;
 }
 
 .footer__socials{
-padding: 2vh 5vw 0 0 ;
+  padding: 2vh 5vw 0 0 ;
+  width: 20vw;
 }
 
 .footerNav__list{
@@ -347,6 +381,11 @@ padding: 2vh 5vw 0 0 ;
 .footerInfo > * > p{
   font-size: var(--font-size--footer);
   line-height: 1.5;
+}
+
+.kortrijkLogo{
+  width: 32vw;
+  height: auto;
 }
 
 .homeEindbeeld{
