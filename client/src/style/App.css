@@ -201,11 +201,17 @@ textarea {
   color: var(--color-black);
 }
 
+.button:hover .arrowButton{
+  filter: invert(0%);
+}
+
 .arrowButton {
   width: 14px;
   height: auto;
   margin-right: 2vw;
+  filter: invert(100%);
 }
+
 
 .homeBeeld2{
   display: flex;
@@ -276,7 +282,7 @@ padding: 2vh 4vw 7vh;
 }
 
 .homeBeeld3ItemTekst > h4{
-  font-family: 'questrial', sans-serif;
+  font-family: 'halyard-display', sans-serif;
   font-size: var(--font-size--p);
   padding: 3vh 0 0;
  
@@ -402,7 +408,7 @@ margin: 7.5vh auto 0;
 
 .aanmeldenTitel{
   font-size: var(--font-size-h2);
-  font-family: 'questrial', sans-serif;
+  font-family: 'halyard-display', sans-serif;
   padding: 0 0 0 4vw;
   color: var(--color-purple);
   border: none;
@@ -440,11 +446,11 @@ form, label{
 }
 
 .inputAanmelden>input[type="email"], .inputAanmelden>input[type="password"]{
-  width: 92vw;
   padding: 1.5vh 3vw;
   border: #2c2c2c solid 1px;
   font-size: var(--font-size--footer);
-  font-family: 'questrial', sans-serif;
+  font-family: 'halyard-display', sans-serif;
+  font-weight: var(--font-weight-body-copy)
 }
 
 input[type="password"]{
@@ -453,7 +459,6 @@ input[type="password"]{
 }
 
 .logInForm>button{
-background-color: transparent;
 margin: 1vh 0 0;
 }
 .wwVergeten{
@@ -484,6 +489,20 @@ margin: 1vh 0 0;
   background-color: var(--color-white);
 }
 
+.buttonWhite>.arrowButton{
+  filter: invert(0%);
+}
+
+.buttonWhite:hover>.arrowButton{
+  filter: invert(100%);
+}
+
+.buttonWhite:hover{
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border: var(--color-white) solid 1px;
+}
+
 .inloggenEindbeeld{
   text-align: right;
   margin: 8.5vh  0 0  auto;
@@ -493,6 +512,56 @@ margin: 1vh 0 0;
 
 
 /*Styling desktop*/
+
+@media  screen and (min-width: 1024px) {
+
+  .button{
+    padding: 1.5vh 2.6vw;
+  }
+
+  .inputAanmelden>input[type="email"], .inputAanmelden>input[type="password"]{
+    width: 35vw;
+    padding: 1.5vh 2vw;
+  }
+
+  .aanmelden>p{
+    max-width: 30vw;
+  }
+
+
+  form{
+    align-items: start;
+  }
+
+
+
+  .aanmelden, .aanmeldenNieuw{
+    padding: 20vh 0vw 0 0vw;
+    width: 50vw;
+  }
+
+  .aanmeldenNieuw{
+    padding: 20vh 0vw 0 4vw;
+    width: 50vw;
+    margin: 0 auto;
+  }
+
+  .aanmeldenNieuw>p{
+    max-width: 20vw;
+  }
+
+
+  .login{
+    display: flex;
+  }
+
+  .inloggenEindbeeld{
+    margin: 8.5vh  0 0  auto;
+    max-width: 35vw;
+    display: block;
+  }
+ 
+}
 
 
 

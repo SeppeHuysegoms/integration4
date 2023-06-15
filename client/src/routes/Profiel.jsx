@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, redirect } from "react-router-dom";
 import { getPersonalStories } from "../entries";
 import { getProfileData } from "../entries";
 

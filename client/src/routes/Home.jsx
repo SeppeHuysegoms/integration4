@@ -24,7 +24,7 @@ let feedbackLoggedIn;
        }
   return (
     <>
-      <div>
+      <header>
         <picture className="headerImage">
           <source
             media="(min-width: 850px)"
@@ -42,12 +42,12 @@ let feedbackLoggedIn;
         <div className="headerIntro">
           <p>Plant een bloem voor de toekomst en laat Kortrijk bloeien.</p>
           <p>Benieuwd naar meer?</p>
-          <a href="#" className="button buttonGreen">
+          <a href="#" className="button">
             <img className="arrowButton" src={arrow}></img> Hell yeah !
           </a>
         </div>
-      </div>
-      <div className="homeBeeld2">
+      </header>
+      <section className="homeBeeld2">
         <div className="homeBeeld2Title">
           <h2>De tijdslijn</h2>
           <img src={arrowThin} alt="arrow thin" />
@@ -65,8 +65,8 @@ let feedbackLoggedIn;
             onderdeel kan worden!
           </p>
         </div>
-      </div>
-      <div className="tijdlijnFlex">
+      </section>
+      <section className="tijdlijnFlex">
         <img src={tijdlijnLang} className="tijdlijnLang" alt="afbeelding tijdlijn" />
         <ul className="homeBeeld3">
           <li>
@@ -83,7 +83,7 @@ let feedbackLoggedIn;
                   Laat jouw plek b(l)oeien via de website of vind ons gewoonweg op
                   de straten en ontvang een leuke extra.
                 </p>
-                <Link to="/plant" className="button buttonGreen">
+                <Link to="/plant" className="button">
                   <img className="arrowButton" src={arrow}></img> Plant een bloem
                 </Link>
               </div>
@@ -107,7 +107,7 @@ let feedbackLoggedIn;
                   connecties, ideaal om de stad nog beter te leren kennen én
                   begrijpen.
                 </p>
-                <Link to="/kaart" className="button buttonGreen">
+                <Link to="/kaart" className="button">
                   <img className="arrowButton" src={arrow}></img>
                   Bekijk kaart
                 </Link>
@@ -121,7 +121,7 @@ let feedbackLoggedIn;
                   een periode van 5 jaar. Jullie krijgen de kans te bepalen wat we
                   schrijven en op basis hiervan wordt een route bepaald.
                 </p>
-                <Link to="/stadsgids" className="button buttonGreen">
+                <Link to="/stadsgids" className="button">
                   <img className="arrowButton" src={arrow} />
                   Ontdek de stadsgids
                 </Link>
@@ -146,7 +146,7 @@ let feedbackLoggedIn;
             </div>
           </li>
         </ul>
-      </div>
+      </section>
       
       <img src={homeEindbeeld} className="homeEindbeeld" alt="compositie" />
     </>
