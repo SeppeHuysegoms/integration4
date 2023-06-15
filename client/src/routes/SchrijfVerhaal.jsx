@@ -1,15 +1,19 @@
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Index() {
   console.log(localStorage.getItem("story"));
-
+const navigate = useNavigate();
+  useEffect(() => {
   if (
     localStorage.getItem("locatieNaam") == null ||
     localStorage.getItem("locatieNaam") == undefined
   ) {
-    naviga("/selecteerlocatie");
+    console.log("redirect");
+    
+    navigate("/selecteerlocatie");
   }
+  }, [localStorage.getItem("locatieNaam")]);
 
   const [story, setStory] = useState();
   useEffect(() => {
