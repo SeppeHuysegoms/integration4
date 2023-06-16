@@ -63,7 +63,7 @@ const Login = () => {
         </div>
 
         <p>Plant een bloem om een profiel aan, te maken</p>
-        <Link className="button buttonWhite" to="/plant">
+        <Link className="button button--white" to="/plant">
           <img className="arrowButton" src={arrow}></img>Plant een bloem
         </Link>
         <img

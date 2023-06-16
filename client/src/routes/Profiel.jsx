@@ -2,6 +2,10 @@ import { Link, useLoaderData, redirect } from "react-router-dom";
 import { getPersonalStories } from "../entries";
 import { getProfileData } from "../entries";
 import bloemPaars from "../assets/images/bloemPaars.svg";
+import location from "../assets/location.svg";
+import edit from "../assets/edit.svg";
+import connectie from "../assets/images/connectie.png";
+import arrow from "../assets/images/arrow.svg";
 
 export async function loader({ request, params }) {
   console.log("loader");
@@ -31,11 +35,11 @@ export default function Index() {
   console.log(editStory);
   return (
     <>
-      <header className="profielHeader">
-        <h1 className="profielHeader__titel">
+      <header className="header--profiel">
+        <h1 className="header__titel--profiel">
           Profiel <span className="uitroepteken">!</span>
         </h1>
-        <ul className="profielHeader__navigatie">
+        <ul className="header__navigatie--profiel">
           <li>
             <Link to="/profiel/#verhalen">Mijn verhalen</Link>
           </li>
@@ -45,39 +49,76 @@ export default function Index() {
         </ul>
       </header>
 
-      <section className="test">
-        <div className="flex mijnVerhalenTitelBox">
-          <h2 className="mijnVerhalenTitel">Mijn verhalen</h2>
+      <section className="mijnVerhalen">
+        <div className="flex mijnVerhalen__titel">
+          <h2>Mijn verhalen</h2>
           <img src={bloemPaars} className="bloemTitel" alt="bloem" />
         </div>
-        <ul>
+        <ul className="mijnVerhalen__list">
           {stories.map((story) => (
-            <li key={story.id}>
-              <h3>{story.title}</h3>
-              <p>{story.verhaal}</p>
-              <p>{splitDate(story.dateCreated)}</p>
-              <Link to={`/profielstory/${story.id}`}>Bewerken</Link>
+            <li key={story.id} className="list__item--mijnVerhalen">
+              <div className="item__content--mijnVerhalen">
+                <div className="item__titel--mijnVerhalen">
+                  <img
+                    src={location}
+                    className="locationIcon"
+                    alt="location marker"
+                  />
+                  <h3>{story.title}</h3>
+                </div>
+                <p>{story.verhaal}</p>
+              </div>
+              <div className="item__change--mijnverhaal">
+                <Link to={`/profielstory/${story.id}`}>
+                  <img src={edit} alt="edit icon" />
+                </Link>
+                <p>{splitDate(story.dateCreated)}</p>
+              </div>
             </li>
           ))}
         </ul>
+      </section>
 
+      <section className="connectie">
         <h3>Maak de connectie</h3>
         <p>
           Benieuwd hoe andere een connectie hebben met jouw gekozen plek? Bekijk
           hun verhalen via de kaart.
         </p>
-        <Link to="/kaart">Bekijk de kaart</Link>
+        <Link to="/kaart" className="button button--white">
+          <img className="arrowButton" src={arrow}></img>
+          Bekijk de kaart
+        </Link>
+        <img src={connectie} className="connectie__image" alt="connectie" />
       </section>
 
-      <section>
-        <h2 id="gegevens">Persoonlijke gegevens</h2>
-        <p>Naam</p>
-        <p>{profileData.username}</p>
-        <p>Email</p>
-        <p>{profileData.email}</p>
-        <p>Wachtwoord</p>
-        <p></p>
-        <Link to="/profielgegevens">Bewerken</Link>
+      <section className="personalData">
+        <div>
+          <div className="flex personalData__titel">
+            <h2>Accountgegevens</h2>
+            <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+          </div>
+          <h2 id="gegevens"></h2>
+          <ul className="personalData__list">
+            <li className="list__item--personalData">
+              <h3>Naam</h3>
+              <p>{profileData.username}</p>
+            </li>
+            <li className="list__item--personalData">
+              <h3>E-mail</h3>
+              <p>{profileData.email}</p>
+            </li>
+            <li className="list__item--personalData">
+              <h3>Wachtwoord</h3>
+              <p>******</p>
+            </li>
+          </ul>
+        </div>
+
+        <Link to="/profielgegevens">
+          {" "}
+          <img src={edit} alt="edit icon" />
+        </Link>
       </section>
     </>
   );
