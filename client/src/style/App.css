@@ -6,6 +6,7 @@
 
   --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 11vw), 19rem);
   --font-size-h1: clamp(4.5rem, calc(1rem + 10vw), 15rem);
+  --font-size-large-h1: clamp(3rem, calc(1rem + 8vw), 15rem);
   --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 4vw), 10rem);
   --font-size--intro: clamp(1.1rem, calc(0.9rem + 1.5vw), 5rem);
   --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 2vw), 5rem);
@@ -406,25 +407,26 @@ margin: 7.5vh auto 0;
 
 }
 
-.aanmeldenTitel{
-  font-size: var(--font-size-h2);
+/* LOGIN PROFIEL */
+.header__title--login>h1{
+  font-size: var( --font-size-mid-h1);
   font-family: 'halyard-display', sans-serif;
   padding: 0 0 0 4vw;
   color: var(--color-purple);
   border: none;
 }
 
-.aanmeldenTitelBox, .aanmeldenNiewTitelBox{
+.header__title--login, .login__titel{
   gap: 5vw;
   margin-bottom: 3vh;
   align-items: center;
 }
 
-.aanmelden{
+.login__header{
   padding: 5vh 0vw 0 0vw;
 }
 
-.aanmelden > p{
+.login__header > p{
   max-width: 65vw;
   padding: 0 4vw;
 }
@@ -435,17 +437,15 @@ form, label{
   gap: 1vh;
 }
 
-.logInForm{
+.form--profielLogin{
   gap: 3.5vh;
-}
-
-
-.logInForm{
   margin-top: 3vh;
   padding: 0 4vw;
 }
 
-.inputAanmelden>input[type="email"], .inputAanmelden>input[type="password"]{
+
+
+.form__input>input[type="email"], .form__input>input[type="password"]{
   padding: 1.5vh 3vw;
   border: #2c2c2c solid 1px;
   font-size: var(--font-size--footer);
@@ -458,7 +458,7 @@ input[type="password"]{
   font-weight: 400;
 }
 
-.logInForm>button{
+.form--profielLogin>button{
 margin: 1vh 0 0;
 }
 .wwVergeten{
@@ -468,18 +468,18 @@ margin: 1vh 0 0;
   margin-top: 1vh;
 }
 
-.aanmeldenNieuw{
+.login__Niew{
   margin: 4vh 0 0;
   background: #2c2c2c;
   padding: 5vh 0 1vh 4vw ;
   color: var(--color-white);
 }
 
-.aanmeldenNiewTitelBox>h2{
+.login__titel>h2{
   font-size: var(--font-size-h2);
 }
 
-.aanmeldenNieuw>p{
+.login__Niew>p{
   max-width: 60vw;
   margin-bottom: 6.5vh;
 }
@@ -503,11 +503,38 @@ margin: 1vh 0 0;
   border: var(--color-white) solid 1px;
 }
 
-.inloggenEindbeeld{
+.login__eindbeeld{
   text-align: right;
   margin: 8.5vh  0 0  auto;
   max-width: 90vw;
   display: block;
+}
+/* PROFIEL*/
+
+.profielHeader__titel{
+  font-size: var( --font-size-large-h1);
+  border: none;
+  padding: 0;
+}
+
+.profielHeader{
+  padding: 0 4vw;
+  margin-bottom: 3vh;
+  margin-top: 2vh;
+}
+
+.profielHeader__navigatie{
+  display: none;
+}
+
+.profielHeader__titel>span{
+  font-size: var( --font-size-h1);
+  padding: 0 0 0 4vw;
+    transform: rotate(7deg);
+    margin-left: -8vw;
+    position: relative;
+    top: 2.5vh;
+    rotate: 15deg;
 }
 
 
@@ -519,12 +546,12 @@ margin: 1vh 0 0;
     padding: 1.5vh 2.6vw;
   }
 
-  .inputAanmelden>input[type="email"], .inputAanmelden>input[type="password"]{
+  .form__input>input[type="email"], .form__input>input[type="password"]{
     width: 35vw;
     padding: 1.5vh 2vw;
   }
 
-  .aanmelden>p{
+  .login__header>p{
     max-width: 30vw;
   }
 
@@ -535,18 +562,18 @@ margin: 1vh 0 0;
 
 
 
-  .aanmelden, .aanmeldenNieuw{
+  .login__header, .login__Niew{
     padding: 20vh 0vw 0 0vw;
     width: 50vw;
   }
 
-  .aanmeldenNieuw{
+  .login__Niew{
     padding: 20vh 0vw 0 4vw;
     width: 50vw;
     margin: 0 auto;
   }
 
-  .aanmeldenNieuw>p{
+  .login__Niew>p{
     max-width: 20vw;
   }
 
