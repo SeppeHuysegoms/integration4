@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
+import arrow from "../assets/images/arrow.svg";
 import headerOverOnsMobile from "../assets/images/headerOverOnsMobile.png";
+import image2OverOns from "../assets/images/image2OverOns.png";
+import image3OverOns from "../assets/images/image3OverOns.png";
 
 export default function Index() {
 
   return (
     <>
-      <section className="header__about">
+      <section className="header-about">
           <img 
             src={headerOverOnsMobile} 
-            className="header__image header__image--about"
+            className="header-about__image header-about__image--about"
             alt="header beeld bloemen" 
           />
-          <h1 className="header__title"> Over ons 
+          <h1 className="header-about__title"> Over ons 
             <span className="uitroepteken uitroepteken--small">!</span>
           </h1>
       </section>
-      <section>
+      <section className="section-about">
         <h2>B(l)oeiend 2030</h2>
         <p>
           Kortrijk droomt groots en dat mag. Kortrijk droomt van een stad waar
@@ -28,10 +31,17 @@ export default function Index() {
           kiezen en te laten bloeien in 2030. Welke plekken boeien jou? Waar
           voel jij je thuis in deze stad?
         </p>
-        <Link to="/plant">Plant een bloem</Link>
+        <Link to="/plant" className="button button--about">
+          <img className="arrowButton" src={arrow}></img> 
+          Plant een bloem
+        </Link>
       </section>
-
-      <section>
+      <img 
+        src={image2OverOns} 
+        alt="afbeelding jeugd" 
+        className="image-about-2"
+      />
+      <section className="section-about">
         <h2>Europese culturele hoofdstad</h2>
         <p>
           1 ding is zeker. In 2030 zal er een Belgische stad bekroond worden tot
@@ -44,10 +54,15 @@ export default function Index() {
           organisaties bij de voorbereiding en uitvoering van het programma van
           de culturele hoofdstad, hebben wij jouw hulp hier voor nodig.
         </p>
-        {/* <a href="https://www.kortrijk2030.be/" className="button">
+        <a href="https://www.kortrijk2030.be/" className="button button--about">
             <img className="arrowButton" src={arrow}></img> Ontdek meer
-        </a> */}
+        </a>
       </section>
+      <img 
+        src={image3OverOns} 
+        alt="afbeelding bloemen" 
+        className="image-about-3"
+      />
     </>
   );
 }

@@ -351,7 +351,7 @@ margin: 7.5vh auto 0;
 
 /*OVER ONS*/
 
-.header__about{
+.header-about{
   display: flex;
   flex-direction: row-reverse;
   border-bottom: var(--color-black) solid 1px;
@@ -359,16 +359,56 @@ margin: 7.5vh auto 0;
   align-items: end;
 }
 
-.header__title{
+.header-about__image--about{
+  width: 50vw;
+}
+
+.header-about__title{
   text-transform: uppercase;
   border-bottom: none;
   font-size: 50px;
   z-index: 1;
+  padding: 0;
+  line-height: .8;
 }
 
 .uitroepteken--small{
   font-size: 85px;
 }
+
+.section-about h2{
+  padding-top: 3vh;
+}
+
+.section-about p {
+  padding-top: 2vh;
+}
+
+.section-about > p:nth-child(3){
+  padding-bottom: 5vh;
+}
+
+.section-about{
+  padding: 3vh 4vw;
+  gap: 2vh;
+}
+
+.image-about-2, .image-about-3{
+  width: 100vw;
+  height: auto;
+}
+
+.image-about-2{
+  margin-top: 5vh;
+  border-top: var(--color-black) solid 1px;
+  border-bottom: var(--color-black) solid 1px;
+}
+
+.image-about-3{
+  padding: 0 4vw;
+  margin-top: 5vh;
+}
+
 
 /*FOOTER*/
 
