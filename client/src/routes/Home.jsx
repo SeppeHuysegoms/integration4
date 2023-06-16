@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import headerMobile from "../assets/images/header_mobile.png";
+import headerDesktop from "../assets/images/header_desktop.png";
 import arrow from "../assets/images/arrow.svg";
 import arrowThin from "../assets/images/arrowThin.png";
 import imageJaar1 from "../assets/images/imageJaar1.png";
@@ -24,15 +25,20 @@ let feedbackLoggedIn;
        }
   return (
     <>
-      <header>
+      <header class="header-home">
         <picture className="headerImage">
           <source
             media="(min-width: 850px)"
             sizes="(min-width: 850px) 100vw, 850px"
             srcSet={"{headerMobile} 850w,"}
           />
-          <img src={headerMobile} alt="header" className="header__image" />
+          <img src={headerMobile} alt="header" className="header__image header__image--mobile" />
         </picture>
+        <img 
+          src={headerDesktop} 
+          alt="header"
+          className="header__image header__image--desktop"
+        />
         <h1 className="headerHome__title">
           B<span>L</span>OEIEND
           <span className="uitroepteken">!</span>
@@ -46,6 +52,7 @@ let feedbackLoggedIn;
             <img className="arrowButton" src={arrow}></img> Hell yeah !
           </a>
         </div>
+        <img src={arrowThin} alt="dun pijltje" className="header-home__arrow"/>
       </header>
       <section className="homeBeeld2">
         <div className="homeBeeld2Title">
