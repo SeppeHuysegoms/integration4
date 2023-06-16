@@ -2,6 +2,7 @@ import { Form, redirect, Link } from "react-router-dom";
 import { authenticate } from "../auth";
 import arrow from "../assets/images/arrow.svg";
 import  inloggenEindbeeld from "../assets/images/inloggenEindbeeld.png";
+import inloggenEindbeeldDesktop from "../assets/images/inloggenEindbeeldDesktop.png";
 import bloemWit from "../assets/images/bloemWit.svg";
 import bloemPaars from "../assets/images/bloemPaars.svg";
 
@@ -62,15 +63,26 @@ const Login = () => {
           <img src={bloemWit} className="bloemTitel" alt="bloem" />
         </div>
 
-        <p>Plant een bloem om een profiel aan, te maken</p>
+        <p>Plant een bloem om een profiel aan te maken</p>
         <Link className="button button--white" to="/plant">
           <img className="arrowButton" src={arrow}></img>Plant een bloem
         </Link>
-        <img
-          className="login__eindbeeld"
-          src={inloggenEindbeeld}
-          alt="inloggen eindbeeld"
-        />
+        <picture className="login__eindbeeld">
+          <source
+            media="(min-width: 1000px)"
+            srcSet={inloggenEindbeeldDesktop}
+          />
+          <source
+            media="(min-width: 250px)"
+            srcSet={inloggenEindbeeld}
+          />
+
+          <img
+            src={inloggenEindbeeld}
+            alt="test"
+            className="login__eindbeeld"
+          />
+        </picture>
       </section>
     </div>
   );
