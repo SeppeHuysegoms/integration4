@@ -4,20 +4,20 @@
   --color-green: #c6e7d4;
   --color-purple: #927cd2;
 
-  --font-size-uitroepteken: clamp(6.5rem, calc(2rem + 10vw), 25rem);
-  --font-size-h1: clamp(4.5rem, calc(1rem + 8vw), 15rem);
-  --font-size-large-h1: clamp(3rem, calc(1rem + 3vw), 15rem);
-  --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 1.5vw), 6rem);
+  --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 11vw), 19rem);
+  --font-size-h1: clamp(4.5rem, calc(1rem + 10vw), 15rem);
+  --font-size-large-h1: clamp(3rem, calc(1rem + 8vw), 15rem);
+  --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 4vw), 10rem);
   --font-size--intro: clamp(1.1rem, calc(0.9rem + 1.5vw), 5rem);
-  --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 0.75vw), 5rem);
+  --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 2vw), 5rem);
   --font-size-h2: 20px; /* nog aanpassen ! (voor responsive) */
   --fontsize-h2-span: clamp(2.2rem, calc(2.4rem + 14vw), 10rem);
-  --font-size-h3: clamp(2rem, calc(1.3rem + 3vw), 4rem);
+  --font-size-h3: clamp(2rem, calc(1.3rem + 5vw), 6rem);
   --fontsize-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 10rem);
   --fontsize-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 9rem);
   --font-size-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
-  --font-size--p: clamp(1rem, calc(0.9rem + 1vw), 1.2rem);
-  --font-size--footer: clamp(1rem, calc(0.7rem + 0.75vw), 1rem);
+  --font-size--p: clamp(1rem, calc(0.9rem + 1.1vw), 1.3rem);
+  --font-size--footer: clamp(1rem, calc(0.7rem + 0.75vw), 1.3rem);
   --font-size-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
   --font-size--button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
 
@@ -619,7 +619,6 @@ margin: 1vh 0 0;
 .profielHeader__titel>span{
   font-size: var( --font-size-h1);
   padding: 0 0 0 4vw;
-<<<<<<< HEAD
     transform: rotate(7deg);
     margin-left: -8vw;
     position: relative;
@@ -635,127 +634,6 @@ margin: 1vh 0 0;
   /*ALGEMEEN*/
 
   .button{
-=======
-  transform: rotate(7deg);
-  margin-left: -5vh;
-  position: relative;
-  top: 2.5vh;
-  rotate: 15deg;
-}
-
-.mijnVerhalen__list {
-  display: flex;
-  flex-direction: column;
-  gap: 3.5vh;
-  padding: 0 4vw;
-}
-
-.list__item--mijnVerhalen {
-  padding: 0 0 1.75vh;
-  border-bottom: #2c2c2c solid 1px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.item__titel--mijnVerhalen{
-  font-size: var(--font-size-h3);
-  font-weight: var(--font-weight-body-copy-title);
-  display: flex;
-  gap: 2vw;
-}
-
-.item__titel--mijnVerhalen>h3,
-.list__item--personalData>h3
-{
-  font-size: var(--font-size-mid-intro);
-  font-family: "halyard-display", sans-serif;
-}
-
-.item__content--mijnVerhalen{
-  max-width: 55vw;
-}
-
-.item__content--mijnVerhalen>p{
-  font-size: var(--font-size--p);
-  font-family: "halyard-display", sans-serif;
-  font-weight: var(--font-weight-body-copy);
-}
-
-
-.item__titel--mijnVerhalen{
-  margin-bottom: 1.5vh;
-}
-
-.item__change--mijnverhaal{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.item__change--mijnverhaal>p{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: var(--font-size--footer);
-}
-.item__change--mijnverhaal>a>img{
-  width: 4vh;
-  height: auto;
-}
-
-.locationIcon{
-  width: 20px;
-  height: auto;
-}
-
-.connectie{
-  background-color: #2c2c2c;
-  color : var(--color-white);
-  padding: 3vh 4vw 0;
-  margin: 8vh 4vw 5vh;
-}
-
-.connectie>h3{
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-body-copy-title);
-  margin-bottom: 2vh;
-}
-
-.connectie>p{
-max-width: 70vw;
-  margin-bottom: 6vh;
-}
-
-.connectie__image{
-  width: 60vw;
-  height: auto;
-  margin-top: -1vh;
-  display: block;
-  margin-left: auto;
-}
-.connectie>.button{
-  position: relative;
-  z-index: 5;
-}
-
-.personalData{
-  display: flex;
-  justify-content: space-between;
-  max-width: 92vw;
-}
-.personalData__list{
-  display: flex;
-  flex-direction: column;
-  gap: 2.5vh;
-  padding: 0 4vw;
-  margin-bottom: 6vh;
-}
-
-/*Styling desktop*/
-
-@media screen and (min-width: 1000px) {
-  .button {
->>>>>>> 6499a41 (deploy test)
     padding: 1.5vh 2.6vw;
   }
 
@@ -833,14 +711,7 @@ max-width: 70vw;
     align-items: start;
   }
 
-<<<<<<< HEAD
   .login__header, .login__Niew{
-=======
-  /*Login*/
-
-  .header--profielLogin,
-  .profielLogin__Niew {
->>>>>>> 6499a41 (deploy test)
     padding: 20vh 0vw 0 0vw;
     width: 50vw;
   }
@@ -860,7 +731,6 @@ max-width: 70vw;
     display: flex;
   }
 
-<<<<<<< HEAD
   .inloggenEindbeeld{
     margin: 8.5vh  0 0  auto;
     max-width: 35vw;
@@ -905,45 +775,7 @@ max-width: 70vw;
   .footerInfo div{
     display: flex;
     width: 50vw;
-=======
-  .login__eindbeeld {
-    margin: 8.5vh 0 0 auto;
-    max-width: 40vw;
-    display: block;
-  }
 
-
-  /*Profiel*/
-  .profiel{
-    display: flex;
-  }
-
-  .profiel__content{
-    width: 60vw;
-  }
-
-  .header__titel--profiel > span{
-    margin-left: -5vw;
-  }
-
-  .connectie__image{
-    width: 30vw;
-    height: auto;
-    margin-top: -1vh;
-    display: block;
-    margin-left: auto;
-    margin-right: 2vw;
-  }
-
-  .item__content--mijnVerhalen{
-    max-width: 25vw;
-  }
-
-  .profiel__content{
-    margin-top: 25vh;
-    margin-left: 5vw;
->>>>>>> 6499a41 (deploy test)
-  }
 }
 
 
