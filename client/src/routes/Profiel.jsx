@@ -37,7 +37,7 @@ export default function Index() {
     <div className="profiel">
       <header className="header--profiel">
         <h1 className="header__titel--profiel">
-          Profiel <span className="uitroepteken">!</span>
+          PROFIEL <span className="uitroepteken">!</span>
         </h1>
         <ul className="header__navigatie--profiel">
           <li>

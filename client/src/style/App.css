@@ -5,11 +5,11 @@
   --color-purple: #927cd2;
 
   --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 11vw), 19rem);
-  --font-size-h1: clamp(4.5rem, calc(1rem + 10vw), 15rem);
-  --font-size-large-h1: clamp(3rem, calc(1rem + 8vw), 15rem);
-  --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 4vw), 10rem);
-  --font-size--intro: clamp(1.1rem, calc(0.9rem + 1.5vw), 5rem);
-  --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 2vw), 5rem);
+  --font-size-h1: clamp(4.5rem, calc(1rem + 2.75vw), 15rem);
+  --font-size-large-h1: clamp(3rem, calc(1rem + 2.25vw), 15rem);
+  --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 1.5vw), 10rem);
+  --font-size--intro: clamp(1.1rem, calc(0.7rem + 1.25vw), 5rem);
+  --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 1.2vw), 6rem);
   --font-size-h2: 20px; /* nog aanpassen ! (voor responsive) */
   --fontsize-h2-span: clamp(2.2rem, calc(2.4rem + 14vw), 10rem);
   --font-size-h3: clamp(2rem, calc(1.3rem + 5vw), 6rem);
