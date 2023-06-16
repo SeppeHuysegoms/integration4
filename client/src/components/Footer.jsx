@@ -9,21 +9,22 @@ const Navbar = () => {
     <div className="footer">
       <div>
         <p className="footer__title">Bloeiend Kortrijk</p>
-        <p>Jongerenfestival 2023-2030</p>
+        <p className="footer__text">Jongerenfestival 2023-2030</p>
       </div>
-
       <div>
         <p className="footer__title">Socials</p>
-        <a href="https://www.facebook.com/bloeiendkortrijk">
-          <img src={facebook} alt="Facebook logo" className="footer__socials" />
-        </a>
-        <a href="https://www.instagram.com/bloeiendkortrijk/">
-          <img
-            src={instagram}
-            alt="instagram logo"
-            className="footer__socials"
-          />
-        </a>
+        <div className="footer__socials">
+          <a href="https://www.facebook.com/bloeiendkortrijk">
+            <img src={facebook} alt="Facebook logo" className="footer__socials" />
+          </a>
+          <a href="https://www.instagram.com/bloeiendkortrijk/">
+            <img
+              src={instagram}
+              alt="instagram logo"
+              className="footer__socials"
+            />
+          </a>
+        </div>
       </div>
 
       <nav className="footerNav">

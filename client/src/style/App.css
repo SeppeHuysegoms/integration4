@@ -736,7 +736,46 @@ margin: 1vh 0 0;
     max-width: 35vw;
     display: block;
   }
+
+  /*FOOTER*/
+
+  .footer{
+    padding-top: 8vh;
+    display: grid;
+    grid-template-columns: 20vw 20vw;
+    column-gap: 8vw;
+    padding-left: 8vw
+  }
+
+  .footer__text{
+    width: 10vw;
+  }
+
+  .footer p:nth-child(1){
+    font-size: 20px;
+    font-weight: var(--font-weight-body-copy-title);
+  }
  
+  .footer__socials{
+    display: flex;
+  }
+
+  .footer__socials img{
+    width: 8vw;
+  }
+
+  .footer__socials a{
+    width: 4vw;
+  }
+
+  .footerNav{
+    display: none;
+  }
+
+  .footerInfo div{
+    display: flex;
+    width: 50vw;
+  }
 }
 
 
