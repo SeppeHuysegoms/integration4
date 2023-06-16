@@ -4,7 +4,8 @@
   --color-green: #c6e7d4;
   --color-purple: #927cd2;
 
-  --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 11vw), 19rem);
+  --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 15vw), 30rem);
+  --font-size-h1--home: clamp(4.5rem, calc(1rem + 10vw), 14rem);
   --font-size-h1: clamp(4.5rem, calc(1rem + 2.75vw), 15rem);
   --font-size-large-h1: clamp(3rem, calc(1rem + 2.25vw), 15rem);
   --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 1.5vw), 10rem);
@@ -1065,14 +1066,20 @@ margin-bottom: 1vh;
 .header-home{
     display:  grid;
     grid-template-columns: 50vw 50vw;
-    grid-template-rows: 60vh 40vh;
+    grid-template-rows: 53vh 30vh;
+
+    background-size: contain;
+    border-bottom: #2c2c2c solid 1px;
   }
 
   .headerHome__title{
-    padding-top: 9vh;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
     width: 60vw;
     z-index: -1;
-    padding-left: 6vw;
+    font-size: var(  --font-size-h1--home);
+    padding: 2vh 0 5vh 4vw;
   }
 
   .headerImage{
@@ -1080,28 +1087,32 @@ margin-bottom: 1vh;
   }
 
   .header__image--desktop{
-    grid-column: 2;
+    grid-column: 2/-1;
+    justify-self: end;
     grid-row: 2 / 1;
     display: block;
-    width: 50vw;
+    height: 83vh;
+    width: auto;
   }
 
-   .headerIntro{
-    margin-top: -3vh;
-    margin-left: 3vw;
-  }
+   
 
    .headerIntro p{
     grid-column: 1;
     grid-row: 2;
     font-size: 20px;
-    width: 20vw;
+    width: 22vw;
     
   }
+  .headerIntro {
+    padding: 0vh 4vw 0;
+    justify-content: center;
+    border: none;
+}
 
   .header-home__arrow{
     display: block;
-    transform: translate(-8vw, 24vh);
+    transform: translate(-11vw, 18vh);
   }
 
   
