@@ -16,13 +16,8 @@
   --fontsize-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 10rem);
   --fontsize-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 9rem);
   --font-size-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
-<<<<<<< HEAD
-  --font-size--p: clamp(1rem, calc(0.9rem + 1.1vw), 1.3rem);
-  --font-size--footer: clamp(1rem, calc(0.7rem + 0.75vw), 1.3rem);
-=======
   --font-size--p: clamp(1rem, calc(0.9rem + 1vw), 1.2rem);
   --font-size--footer: clamp(1.1rem, calc(0.6rem + 0.5vw), 1.4rem);
->>>>>>> 74f2fcc (profiel desktop)
   --font-size-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
   --font-size--button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
 
@@ -634,23 +629,6 @@ input[type="password"] {
 .header__titel--profiel > span {
   font-size: var(--font-size-h1);
   padding: 0 0 0 4vw;
-<<<<<<< HEAD
-    transform: rotate(7deg);
-    margin-left: -8vw;
-    position: relative;
-    top: 2.5vh;
-    rotate: 15deg;
-}
-
-
-/*Styling desktop*/
-
-@media  screen and (min-width: 1024px) {
-
-  /*ALGEMEEN*/
-
-  .button{
-=======
   transform: rotate(7deg);
   margin-left: -5vh;
   position: relative;
@@ -776,7 +754,6 @@ input[type="password"] {
 
 @media screen and (min-width: 1000px) {
   .button {
->>>>>>> 74f2fcc (profiel desktop)
     padding: 1.5vh 2.6vw;
   }
 
@@ -855,13 +832,7 @@ input[type="password"] {
     align-items: start;
   }
 
-<<<<<<< HEAD
   .login__header, .login__Niew{
-=======
-  /*Login*/
-
-  .header--profielLogin {
->>>>>>> 74f2fcc (profiel desktop)
     padding: 20vh 0vw 0 0vw;
     width: 50vw;
   }
@@ -879,53 +850,6 @@ input[type="password"] {
     display: flex;
   }
 
-<<<<<<< HEAD
-  .inloggenEindbeeld{
-    margin: 8.5vh  0 0  auto;
-    max-width: 35vw;
-    display: block;
-  }
-
-  /*FOOTER*/
-
-  .footer{
-    padding-top: 8vh;
-    display: grid;
-    grid-template-columns: 20vw 20vw;
-    column-gap: 8vw;
-    padding-left: 8vw
-  }
-
-  .footer__text{
-    width: 10vw;
-  }
-
-  .footer p:nth-child(1){
-    font-size: 20px;
-    font-weight: var(--font-weight-body-copy-title);
-  }
- 
-  .footer__socials{
-    display: flex;
-  }
-
-  .footer__socials img{
-    width: 8vw;
-  }
-
-  .footer__socials a{
-    width: 4vw;
-  }
-
-  .footerNav{
-    display: none;
-  }
-
-  .footerInfo div{
-    display: flex;
-    width: 50vw;
-
-=======
   .login__eindbeeld {
     margin: 8.5vh 0 0 auto;
     max-width: 40vw;
@@ -1062,7 +986,6 @@ input[type="password"] {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: var(--font-size--footer);
->>>>>>> 74f2fcc (profiel desktop)
 }
 
   .item__titel--mijnVerhalen {
@@ -1108,5 +1031,9 @@ margin-bottom: 1vh;
     z-index: 1;
    border-left: #927cd2 solid 4px;
   }
+
+
+
+  
 
 }

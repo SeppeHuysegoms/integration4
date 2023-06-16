@@ -66,6 +66,7 @@ export default function Index() {
                       alt="location marker"
                     />
                     <h3>{story.title}</h3>
+
                   </div>
                   <p>{story.verhaal}</p>
                   <p className="item__date--desktop">
