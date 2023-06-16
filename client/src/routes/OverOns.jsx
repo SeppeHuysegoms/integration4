@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
+import headerOverOnsMobile from "../assets/images/headerOverOnsMobile.png";
+
 export default function Index() {
 
   return (
     <>
-      <h1> Over ons </h1>
-
-      <div>
+      <section className="header__about">
+          <img 
+            src={headerOverOnsMobile} 
+            className="header__image header__image--about"
+            alt="header beeld bloemen" 
+          />
+          <h1 className="header__title"> Over ons 
+            <span className="uitroepteken uitroepteken--small">!</span>
+          </h1>
+      </section>
+      <section>
         <h2>B(l)oeiend 2030</h2>
         <p>
           Kortrijk droomt groots en dat mag. Kortrijk droomt van een stad waar
@@ -19,9 +29,9 @@ export default function Index() {
           voel jij je thuis in deze stad?
         </p>
         <Link to="/plant">Plant een bloem</Link>
-      </div>
+      </section>
 
-      <div>
+      <section>
         <h2>Europese culturele hoofdstad</h2>
         <p>
           1 ding is zeker. In 2030 zal er een Belgische stad bekroond worden tot
@@ -34,8 +44,10 @@ export default function Index() {
           organisaties bij de voorbereiding en uitvoering van het programma van
           de culturele hoofdstad, hebben wij jouw hulp hier voor nodig.
         </p>
-        <a href="https://www.kortrijk2030.be/">Ontdek meer</a>
-      </div>
+        {/* <a href="https://www.kortrijk2030.be/" className="button">
+            <img className="arrowButton" src={arrow}></img> Ontdek meer
+        </a> */}
+      </section>
     </>
   );
 }

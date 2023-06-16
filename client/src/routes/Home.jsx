@@ -31,9 +31,9 @@ let feedbackLoggedIn;
             sizes="(min-width: 850px) 100vw, 850px"
             srcSet={"{headerMobile} 850w,"}
           />
-          <img src={headerMobile} alt="header" className="headerImage" />
+          <img src={headerMobile} alt="header" className="header__image" />
         </picture>
-        <h1>
+        <h1 className="headerHome__title">
           B<span>L</span>OEIEND
           <span className="uitroepteken">!</span>
           <br />

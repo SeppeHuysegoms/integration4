@@ -59,6 +59,10 @@ h2{
   font-size: var(--font-size-h2);
 }
 
+h4{
+  font-weight: var(--font-weight-body-copy-title);
+}
+
 .uitroepteken {
   display: inline-block;
   font-family: "carbon", sans-serif;
@@ -162,7 +166,7 @@ textarea {
 }
 
 /*Styling  mobile*/
-.headerImage {
+.header__image {
   width: 100vw;
   height: auto;
 }
@@ -284,8 +288,7 @@ padding: 2vh 4vw 7vh;
 .homeBeeld3ItemTekst > h4{
   font-family: 'halyard-display', sans-serif;
   font-size: var(--font-size--p);
-  padding: 3vh 0 0;
- 
+  padding: 4vh 0 0;
 }
 
 .homeBeeld3ItemTekst > .button{
@@ -315,6 +318,10 @@ padding: 2vh 4vw 7vh;
   height : 22.5vh;
 }
 
+.image2023{
+  margin-top: -6vh;
+}
+
 .image2025{
 height: 26vh;
 margin-top: -10vh;
@@ -334,10 +341,48 @@ margin-top: -10vh;
   padding-bottom: 0vh;
 }
 
+.homeEindbeeld{
+  max-width: 85vw;
+text-align: center;
+display: block;
+margin: 7.5vh auto 0;
+}
+
+/*OVER ONS*/
+
+.header__about{
+  display: flex;
+  flex-direction: row-reverse;
+  border-bottom: var(--color-black) solid 1px;
+  border-top: var(--color-black) solid 1px;
+  align-items: end;
+}
+
+.header__title{
+  text-transform: uppercase;
+  border-bottom: none;
+  font-size: 50px;
+  z-index: 1;
+}
+
+.uitroepteken--small{
+  font-size: 85px;
+}
+
+/*FOOTER*/
+
 .footer{
   background-color: var(--color-black);
   color: var(--color-white);
   padding: 4vh 4vw 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.footer__title{
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-body-copy-title)
 }
 
 .footer>*>p:nth-child(1){
@@ -394,12 +439,7 @@ margin-top: -10vh;
   height: auto;
 }
 
-.homeEindbeeld{
-  max-width: 85vw;
-text-align: center;
-display: block;
-margin: 7.5vh auto 0;
-}
+/*LOGIN*/
 
 .zoekVeld{
   z-index: 10;

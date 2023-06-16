@@ -8,12 +8,12 @@ const Navbar = () => {
   return (
     <div className="footer">
       <div>
-        <p>Bloeiend Kortrijk</p>
+        <p className="footer__title">Bloeiend Kortrijk</p>
         <p>Jongerenfestival 2023-2030</p>
       </div>
 
       <div>
-        <p>Socials</p>
+        <p className="footer__title">Socials</p>
         <a href="https://www.facebook.com/bloeiendkortrijk">
           <img src={facebook} alt="Facebook logo" className="footer__socials" />
         </a>
@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
 
       <nav className="footerNav">
-        <p>Navigatie</p>
+        <p className="footer__title">Navigatie</p>
         <ul className="footerNav__list">
           <li className="footerNav__item">
             <NavLink className="navbar__link" to="/">
