@@ -20,15 +20,15 @@ export async function action({ request, params }) {
 const Login = () => {
   return (
     <div className="login">
-      <header className="aanmelden">
-        <div className="flex aanmeldenTitelBox">
-          <h1 className="aanmeldenTitel">Aanmelden</h1>
+      <header className="login__header">
+        <div className="flex header__title header__title--login">
+          <h1>Aanmelden</h1>
           <img src={bloemPaars} className="bloemTitel" alt="bloem" />
         </div>
 
         <p>Log je in om je ingezonden verhalen te kunnen zien</p>
-        <Form method="post" id="logInForm" className="logInForm">
-          <label className="inputAanmelden">
+        <Form method="post" id="logInForm" className="form form--profielLogin">
+          <label className="form__input form__input--profielLogin">
             <span>E-mail</span>
             <input
               type="email"
@@ -39,7 +39,7 @@ const Login = () => {
             />
           </label>
 
-          <label className="inputAanmelden">
+          <label className="form__input form__input--profielLogin">
             <span>Wachtwoord</span>
             <input
               type="password"
@@ -56,8 +56,8 @@ const Login = () => {
           </button>
         </Form>
       </header>
-      <section className="aanmeldenNieuw">
-        <div className="flex aanmeldenNiewTitelBox">
+      <section className="login__Niew">
+        <div className="flex login__titel">
           <h2>Nieuw hier? </h2>
           <img src={bloemWit} className="bloemTitel" alt="bloem" />
         </div>
@@ -67,7 +67,7 @@ const Login = () => {
           <img className="arrowButton" src={arrow}></img>Plant een bloem
         </Link>
         <img
-          className="inloggenEindbeeld"
+          className="login__eindbeeld"
           src={inloggenEindbeeld}
           alt="inloggen eindbeeld"
         />
