@@ -20,7 +20,7 @@ export async function action({ request, params }) {
 const Login = () => {
   return (
     <div className="login">
-      <header className="login__header">
+      <header className="header header--profielLogin">
         <div className="flex header__title header__title--login">
           <h1>Aanmelden</h1>
           <img src={bloemPaars} className="bloemTitel" alt="bloem" />
@@ -56,8 +56,8 @@ const Login = () => {
           </button>
         </Form>
       </header>
-      <section className="login__Niew">
-        <div className="flex login__titel">
+      <section className="profielLogin__Niew">
+        <div className="flex profielLogin__titel">
           <h2>Nieuw hier? </h2>
           <img src={bloemWit} className="bloemTitel" alt="bloem" />
         </div>

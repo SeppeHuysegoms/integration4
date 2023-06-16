@@ -502,11 +502,11 @@ margin: 7.5vh auto 0;
   align-items: center;
 }
 
-.login__header{
+.header--profielLogin{
   padding: 5vh 0vw 0 0vw;
 }
 
-.login__header > p{
+.header--profielLogin > p{
   max-width: 65vw;
   padding: 0 4vw;
 }
@@ -548,18 +548,18 @@ margin: 1vh 0 0;
   margin-top: 1vh;
 }
 
-.login__Niew{
+.profielLogin__Niew{
   margin: 4vh 0 0;
   background: #2c2c2c;
   padding: 5vh 0 1vh 4vw ;
   color: var(--color-white);
 }
 
-.login__titel>h2{
+.profielLogin__Niew>h2{
   font-size: var(--font-size-h2);
 }
 
-.login__Niew>p{
+.profielLogin__Niew>p{
   max-width: 60vw;
   margin-bottom: 6.5vh;
 }
@@ -631,7 +631,7 @@ margin: 1vh 0 0;
     padding: 1.5vh 2vw;
   }
 
-  .login__header>p{
+  .header--profielLoginp{
     max-width: 30vw;
   }
 
@@ -642,18 +642,18 @@ margin: 1vh 0 0;
 
 
 
-  .login__header, .login__Niew{
+  .header--profielLogin, .profielLogin__Niew{
     padding: 20vh 0vw 0 0vw;
     width: 50vw;
   }
 
-  .login__Niew{
+  .profielLogin__Niew{
     padding: 20vh 0vw 0 4vw;
     width: 50vw;
     margin: 0 auto;
   }
 
-  .login__Niew>p{
+  .profielLogin__Niew>p{
     max-width: 20vw;
   }
 
