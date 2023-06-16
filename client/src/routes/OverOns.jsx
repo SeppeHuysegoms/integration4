@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import arrow from "../assets/images/arrow.svg";
 import headerOverOnsMobile from "../assets/images/headerOverOnsMobile.png";
 import headerOverOnsDesktop from "../assets/images/headerOverOnsDesktop.png";
-import image2OverOns from "../assets/images/image2OverOns.png";
-import image3OverOns from "../assets/images/image3OverOns.png";
+import image2OverOns from "../assets/image2OverOns.png";
+import image3OverOns from "../assets/image3OverOns.png";
 
 export default function Index() {
 
