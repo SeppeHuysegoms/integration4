@@ -511,7 +511,8 @@ textarea {
 }
 
 .header--profielLogin {
-  padding: 5vh 0vw 0 0vw;
+  padding: 10vh 0vw 0 0vw;
+   width: 50vw;
 }
 
 .header--profielLogin > p {
@@ -620,6 +621,7 @@ input[type="password"] {
   padding: 0 4vw;
   margin-bottom: 3vh;
   margin-top: 2vh;
+ 
 }
 
 .header__navigatie--profiel {
@@ -1030,6 +1032,10 @@ margin-bottom: 1vh;
    .header__navigatie--profiel > li:first-child {
     z-index: 1;
    border-left: #927cd2 solid 4px;
+  }
+
+  .seppe{
+    margin-top: 5vh;
   }
 
 
