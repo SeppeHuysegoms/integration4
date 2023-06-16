@@ -8,26 +8,27 @@ const Navbar = () => {
   return (
     <div className="footer">
       <div>
-        <p>Bloeiend Kortrijk</p>
-        <p>Jongerenfestival 2023-2030</p>
+        <p className="footer__title">Bloeiend Kortrijk</p>
+        <p className="footer__text">Jongerenfestival 2023-2030</p>
       </div>
-
       <div>
-        <p>Socials</p>
-        <a href="https://www.facebook.com/bloeiendkortrijk">
-          <img src={facebook} alt="Facebook logo" className="footer__socials" />
-        </a>
-        <a href="https://www.instagram.com/bloeiendkortrijk/">
-          <img
-            src={instagram}
-            alt="instagram logo"
-            className="footer__socials"
-          />
-        </a>
+        <p className="footer__title">Socials</p>
+        <div className="footer__socials">
+          <a href="https://www.facebook.com/bloeiendkortrijk">
+            <img src={facebook} alt="Facebook logo" className="footer__socials" />
+          </a>
+          <a href="https://www.instagram.com/bloeiendkortrijk/">
+            <img
+              src={instagram}
+              alt="instagram logo"
+              className="footer__socials"
+            />
+          </a>
+        </div>
       </div>
 
       <nav className="footerNav">
-        <p>Navigatie</p>
+        <p className="footer__title">Navigatie</p>
         <ul className="footerNav__list">
           <li className="footerNav__item">
             <NavLink className="navbar__link" to="/">
@@ -60,6 +61,7 @@ const Navbar = () => {
         <div>
           <img
             src={kortrijkLogo}
+            className="kortrijkLogo"
             alt="Kortrijk"
           />
           <p>© 2023 B(l)oeiend</p>

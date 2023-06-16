@@ -19,57 +19,59 @@ export async function action({ request, params }) {
 
 const Login = () => {
   return (
-    <div className="aanmelden">
-      <div className="flex aanmeldenTitelBox">
-        <h1 className="aanmeldenTitel">Aanmelden</h1>
-        <img src={bloemPaars} className="bloemTitel" alt="bloem" />
-      </div>
+    <div className="login">
+      <header className="header header--profielLogin">
+        <div className="flex header__title header__title--login">
+          <h1>Aanmelden</h1>
+          <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+        </div>
 
-      <p>Log je in om je ingezonden verhalen te kunnen zien</p>
-      <Form method="post" id="logInForm" className="logInForm">
-        <label className="inputAanmelden">
-          <span>E-mail</span>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            defaultValue="seppe.huysegoms1@student.howest.be"
-            required
-          />
-        </label>
+        <p>Log je in om je ingezonden verhalen te kunnen zien</p>
+        <Form method="post" id="logInForm" className="form form--profielLogin">
+          <label className="form__input form__input--profielLogin">
+            <span>E-mail</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              defaultValue="seppe.huysegoms1@student.howest.be"
+              required
+            />
+          </label>
 
-        <label className="inputAanmelden">
-          <span>Wachtwoord</span>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            defaultValue="123456"
-            required
-          />
-          <p className="wwVergeten">Wachtwoord vergeten?</p>
-        </label>
+          <label className="form__input form__input--profielLogin">
+            <span>Wachtwoord</span>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              defaultValue="123456"
+              required
+            />
+            <p className="wwVergeten">Wachtwoord vergeten?</p>
+          </label>
 
-        <button type="submit" className="button">
-          <img className="arrowButton" src={arrow}></img> Aanmelden
-        </button>
-      </Form>
-      <div className="aanmeldenNieuw">
-        <div className="flex aanmeldenNiewTitelBox">
+          <button type="submit" className="button">
+            <img className="arrowButton" src={arrow}></img> Aanmelden
+          </button>
+        </Form>
+      </header>
+      <section className="profielLogin__Niew">
+        <div className="flex profielLogin__titel">
           <h2>Nieuw hier? </h2>
           <img src={bloemWit} className="bloemTitel" alt="bloem" />
         </div>
 
         <p>Plant een bloem om een profiel aan, te maken</p>
-        <Link className="button buttonWhite" to="/plant">
+        <Link className="button button--white" to="/plant">
           <img className="arrowButton" src={arrow}></img>Plant een bloem
         </Link>
         <img
-          className="inloggenEindbeeld"
+          className="login__eindbeeld"
           src={inloggenEindbeeld}
           alt="inloggen eindbeeld"
         />
-      </div>
+      </section>
     </div>
   );
 };

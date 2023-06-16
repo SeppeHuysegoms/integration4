@@ -160,5 +160,6 @@ export async function editStory(verhaal, jwt, idVerhaal) {
     jwt
   );
 
-  return result.data.entries[0];
+  //console.log("editStory result", result.data.entries);
+  //return result.data.entries[0];
 }
