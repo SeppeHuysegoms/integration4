@@ -45,7 +45,7 @@ export default function Index() {
         </ul>
       </header>
 
-      <section>
+      <section className="test">
         <div className="flex mijnVerhalenTitelBox">
           <h2 className="mijnVerhalenTitel">Mijn verhalen</h2>
           <img src={bloemPaars} className="bloemTitel" alt="bloem" />
