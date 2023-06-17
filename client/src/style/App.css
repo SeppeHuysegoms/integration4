@@ -489,8 +489,9 @@ textarea {
 }
 
 .footer__socials {
-  padding: 2vh 5vw 0 0;
+  padding: 1vh 5vw 1.5vh 0;
   width: 20vw;
+  display: flex;
 }
 
 .footerNav__list {
