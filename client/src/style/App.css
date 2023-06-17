@@ -700,25 +700,12 @@ margin: 1vh 0 0;
   align-items: flex-end;
 }
 
-<<<<<<< HEAD
   .headerHome__title{
     padding-top: 8vh;
     width: 60vw;
     z-index: -1;
     padding-left: 6vw;
   }
-=======
-.item__date--mobile{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: var(--font-size--footer);
-}
-.item__change--mijnverhaal > a > img,
-.personalData__edit--mobile > img {
-  width: 4vh;
-  height: auto;
-}
->>>>>>> 2199ecfbbf9c4be62e72f14406c3e507d4805e1b
 
 .locationIcon {
   width: 20px;
@@ -1075,7 +1062,7 @@ margin-bottom: 1vh;
 .header-home{
     display:  grid;
     grid-template-columns: 50vw 50vw;
-    grid-template-rows: 53vh 30vh;
+    grid-template-rows: 43vh 40vh;
 
     background-size: contain;
     border-bottom: #2c2c2c solid 1px;
@@ -1117,11 +1104,12 @@ margin-bottom: 1vh;
     padding: 0vh 4vw 0;
     justify-content: center;
     border: none;
+    margin-top: 7vh;
 }
 
   .header-home__arrow{
     display: block;
-    transform: translate(-11vw, 18vh);
+    transform: translate(-3vw, 28vh);
   }
 
   
