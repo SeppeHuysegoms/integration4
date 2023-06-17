@@ -43,7 +43,7 @@ const App = () => {
 
   useEffect(() => {
     Lottie.loadAnimation({
-      container: container.current,
+      container: document.querySelector(".animatie"),
       renderer: "svg",
       loop: true,
       autoplay: true,
