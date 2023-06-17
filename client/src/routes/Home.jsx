@@ -8,6 +8,9 @@ import imageJaar2 from "../assets/images/imageJaar2.png";
 import imageJaar3 from "../assets/images/imageJaar3.png";
 import homeEindbeeld from "../assets/images/HomeEindbeeld.png";
 import tijdlijnLang from "../assets/images/tijdlijnLang.png";
+import tijdlijnLangDesktop from "../assets/images/tijdlijnLang-desktop.png";
+import homeEindbeeldDesktop from "../assets/images/HomeEindbeeld-desktop.png";
+import homeAnimation from "../assets/images/home-animation.png";
 
 export default function Index() {
 
@@ -26,6 +29,7 @@ let feedbackLoggedIn;
   return (
     <>
       <header class="header-home">
+        
         <picture className="headerImage">
           <source
             media="(min-width: 850px)"
@@ -45,6 +49,7 @@ let feedbackLoggedIn;
           <br />
           KORTRIJK
         </h1>
+        {/* <img src={homeAnimation} alt="dun pijltje" className="header-home__animation"/> */}
         <div className="headerIntro">
           <p>Plant een bloem voor de toekomst en laat Kortrijk bloeien.</p>
           <p>Benieuwd naar meer?</p>
@@ -53,13 +58,13 @@ let feedbackLoggedIn;
           </a>
         </div>
         <img src={arrowThin} alt="dun pijltje" className="header-home__arrow"/>
+        <img src={homeAnimation} alt="dun pijltje" className="header-home__animation"/>
       </header>
       <section className="homeBeeld2">
         <div className="homeBeeld2Title">
           <h2>De tijdslijn</h2>
-          <img src={arrowThin} alt="arrow thin" />
+          <img class="arrow-thin" src={arrowThin} alt="arrow thin" />
         </div>
-
         <div className="homeBeeld2Tekst">
           <h2>B(l)oeiend 2030</h2>
           <p>
@@ -76,7 +81,8 @@ let feedbackLoggedIn;
       <section className="tijdlijnFlex">
         <img src={tijdlijnLang} className="tijdlijnLang" alt="afbeelding tijdlijn" />
         <ul className="homeBeeld3">
-          <li>
+        <img src={tijdlijnLangDesktop} className="tijdlijnLang-desktop" alt="afbeelding tijdlijn" />
+          <li className="tijdlijn-beeld1">
             <div className="homeBeeld3Item">
               <img
                 src={imageJaar1}
@@ -97,7 +103,7 @@ let feedbackLoggedIn;
             </div>
             {/* <img src={tijdlijn} alt="arrow thin" className="tijdlijnImage" /> */}
           </li>
-          <li>
+          <li className="tijdlijn-beeld2">
             <div className="homeBeeld3Item">
               <img
                 src={imageJaar2}
@@ -105,7 +111,7 @@ let feedbackLoggedIn;
                 alt="compositie"
               />
               <h3>2025</h3>
-              <div className="homeBeeld3ItemTekst">
+              <div className="homeBeeld3ItemTekst homeBeeld3ItemTekst--2025">
                 <h4>Geplant! Wat nu?</h4>
                 <p>
                   Tot 2025 krijg je de kans om jouw verhaal te planten. Via de
@@ -143,7 +149,7 @@ let feedbackLoggedIn;
               alt="compositie"
             />
             <h3>2030</h3>
-            <div className="homeBeeld3ItemTekst homeBeeld33ItemTekst ">
+            <div className="homeBeeld3ItemTekst">
               <h4>Bloeiend kortrijk</h4>
               <p>
                 In 2030 wordt de stadsgids uitgebracht en kan iedereen Kortrijk
@@ -154,7 +160,7 @@ let feedbackLoggedIn;
           </li>
         </ul>
       </section>
-      
+      <img src={homeEindbeeldDesktop} className="homeEindbeeld-desktop"  alt="compositie" />
       <img src={homeEindbeeld} className="homeEindbeeld" alt="compositie" />
     </>
   );

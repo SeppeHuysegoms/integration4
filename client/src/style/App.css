@@ -168,13 +168,14 @@ textarea {
 }
 
 /*Styling  mobile*/
+
 .header__image {
   width: 100vw;
   height: auto;
 }
 
 .headerIntro > p {
-  font-size: var(--font-size--intro);
+  font-size: 18px
 }
 
 .headerIntro {
@@ -184,7 +185,7 @@ textarea {
   justify-content: center;
   align-items: flex-start;
   gap: 3vh;
-  border-bottom: #2c2c2c solid 1px;
+  border-bottom: var(--color-black) solid 1px;
 }
 
 .headerIntro>p{
@@ -222,6 +223,23 @@ textarea {
   display: none;
 }
 
+.header-home__animation{
+  display: none;
+    width: 30vw;
+    margin-top: -95vh;
+    margin-left: 55vw;
+    animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 .header__image--desktop{
   display: none;
 }
@@ -238,7 +256,7 @@ textarea {
 
 .homeBeeld2Title > h2{
   writing-mode:vertical-lr;
-  transform: rotate(180deg);
+  transform: rotate(360deg);
   font-family: "anton", sans-serif;
   font-size: var(--font-size-h2);
 }
@@ -262,6 +280,10 @@ textarea {
 
 .tijdlijnLang{
   width: 20vw;
+}
+
+.tijdlijnLang-desktop{
+  display: none;
 }
 
 .tijdlijnFlex{
@@ -355,6 +377,10 @@ margin-top: -10vh;
 text-align: center;
 display: block;
 margin: 7.5vh auto 0;
+}
+
+.homeEindbeeld-desktop{
+  display: none;
 }
 
 /*OVER ONS*/
@@ -699,12 +725,6 @@ margin: 1vh 0 0;
   justify-content: space-between;
   align-items: flex-end;
 }
-
-  .headerHome__title{
-    padding-top: 8vh;
-    z-index: -1;
-    padding-left: 6vw;
-  }
 
 .locationIcon {
   width: 20px;
@@ -1061,8 +1081,7 @@ margin-bottom: 1vh;
 .header-home{
     display:  grid;
     grid-template-columns: 50vw 50vw;
-    grid-template-rows: 43vh 40vh;
-
+    grid-template-rows: 33vh 50vh;
     background-size: contain;
     border-bottom: #2c2c2c solid 1px;
   }
@@ -1074,7 +1093,7 @@ margin-bottom: 1vh;
     width: 60vw;
     z-index: -1;
     font-size: var(  --font-size-h1--home);
-    padding: 2vh 0 5vh 4vw;
+    padding: 12vh 0 5vh 4vw;
   }
 
   .headerImage{
@@ -1103,14 +1122,117 @@ margin-bottom: 1vh;
     padding: 0vh 4vw 0;
     justify-content: center;
     border: none;
-    margin-top: 7vh;
+    margin-top: 17vh;
 }
 
   .header-home__arrow{
     display: block;
-    transform: translate(-3vw, 28vh);
+    transform: translate(-3vw, 39vh);
   }
 
+  .tijdlijnLang{
+    display: none;
+  }
+
+  .homeBeeld2{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .homeBeeld2Title{
+    display: flex;
+    margin-right: 8vw;
+    flex-direction: row-reverse;
+    text-transform: uppercase;
+    padding-top: 8vh;
+  }
+ 
+  .homeBeeld2Title img {
+    margin-top: 15vh;
+    padding-right: 2vw;
+  }
+
+  .homeBeeld2Tekst{
+    margin-left: 3vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  .homeBeeld2Tekst p {
+    max-width: 35vw;
+  }
+
+  .tijdlijnLang-desktop{
+    display: block;
+    width: 10vw;
+    grid-column: 2;
+    margin-left: -3vw;
+    transform: translateX(1.5vw);
+  }
+
+  .homeBeeld3{
+    display: grid;
+    grid-template-columns: 44vw 6vw 44vw;
+    grid-template-rows: 18vh 5vh 10vh 43vh 15vh;
+    column-gap: 0;
+  }
+
+  .tijdlijn-beeld1{
+    grid-column: 1;
+    grid-row: 1 / 2;
+  }
+
+  .tijdlijn-beeld2{
+    grid-column: 3;
+    grid-row: 2/3;
+  }
+
+  .homeBeeld3Item{
+    grid-column: 1;
+    grid-row: 4 / 5;
+  }
+
+  .homeBeeld3ItemTekst p {
+    width: 25vw;
+  }
+
+  .homeBeeld3ItemTekst--2025 p {
+    width: 22vw;
+  }
+
+  .image2023{
+    transform: translateX(-52vw);
+    height: 30vh;
+  }
+
+  .image2025{
+    transform: translateX(-10vw);
+    height: 32vh;
+  }
+
+  .image2030{
+    transform: translateX(-48vw);
+    height: 20vh;
+  }
+
+  .homeEindbeeld{
+    display: none;
+  }
+
+  .homeEindbeeld-desktop{
+    display: block;
+    width: 38vw;
+    margin-left: 5vw;
+  }
   
+  .header-home__animation{
+    width: 8vw;
+    display: none;
+    margin-left: 45vw;
+    margin-top: -40vh;
+  }
 
 }
+
