@@ -1,0 +1,153 @@
+/* ALGEMENE STYLING */
+
+:root {
+    --color-black: #2c2c2c;
+    --color-white: #ffffff;
+    --color-green: #c6e7d4;
+    --color-purple: #927cd2;
+
+    --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 15vw), 30rem);
+    --font-size-h1--home: clamp(4.5rem, calc(1rem + 10vw), 14rem);
+    --font-size-h1: clamp(4.5rem, calc(1rem + 2.75vw), 15rem);
+    --font-size-large-h1: clamp(3rem, calc(1rem + 2.25vw), 15rem);
+    --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 1.5vw), 10rem);
+    --font-size--intro: clamp(1.1rem, calc(0.7rem + 1.25vw), 5rem);
+    --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 1.2vw), 6rem);
+    --font-size-h2: 20px;
+    /* nog aanpassen ! (voor responsive) */
+    --fontsize-h2-span: clamp(2.2rem, calc(2.4rem + 14vw), 10rem);
+    --font-size-h3: clamp(2rem, calc(1.3rem + 5vw), 6rem);
+    --fontsize-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 10rem);
+    --fontsize-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 9rem);
+    --font-size-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
+    --font-size--p: clamp(1rem, calc(0.9rem + 1vw), 1.2rem);
+    --font-size--footer: clamp(1.1rem, calc(0.6rem + 0.5vw), 1.4rem);
+    --font-size-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
+    --font-size--button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
+
+    --font-weight-body-copy: 300;
+    --font-weight-body-copy-title: 400;
+}
+
+html,
+body {
+padding: 0;
+margin: 0;
+font-family: "halyard-display", sans-serif;
+line-height: 1.3;
+overflow-x: hidden;
+}
+
+p {
+font-size: var(--font-size--p);
+font-weight: var(--font-weight-body-copy);
+font-style: normal;
+}
+
+h1 {
+font-family: "Anton", sans-serif;
+font-size: var(--font-size-h1);
+color: var(--color-black);
+padding: 0.5vh 0 2vh;
+padding-left: 4vw;
+line-height: 0.95;
+border-bottom: var(--color-black) solid 1px;
+}
+
+h1>span {
+color: var(--color-purple);
+}
+
+h2 {
+font-weight: var(--font-weight-body-copy-title);
+font-size: var(--font-size-h2);
+}
+
+h4 {
+font-weight: var(--font-weight-body-copy-title);
+}
+
+.uitroepteken {
+display: inline-block;
+font-family: "carbon", sans-serif;
+font-size: var(--font-size-uitroepteken);
+font-weight: 700;
+-webkit-text-stroke: 1px #fff;
+font-style: normal;
+transform: rotate(7deg);
+margin-left: -2vw;
+position: relative;
+top: 3.75vw;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+font-family: "halyard-display", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+* {
+box-sizing: border-box;
+}
+
+/* MOBILE */
+
+.stadsgids__title{
+    text-transform: uppercase;
+    line-height: .7;
+    border: none;
+    font-size: 48px;
+    width: 80vw;
+    transform: translateY(14vh);
+    rotate: -3deg;
+}
+
+.stadsgids__image{
+    width: 92vw;
+    margin-bottom: -1.5vh;
+}
+
+.stadsgids__image--desktop{
+    display: none;
+}
+
+.uitroepteken--stadsgids{
+    font-size: 80px
+}
+
+/* DESKTOP */
+
+@media screen and (min-width: 1000px) {
+
+    .stadsgids{
+        margin-top: -15vh;
+    }
+    
+    .stadsgids__title{
+        width: 30vw;
+        rotate: 7deg;
+        font-size: 68px;
+        line-height: .6;
+        transform: translate(15vw, 63vh);
+    }
+    
+    .uitroepteken--stadsgids{
+        font-size: 120px;
+    }
+    
+    .stadsgids__image{
+        display: none;
+    }
+    
+    .stadsgids__image--desktop{
+        display: block;
+        width: 45vw;
+        margin: auto;
+    }
+}
+
+
+
+

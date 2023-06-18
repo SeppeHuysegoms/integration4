@@ -37,20 +37,20 @@ export default function Index() {
     <div className="profiel">
       <header className="header--profiel">
         <h1 className="header__titel--profiel">
-          Profiel <span className="uitroepteken">!</span>
+          PROFIEL <span className="uitroepteken">!</span>
         </h1>
         <ul className="header__navigatie--profiel">
           <li>
-            <Link to="/profiel/#verhalen">Mijn verhalen</Link>
+            <a href="/profiel/#verhalen">Mijn verhalen</a>
           </li>
           <li>
-            <Link to="/profiel/#gegevens">Persoonlijke gegevens</Link>
+            <a href="/profiel/#gegevens">Accountgegevens</a>
           </li>
         </ul>
       </header>
 
       <div className="profiel__content">
-        <section className="mijnVerhalen">
+        <section className="mijnVerhalen" id="verhalen">
           <div className="flex mijnVerhalen__titel">
             <h2>Mijn verhalen</h2>
             <img src={bloemPaars} className="bloemTitel" alt="bloem" />
@@ -66,14 +66,30 @@ export default function Index() {
                       alt="location marker"
                     />
                     <h3>{story.title}</h3>
+
                   </div>
                   <p>{story.verhaal}</p>
+                  <p className="item__date--desktop">
+                    {splitDate(story.dateCreated)}
+                  </p>
                 </div>
                 <div className="item__change--mijnverhaal">
-                  <Link to={`/profielstory/${story.id}`}>
+                  <Link
+                    to={`/profielstory/${story.id}`}
+                    className="item__link--mobile"
+                  >
                     <img src={edit} alt="edit icon" />
                   </Link>
-                  <p>{splitDate(story.dateCreated)}</p>
+                  <p className="item__date--mobile">
+                    {splitDate(story.dateCreated)}
+                  </p>
+
+                  <Link
+                    to={`/profielstory/${story.id}`}
+                    className="item__link--desktop button button--white"
+                  >
+                    Bewerken
+                  </Link>
                 </div>
               </li>
             ))}
@@ -93,7 +109,7 @@ export default function Index() {
           <img src={connectie} className="connectie__image" alt="connectie" />
         </section>
 
-        <section className="personalData">
+        <section id="gegevens" className="personalData">
           <div>
             <div className="flex personalData__titel">
               <h2>Accountgegevens</h2>
@@ -116,9 +132,14 @@ export default function Index() {
             </ul>
           </div>
 
-          <Link to="/profielgegevens">
-            {" "}
+          <Link to="/profielgegevens" className="personalData__edit--mobile">
             <img src={edit} alt="edit icon" />
+          </Link>
+          <Link
+            to="/profielgegevens"
+            className="button button--white personalData__edit--desktop"
+          >
+            Bewerken
           </Link>
         </section>
       </div>

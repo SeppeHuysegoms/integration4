@@ -66,7 +66,7 @@ const Navbar = () => {
           />
           <p>© 2023 B(l)oeiend</p>
         </div>
-        <img src={footerImage} alt="footer image" />
+        <img  src={footerImage} alt="footer image" />
       </div>
     </div>
   );

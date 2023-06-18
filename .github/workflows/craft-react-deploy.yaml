@@ -13,7 +13,7 @@ env:
   WEB_PATH: ~/subsites/integration.seppehuysegoms.be
   SERVER_PATH: "server"
   CLIENT_PATH: "client"
-  REACT_APP_GOOGLE_MAPS_API_KEY: "AIzaSyB3c4tYr1B4VsVxsp7boVD0SPXoE6SnRHQ"
+  VITE_GOOGLE_MAPS_API_KEY: "AIzaSyDKzAepZI77BNnzoS0kUduapdkOi4wud2c"
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
