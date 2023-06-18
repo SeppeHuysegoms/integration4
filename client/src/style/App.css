@@ -399,7 +399,7 @@ textarea {
 }
 
 .header-about__image--mobile {
-  width: 50vw;
+  width: 45vw;
 }
 
 .header-about__image--desktop {
@@ -409,14 +409,14 @@ textarea {
 .header-about__title {
   text-transform: uppercase;
   border-bottom: none;
-  font-size: 50px;
+  font-size: 48px;
   z-index: 1;
   padding: 0;
   line-height: 0.8;
 }
 
 .uitroepteken--small {
-  font-size: 85px;
+  font-size: 80px;
 }
 
 .section-about h2 {
