@@ -9,7 +9,7 @@ import imageJaar3 from "../assets/images/imageJaar3.png";
 import homeEindbeeld from "../assets/images/HomeEindbeeld.png";
 import tijdlijnLang from "../assets/images/tijdlijnLang.png";
 import tijdlijnLangDesktop from "../assets/images/tijdlijnLang-desktop.png";
-import homeEindbeeldDesktop from "../assets/images/HomeEindbeeld-desktop.png";
+import homeEindbeeldDesktop from "../assets/images/homeEindbeeld-desktop.png";
 import homeAnimation from "../assets/images/home-animation.png";
 
 export default function Index() {
