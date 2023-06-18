@@ -1,4 +1,4 @@
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/images/logo.svg";
 import profiel from "../assets/images/profiel.svg";
@@ -8,12 +8,17 @@ import instagramPurple from "../assets/images/instagramPurple.svg";
 import facebookPurple from "../assets/images/facebookPurple.svg";
 const Navbar = () => {
   const [checked, setChecked] = useState(false);
-  const toggleChecked = () => setChecked(value => !value);
+  const toggleChecked = () => setChecked((value) => !value);
   return (
     <nav className="navbar">
       <div className="navbar--mobile">
         <div>
-          <input className="side-menu" type="checkbox" id="side-menu" onChange={toggleChecked} />
+          <input
+            className="side-menu"
+            type="checkbox"
+            id="side-menu"
+            onChange={toggleChecked}
+          />
           <label className="hamb" for="side-menu">
             <span className="hamb-line"></span>
           </label>
@@ -26,7 +31,7 @@ const Navbar = () => {
         </NavLink>
       </div>
 
-      <div className={"navMobile" + (checked ? ' showMenu' : '') }>
+      <div className={"navMobile" + (checked ? " showMenu" : "")}>
         <ul className="menuMobile">
           <li className="navbar__item">
             <NavLink className="navbar__link" to="/">
@@ -79,33 +84,48 @@ const Navbar = () => {
         </div>
       </div>
 
-      <ul className="navbar__list--desktop">
-        <li className="navbar__item">
-          <NavLink className="navbar__link" to="/">
-            Home
-          </NavLink>
-        </li>
-        <li className="navbar__item">
-          <NavLink className="navbar__link" to="kaart">
-            Kaart
-          </NavLink>
-        </li>
-        <li className="navbar__item">
-          <NavLink className="navbar__link" to="overons">
-            Over ons
-          </NavLink>
-        </li>
-        <li className="navbar__item">
-          <NavLink className="navbar__link" to="stadsgids">
-            Stadsgids
-          </NavLink>
-        </li>
-        <li className="navbar__item">
-          <NavLink className="navbar__link" to="profiellogin">
-            Profiel
-          </NavLink>
-        </li>
-      </ul>
+      <div className="flex  navfooter navFooter--desktop">
+        <img src={zoek} alt="vergrootglas" />
+        <div className="taalDesktop">
+          <p className="taalActive">nl</p>
+          <p className="fr">fr</p>
+          <p>eng</p>
+        </div>
+      </div>
+
+      <div className="navbar--desktop">
+        <NavLink className="navbar__logo" to="/">
+          <img src={logo} alt="logo bloeiend" />
+        </NavLink>
+
+        <ul className="navbar__list--desktop">
+          <li className="navbar__item">
+            <NavLink className="navbar__link button button--white" to="kaart">
+              <img
+                src={arrow}
+                alt="arrow"
+                className="arrowButton arrowButton--white "
+              />
+              Kaart
+            </NavLink>
+          </li>
+          <li className="navbar__item">
+            <NavLink className="navbar__link" to="overons">
+              Over ons
+            </NavLink>
+          </li>
+          <li className="navbar__item">
+            <NavLink className="navbar__link" to="stadsgids">
+              Stadsgids
+            </NavLink>
+          </li>
+          <li className="navbar__item">
+            <NavLink className="navbar__link" to="profiellogin">
+              <img src={profiel} alt="profiel" />
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
