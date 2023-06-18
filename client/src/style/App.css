@@ -427,9 +427,7 @@ textarea {
   }
 }
 
-.header__image--desktop {
-  display: none;
-}
+
 
 .homeBeeld2 {
   display: flex;
@@ -1310,7 +1308,7 @@ input[type="password"] {
     display: none;
   }
 
-  .header__image--desktop {
+  .header__image{
     grid-column: 2/-1;
     justify-self: end;
     grid-row: 2 / 1;

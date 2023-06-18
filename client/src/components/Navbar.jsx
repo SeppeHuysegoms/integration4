@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/images/logo.svg";
 import profiel from "../assets/images/profiel.svg";
 import arrow from "../assets/images/arrow.svg";
@@ -8,9 +8,13 @@ import instagramPurple from "../assets/images/instagramPurple.svg";
 import facebookPurple from "../assets/images/facebookPurple.svg";
 const Navbar = () => {
   const [checked, setChecked] = useState(false);
+
   const toggleChecked = () => setChecked((value) => !value);
   const location = useLocation();
-  console.log(location);
+
+    useEffect(() => {
+      setChecked(false);
+    }, [location]);
   return (
     <nav className="navbar">
       <div className="navbar--mobile">
@@ -19,13 +23,14 @@ const Navbar = () => {
             className="side-menu"
             type="checkbox"
             id="side-menu"
+            checked={checked}
             onChange={toggleChecked}
           />
           <label className="hamb" htmlFor="side-menu">
             <span className="hamb-line"></span>
           </label>
         </div>
-        <NavLink className="navbar__link" to="/">
+        <NavLink className="navbar__link"  to="/">
           <img src={logo} alt="logo bloeiend" />
         </NavLink>
         <NavLink className="navbar__link" to="profiellogin">
@@ -105,9 +110,7 @@ const Navbar = () => {
             <NavLink
               className={
                 "navbar__link button button--white " +
-                (location.pathname == "/kaart"
-                  ? "button--active"
-                  : "")
+                (location.pathname == "/kaart" ? "button--active" : "")
               }
               to="kaart"
             >

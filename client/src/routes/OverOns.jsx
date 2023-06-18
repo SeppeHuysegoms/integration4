@@ -39,7 +39,7 @@ export default function Index() {
               voel jij je thuis in deze stad?
             </p>
             <Link to="/plant" className="button button--about">
-              <img className="arrowButton" src={arrow}></img> 
+              <img className="arrowButton" src={arrow}alt="arrow" />
               Plant een bloem
             </Link>
         </div>
@@ -64,7 +64,7 @@ export default function Index() {
             de culturele hoofdstad, hebben wij jouw hulp hier voor nodig.
           </p>
           <a href="https://www.kortrijk2030.be/" className="button button--about">
-              <img className="arrowButton" src={arrow}></img> Ontdek meer
+              <img className="arrowButton" src={arrow} alt="arrow"></img> Ontdek meer
           </a>
         </div>
       </section>

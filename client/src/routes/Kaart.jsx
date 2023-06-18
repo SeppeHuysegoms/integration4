@@ -67,16 +67,19 @@ const App = () => {
             <source
               media="(min-width: 800px)"
               srcSet={bloeiendePlekkenDesktop}
+              className="header__image--kaart"
             />
             <source
               media="(min-width: 300px)"
               srcSet={bloeiendePlekkenMobile}
+              className="header__image--kaart"
+              
             />
 
             <img
               src={bloeiendePlekkenMobile}
               alt="skatepark kortrijk"
-              className="header__image header__image--kaart"
+              className="header__image--kaart"
             />
           </picture>
         </div>
