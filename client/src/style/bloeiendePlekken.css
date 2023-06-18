@@ -31,6 +31,7 @@
   --font-weight-body-copy-title: 400;
 }
 .black {
+
   background-color: var(--color-black);
   padding-bottom: -5vh;
   padding: 6vh 0 0vh 0;
@@ -56,6 +57,7 @@
 }
 
 .header__image--kaart {
+    vertical-align: top;
   width: 100vw;
   height: auto;
   object-fit: cover;
@@ -115,14 +117,10 @@
 }
 
 .list__item--kaart > p {
-  width: 27.5vw;
   text-align: center;
   margin: 1.75vh auto;
 }
 
-.list__item--kaart:last-child > p {
-  width: 38.5vw;
-}
 
 .item__animatie--klok {
   position: relative;
@@ -400,6 +398,7 @@ gm-style-iw-c {
 
 @media screen and (min-width: 800px) {
   .black {
+    display: inline-block;
     padding: 0vh 0 0vh 0;
     display: flex;
     flex-direction: row-reverse;
@@ -477,13 +476,7 @@ gm-style-iw-c {
     order: 1;
   }
 
-  .list__item--kaart > p {
-    max-width: 10vw;
-  }
-
-  .list__item--kaart:last-child > p {
-    max-width: 15vw;
-  }
+ 
 
   .item__animatie--klok {
     width: 10vw;

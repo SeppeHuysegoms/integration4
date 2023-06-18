@@ -21,7 +21,7 @@ export default function Index() {
             alt="header beeld bloemen" 
           />
           <h1 className="header-about__title"> Over ons 
-            <span className="uitroepteken uitroepteken--small">!</span>
+            <span className="uitroepteken">!</span>
           </h1>
       </section>
       <section className="section-about">

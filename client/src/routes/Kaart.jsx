@@ -68,13 +68,16 @@ const App = () => {
               media="(min-width: 800px)"
               srcSet={bloeiendePlekkenDesktop}
             />
-            <source media="(min-width: 300px)" srcSet={bloeiendePlekkenMobile} />
-            
-          <img
-            src={bloeiendePlekkenMobile}
-            alt="skatepark kortrijk"
-            className="header__image header__image--kaart"
-          />
+            <source
+              media="(min-width: 300px)"
+              srcSet={bloeiendePlekkenMobile}
+            />
+
+            <img
+              src={bloeiendePlekkenMobile}
+              alt="skatepark kortrijk"
+              className="header__image header__image--kaart"
+            />
           </picture>
         </div>
 
@@ -95,12 +98,16 @@ const App = () => {
           <li className="list__item--kaart">
             <Lottie animationData={klok} className="item__animatie--klok" />
             <h2>{difference}</h2>
-            <p>Dagen om deel te nemen</p>
+            <p>
+              Dagen om deel <br /> te nemen
+            </p>
           </li>
           <li className="list__item--kaart">
             <Lottie animationData={plant} className="item__animatie--plant" />
             <h2>{stories.length}</h2>
-            <p>Zaadjes geplant</p>
+            <p>
+              Zaadjes <br /> geplant
+            </p>
           </li>
           <li className="list__item--kaart">
             <Lottie
@@ -108,7 +115,9 @@ const App = () => {
               className="item__animatie--locatie"
             />
             <h2>{locations.length}</h2>
-            <p>Verschillende b(l)oeiende plekken</p>
+            <p>
+              Verschillende <br /> b(l)oeiende plekken
+            </p>
           </li>
         </ul>
       </section>
