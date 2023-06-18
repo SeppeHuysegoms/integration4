@@ -98,7 +98,7 @@ h4 {
 }
 
 .navFooter--desktop{
-  display: none !important;
+  display: none;
 }
 
 .navFooter > .flex {
@@ -247,6 +247,10 @@ display: block;
     display: none;
   }
 
+  .navFooter--desktop{
+  display: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -296,6 +300,16 @@ a {
   display: flex;
   gap: 2rem;
 }
+
+.navbar__item:hover{
+  color: #927cd2;
+}
+
+.navbar__link--active{
+  color: #927cd2;
+}
+
+
 
 .markerBloem {
   object-fit: cover;
@@ -813,6 +827,15 @@ input[type="password"] {
   color: var(--color-white);
   background-color: var(--color-black);
   border: var(--color-white) solid 1px;
+}
+
+.button--active{
+  color: #927cd2;
+  border: #927cd2 solid 1px;
+}
+
+.button--active>.arrowButton{
+  filter:  brightness(0) saturate(100%) invert(61%) sepia(11%) saturate(1948%) hue-rotate(213deg) brightness(86%) contrast(91%);
 }
 
 .login__eindbeeld {
@@ -1444,6 +1467,7 @@ input[type="password"] {
 }
 
 .navFooter--desktop{
+  display: flex;
   justify-content: end;
   gap: 3vw;
   padding : 2vh 8vw 0;

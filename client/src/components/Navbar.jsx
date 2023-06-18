@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/images/logo.svg";
 import profiel from "../assets/images/profiel.svg";
@@ -9,6 +9,8 @@ import facebookPurple from "../assets/images/facebookPurple.svg";
 const Navbar = () => {
   const [checked, setChecked] = useState(false);
   const toggleChecked = () => setChecked((value) => !value);
+  const location = useLocation();
+  console.log(location);
   return (
     <nav className="navbar">
       <div className="navbar--mobile">
@@ -19,7 +21,7 @@ const Navbar = () => {
             id="side-menu"
             onChange={toggleChecked}
           />
-          <label className="hamb" for="side-menu">
+          <label className="hamb" htmlFor="side-menu">
             <span className="hamb-line"></span>
           </label>
         </div>
@@ -84,7 +86,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex  navfooter navFooter--desktop">
+      <div className="navfooter navFooter--desktop">
         <img src={zoek} alt="vergrootglas" />
         <div className="taalDesktop">
           <p className="taalActive">nl</p>
@@ -100,7 +102,15 @@ const Navbar = () => {
 
         <ul className="navbar__list--desktop">
           <li className="navbar__item">
-            <NavLink className="navbar__link button button--white" to="kaart">
+            <NavLink
+              className={
+                "navbar__link button button--white " +
+                (location.pathname == "/kaart"
+                  ? "button--active"
+                  : "")
+              }
+              to="kaart"
+            >
               <img
                 src={arrow}
                 alt="arrow"
@@ -110,12 +120,26 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="navbar__item">
-            <NavLink className="navbar__link" to="overons">
+            <NavLink
+              className={
+                "navbar__link " +
+                (location.pathname === "/overons" ? "navbar__link--active" : "")
+              }
+              to="overons"
+            >
               Over ons
             </NavLink>
           </li>
           <li className="navbar__item">
-            <NavLink className="navbar__link" to="stadsgids">
+            <NavLink
+              className={
+                "navbar__link " +
+                (location.pathname == "/stadsgids"
+                  ? "navbar__link--active "
+                  : "")
+              }
+              to="stadsgids"
+            >
               Stadsgids
             </NavLink>
           </li>
