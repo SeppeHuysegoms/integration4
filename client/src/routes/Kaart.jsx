@@ -408,7 +408,7 @@ const Bloeiend = ({ map, stories }) => {
                ) +
                ` 
            </ul></div>`
-           );
+           )
            infoWindow.open(marker.map, marker);
            map.setCenter({
              lat: position.lat(),
