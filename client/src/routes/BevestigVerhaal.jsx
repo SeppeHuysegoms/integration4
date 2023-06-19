@@ -46,7 +46,6 @@ const Bevestig = () => {
       <h2>Gekozen plek</h2>
       <p>{locatieNaam}</p>
       <h2>Persoonlijk verhaal</h2>
-
       <p>{verhaal}</p>
       <h2>Gelukt!</h2>
       <p>Je kunt nu je verhaal planten!</p>

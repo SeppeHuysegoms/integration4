@@ -1,7 +1,17 @@
 import localforage from "localforage";
 import { graphQLRequest } from "./utils/graphql.js";
 
-export async function register(name, email, password) {
+export async function register(
+  name,
+  email,
+  password,
+  verhaal,
+  locatieNaam,
+  placeId,
+  lat,
+  lng,
+  adres
+) {
   console.log("registering", email, password, name);
   const result = await graphQLRequest(
     `mutation MyMutation {
@@ -15,7 +25,19 @@ export async function register(name, email, password) {
 }`
   );
 
-  console.log("authenticate result", result);
+  console.log("register result", result.data.register);
+  console.log("register result", result.data.register.jwt);
+
+  plantVerhaal(
+    lat,
+    lng,
+    placeId,
+    locatieNaam,
+    verhaal,
+    adres,
+    result.data.register.user.id,
+    result.data.register.jwt
+  );
   return result.data.register;
 }
 
@@ -59,12 +81,6 @@ export async function plantVerhaal(
     jwt
   );
 
-  if (result.errors) {
-    throw new Error(result.errors[0].debugMessage);
-    return null;
-  } else {
-    return result.data.entries[0];
-  }
 }
 
 export async function getStories() {

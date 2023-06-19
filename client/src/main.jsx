@@ -21,7 +21,6 @@ import Bevestig from "./routes/Bevestig";
 import BevestigVerhaal, {action as bevestigVerhaalAction,} from "./routes/BevestigVerhaal";
 import Stadsgids from "./routes/Stadsgids";
 import SelecteerLocatie from "./routes/SelecteerLocatie";
-import Locatie from "./routes/Locatie";
 import SchrijfVerhaal from "./routes/SchrijfVerhaal";
 import Error from "./components/Error";
 import { Wrapper } from "@googlemaps/react-wrapper";
@@ -74,10 +73,6 @@ const router = createBrowserRouter([
           {
             path: "selecteerlocatie",
             element: <SelecteerLocatie />,
-          },
-          {
-            path: "locatie",
-            element: <Locatie />,
           },
           {
             path: "schrijfverhaal",

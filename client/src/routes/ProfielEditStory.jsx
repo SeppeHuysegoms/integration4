@@ -45,67 +45,141 @@ export default function Index() {
   console.log(profileData);
   console.log(editStory);
   return (
-    <>
-      <h1> Profiel </h1>
-      <ul>
-        <li>
-          <Link to="/profiel/#verhalen">Mijn verhalen</Link>
-        </li>
-        <li>
-          <Link to="/profiel/#gegevens">Persoonlijke gegevens</Link>
-        </li>
-      </ul>
+    <div className="profiel">
+      <header className="header--profiel">
+        <h1 className="header__titel--profiel">
+          PROFIEL <span className="uitroepteken">!</span>
+        </h1>
+        <ul className="header__navigatie--profiel">
+          <li>
+            <a href="/profiel/#verhalen">Mijn verhalen</a>
+          </li>
+          <li>
+            <a href="/profiel/#gegevens">Accountgegevens</a>
+          </li>
+        </ul>
+      </header>
 
-      <h2 id="verhalen">Seppe's verhalen</h2>
+      <div className="profiel__content">
+        <section className="mijnVerhalen" id="verhalen">
+          <div className="flex mijnVerhalen__titel">
+            <h2>Mijn verhalen</h2>
+            <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+          </div>
+          <ul className="mijnVerhalen__list">
+            {stories.map((story) => {
+              if (story.id == editStory) {
+                return (
+                  <li key={story.id}>
+                    <h3>{story.title}</h3>
+                    <Form method="post" id="contact-form">
+                      <label className="flexColumn">
+                        <span>Verhaal</span>
+                        <textarea
+                          type="text"
+                          name="verhaal"
+                          placeholder="Verhaal"
+                          defaultValue={story.verhaal}
+                        />
+                      </label>
+                      <Link to={`/profiel`}
+                      className="button button-white"
+                      >
+                        Annuleer
+                      </Link>
+                      <button type="submit ">Opslaan</button>
+                    </Form>
+                  </li>
+                );
+              }
+              return (
+                <li key={story.id} className="list__item--mijnVerhalen">
+                  <div className="item__content--mijnVerhalen">
+                    <div className="item__titel--mijnVerhalen">
+                      <img
+                        src={location}
+                        className="locationIcon"
+                        alt="location marker"
+                      />
+                      <h3>{story.title}</h3>
+                    </div>
+                    <p>{story.verhaal}</p>
+                    <p className="item__date--desktop">
+                      {splitDate(story.dateCreated)}
+                    </p>
+                  </div>
+                  <div className="item__change--mijnverhaal">
+                    <Link
+                      to={`/profielstory/${story.id}`}
+                      className="item__link--mobile"
+                    >
+                      <img src={edit} alt="edit icon" />
+                    </Link>
+                    <p className="item__date--mobile">
+                      {splitDate(story.dateCreated)}
+                    </p>
 
-      <ul>
-        {stories.map((story) => {
-          if (story.id == editStory) {
-            return (
-              <li key={story.id}>
-                <h3>{story.title}</h3>
-                <Form method="post" id="contact-form">
-                  <label className="flexColumn">
-                    <span>Verhaal</span>
-                    <textarea
-                      type="text"
-                      name="verhaal"
-                      placeholder="Verhaal"
-                      defaultValue={story.verhaal}
-                    />
-                  </label>
-                  <button type="submit ">Opslaan</button>
-                </Form>
+                    <Link
+                      to={`/profielstory/${story.id}`}
+                      className="item__link--desktop button button--white"
+                    >
+                      Bewerken
+                    </Link>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        <section className="connectie">
+          <h3>Maak de connectie</h3>
+          <p>
+            Benieuwd hoe andere een connectie hebben met jouw gekozen plek?
+            Bekijk hun verhalen via de kaart.
+          </p>
+          <Link to="/kaart" className="button button--white">
+            <img className="arrowButton" src={arrow}></img>
+            Bekijk de kaart
+          </Link>
+          <img src={connectie} className="connectie__image" alt="connectie" />
+        </section>
+
+        <section id="gegevens" className="personalData">
+          <div>
+            <div className="flex personalData__titel">
+              <h2>Accountgegevens</h2>
+              <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+            </div>
+            <h2 id="gegevens"></h2>
+            <ul className="personalData__list">
+              <li className="list__item--personalData">
+                <h3>Naam</h3>
+                <p>{profileData.username}</p>
               </li>
-            );
-          }
-          return (
-            <li key={story.id}>
-              <h3>{story.title}</h3>
-              <p>{story.verhaal}</p>
-              <p>{splitDate(story.dateCreated)}</p>
-              <Link to={`/profielstory/${story.id}`}>Bewerken</Link>
-            </li>
-          );
-        })}
-      </ul>
+              <li className="list__item--personalData">
+                <h3>E-mail</h3>
+                <p>{profileData.email}</p>
+              </li>
+              <li className="list__item--personalData">
+                <h3>Wachtwoord</h3>
+                <p>******</p>
+              </li>
+            </ul>
+          </div>
 
-      <h3>Maak de connectie</h3>
-      <p>
-        Benieuwd hoe andere een connectie hebben met jouw gekozen plek? Bekijk
-        hun verhalen via de kaart.
-      </p>
-      <Link to="/kaart">Bekijk de kaart</Link>
-
-      <h2 id="gegevens">Persoonlijke gegevens</h2>
-      <p>Naam</p>
-      <p>{profileData.username}</p>
-      <p>Email</p>
-      <p>{profileData.email}</p>
-      <p>Wachtwoord</p>
-      <p></p>
-      <Link to="/profielgegevens">Bewerken</Link>
-    </>
+          <Link to="/profielgegevens" className="personalData__edit--mobile">
+            <img src={edit} alt="edit icon" />
+          </Link>
+          <Link
+            to="/profielgegevens"
+            className="button button--white personalData__edit--desktop"
+          >
+            Bewerken
+          </Link>
+        </section>
+      </div>
+    </div>
   );
 }
 

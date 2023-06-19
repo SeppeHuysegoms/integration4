@@ -28,21 +28,16 @@ let feedbackLoggedIn;
        }
   return (
     <>
-      <header class="header-home">
-        
-        <picture className="headerImage">
+      <header className="header-home">
+        <picture className="header__image">
           <source
-            media="(min-width: 850px)"
-            sizes="(min-width: 850px) 100vw, 850px"
-            srcSet={"{headerMobile} 850w,"}
+            media="(min-width: 1000px)"
+            srcSet={headerDesktop}
           />
-          <img src={headerMobile} alt="header" className="header__image header__image--mobile" />
+          <source media="(min-width: 250px)" srcSet={headerMobile} className="header__image--mobile" />
+          <img src={headerMobile} className="header__image" />
         </picture>
-        <img 
-          src={headerDesktop} 
-          alt="header"
-          className="header__image header__image--desktop"
-        />
+
         <h1 className="headerHome__title">
           B<span>L</span>OEIEND
           <span className="uitroepteken">!</span>
@@ -57,13 +52,17 @@ let feedbackLoggedIn;
             <img className="arrowButton" src={arrow}></img> Hell yeah !
           </a>
         </div>
-        <img src={arrowThin} alt="dun pijltje" className="header-home__arrow"/>
-        <img src={homeAnimation} alt="dun pijltje" className="header-home__animation"/>
+        <img src={arrowThin} alt="dun pijltje" className="header-home__arrow" />
+        <img
+          src={homeAnimation}
+          alt="dun pijltje"
+          className="header-home__animation"
+        />
       </header>
       <section className="homeBeeld2">
         <div className="homeBeeld2Title">
           <h2>De tijdslijn</h2>
-          <img class="arrow-thin" src={arrowThin} alt="arrow thin" />
+          <img className="arrow-thin" src={arrowThin} alt="arrow thin" />
         </div>
         <div className="homeBeeld2Tekst">
           <h2>B(l)oeiend 2030</h2>
@@ -79,9 +78,17 @@ let feedbackLoggedIn;
         </div>
       </section>
       <section className="tijdlijnFlex">
-        <img src={tijdlijnLang} className="tijdlijnLang" alt="afbeelding tijdlijn" />
+        <img
+          src={tijdlijnLang}
+          className="tijdlijnLang"
+          alt="afbeelding tijdlijn"
+        />
         <ul className="homeBeeld3">
-        <img src={tijdlijnLangDesktop} className="tijdlijnLang-desktop" alt="afbeelding tijdlijn" />
+          <img
+            src={tijdlijnLangDesktop}
+            className="tijdlijnLang-desktop"
+            alt="afbeelding tijdlijn"
+          />
           <li className="tijdlijn-beeld1">
             <div className="homeBeeld3Item">
               <img
@@ -93,11 +100,12 @@ let feedbackLoggedIn;
               <div className="homeBeeld3ItemTekst">
                 <h4>Plant jouw verhaal</h4>
                 <p>
-                  Laat jouw plek b(l)oeien via de website of vind ons gewoonweg op
-                  de straten en ontvang een leuke extra.
+                  Laat jouw plek b(l)oeien via de website of vind ons gewoonweg
+                  op de straten en ontvang een leuke extra.
                 </p>
                 <Link to="/plant" className="button">
-                  <img className="arrowButton" src={arrow}></img> Plant een bloem
+                  <img className="arrowButton" src={arrow}></img> Plant een
+                  bloem
                 </Link>
               </div>
             </div>
@@ -116,8 +124,8 @@ let feedbackLoggedIn;
                 <p>
                   Tot 2025 krijg je de kans om jouw verhaal te planten. Via de
                   kaart op deze website, kan je ook andere b(l)oeiende verhalen
-                  ontdekken. Op deze manier kom je in contact met elkaar en leg je
-                  connecties, ideaal om de stad nog beter te leren kennen én
+                  ontdekken. Op deze manier kom je in contact met elkaar en leg
+                  je connecties, ideaal om de stad nog beter te leren kennen én
                   begrijpen.
                 </p>
                 <Link to="/kaart" className="button">
@@ -131,8 +139,8 @@ let feedbackLoggedIn;
                 </p>
                 <p>
                   Deze stadsgids zal volledig door jullie opgesteld worden, over
-                  een periode van 5 jaar. Jullie krijgen de kans te bepalen wat we
-                  schrijven en op basis hiervan wordt een route bepaald.
+                  een periode van 5 jaar. Jullie krijgen de kans te bepalen wat
+                  we schrijven en op basis hiervan wordt een route bepaald.
                 </p>
                 <Link to="/stadsgids" className="button">
                   <img className="arrowButton" src={arrow} />
@@ -160,7 +168,11 @@ let feedbackLoggedIn;
           </li>
         </ul>
       </section>
-      <img src={homeEindbeeldDesktop} className="homeEindbeeld-desktop"  alt="compositie" />
+      <img
+        src={homeEindbeeldDesktop}
+        className="homeEindbeeld-desktop"
+        alt="compositie"
+      />
       <img src={homeEindbeeld} className="homeEindbeeld" alt="compositie" />
     </>
   );
