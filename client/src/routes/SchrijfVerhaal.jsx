@@ -4,7 +4,9 @@ import bloemPaars from "../assets/images/bloemPaars.svg";
 import arrow from "../assets/images/arrow.svg";
 import "../style/insturen.css";
 import verhaalSchrijven from "../assets/verhaalSchrijven.gif";
+import schrijfVerhaalDesktop from "../assets/images/schrijfVerhaal--desktop.svg";
 import NavForm from "../components/NavForm";
+
 
 export default function Index() {
   const [characters, setCharacters] = useState(0);
@@ -39,26 +41,34 @@ export default function Index() {
   }
 
   return (
-    <>
+    <div className="schrijfVerhaal">
       <NavForm step={2} />
-      <header className="header--insturen">
-        <h1 className="insturen__titel"> Schrijf je verhaal </h1>;
-        <img src={bloemPaars} className="bloemTitel" alt="bloem" />
-      </header>
 
-      <section className="section--insturen section--verhaal">
-        <p>
-          Ideaal! Nu jouw plaats gekozen is, kan je een persoonlijke boodschap
-          mee sturen.
-        </p>
-        <p>Waarom deze plek? Wat maakt deze plek voor jou zo bijzonder?</p>
+      <div className="schrijfVerhaal__content">
+        <header className="header--insturen header--schrijf">
+          <h1 className="insturen__titel"> Schrijf je verhaal </h1>;
+          <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+        </header>
 
-        <img
-          src={verhaalSchrijven}
-          className="verhaalSchrijvenAnimatie"
-          alt="verhaal schrijven"
-        />
-      </section>
+        <section className="section--insturen section--verhaal">
+          <p>
+            Ideaal! Nu jouw plaats gekozen is, kan je een persoonlijke boodschap
+            mee sturen.
+          </p>
+          <p>Waarom deze plek? Wat maakt deze plek voor jou zo bijzonder?</p>
+
+          <img
+            src={verhaalSchrijven}
+            className="verhaalSchrijvenAnimatie"
+            alt="verhaal schrijven"
+          />
+          <img
+            src={schrijfVerhaalDesktop}
+            className="schrijfVerhaalDesktop"
+            alt="compositie figuren"
+          />
+        </section>
+      </div>
 
       <section className="section--insturen section--verhaalTypen">
         <label className="insturen__form">
@@ -79,11 +89,10 @@ export default function Index() {
           {" "}
           Characters left: {500 - characters}
         </p>
-        <Bevestig story={story} />
-  
-     
+          <Bevestig story={story} />
+
       </section>
-    </>
+    </div>
   );
 }
 
@@ -91,7 +100,7 @@ function Bevestig({ story }) {
   console.log(story);
   if (story == undefined || story == null || story == "") {
     return (
-      <div className="button button--white button--verhaal button--disabled">
+      <div className="button button--white button--verhaal button--disabled button--bevestigVerhaal">
         <img src={arrow} alt="arrow" className="arrowButton" />
         <p>Naar bevestigingsscherm</p>
       </div>
@@ -104,9 +113,8 @@ function Bevestig({ story }) {
           localStorage.setItem("story", story);
           window.scroll(0, 0);
         }}
- 
         to="/register"
-        className="button button--verhaal button--white"
+        className="button button--verhaal button--white button--bevestigVerhaal"
       >
         <img src={arrow} alt="arrow" className="arrowButton" />
         Naar bevestigingsscherm

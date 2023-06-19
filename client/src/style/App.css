@@ -32,6 +32,7 @@
 /*Algemene styling*/
 html,
 body {
+  scroll-behavior: smooth;
   padding: 0;
   margin: 0;
   font-family: "halyard-display", sans-serif;
@@ -371,6 +372,7 @@ textarea {
 .header__image {
   width: 100vw;
   height: auto;
+
 }
 
 .headerIntro > p {
@@ -476,6 +478,8 @@ textarea {
 }
 
 .tijdlijnLang {
+  align-self: stretch;
+  height: 100%;
   width: 20vw;
 }
 
@@ -488,6 +492,7 @@ textarea {
   margin-left: 2.5vw;
   margin-right: 2vw;
   padding-top: 4vh;
+  
 }
 
 .homeBeeld3 {
@@ -584,7 +589,6 @@ textarea {
   display: flex;
   flex-direction: row-reverse;
   border-bottom: var(--color-black) solid 1px;
-  border-top: var(--color-black) solid 1px;
   align-items: end;
 }
 
@@ -929,8 +933,22 @@ input[type="password"] {
 }
 
 .item__titel--mijnVerhalen {
+  display: flex;
+    gap: 1.5vw;
   margin-bottom: 1.75vh;
 }
+
+.list__item--mijnVerhalen--edit{
+  padding: 0 0 2vh;
+    border-bottom: #2c2c2c solid 1px;
+}
+
+.verhaal--edit{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 .item__change--mijnverhaal {
   display: flex;
@@ -942,6 +960,34 @@ input[type="password"] {
 .locationIcon {
   width: 20px;
   height: auto;
+}
+
+.verhaalEdit__textarea{
+  width: 92vw;
+  height: 20vh;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+  font-family: "halyard-display", sans-serif;
+  font-weight: var(--font-weight-body-copy);
+  margin-bottom: 2vh;
+}
+
+.buttonsEdit{
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+  align-items: center;
+  width: 92vw;
+}
+
+.button--purple{
+  background-color: var(--color-purple);
+}
+.button--purple:hover{
+  background-color: var(--color-purple-dark);
+  color: #ffffff;
 }
 
 .connectie {
@@ -1084,6 +1130,7 @@ input[type="password"] {
   }
 
   .profielLogin__Niew {
+    margin: 0;
     padding: 20vh 0vw 0 4vw;
     width: 50vw;
   }
@@ -1096,11 +1143,7 @@ input[type="password"] {
     display: flex;
   }
 
-  .login__eindbeeld {
-    margin: 8.5vh 0 0 auto;
-    max-width: 40vw;
-    display: block;
-  }
+
 
   /*FOOTER*/
 
@@ -1159,7 +1202,7 @@ input[type="password"] {
   }
 
   .login__eindbeeld {
-    margin: 8.5vh 0 0 auto;
+    margin: -0.75vh 0 0 auto;
     max-width: 40vw;
     display: block;
   }
@@ -1470,7 +1513,7 @@ input[type="password"] {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 8vw 0 5vw;
+    padding: 0 8vw 1.5vh 8vw;
     border-bottom: #2c2c2c solid 1px;
 
 
@@ -1485,7 +1528,7 @@ input[type="password"] {
     display: none;
   }
 
-  .button {
+  .navbar--desktop>ul>li>.button {
     padding: 1vh 2vw;
 }
 
@@ -1493,7 +1536,7 @@ input[type="password"] {
   display: flex;
   justify-content: end;
   gap: 3vw;
-  padding : 2vh 8vw 0;
+  padding : 2vh 8vw 0.5vh;
   margin-bottom: -1.5vh;
 }
 
@@ -1506,6 +1549,18 @@ input[type="password"] {
 
 .taalDesktop>p{
   font-size: var(--font-size--footer);
+}
+
+.verhaalEdit__textarea{
+  width: 57vw;
+  height: 25vh;
+}
+.buttonsEdit {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    align-items: center;
+    width: 92vw;
 }
 
 }

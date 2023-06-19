@@ -1,13 +1,28 @@
-import { redirect, Link } from "react-router-dom";
+import { redirect, Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import bloemPaars from "../assets/images/bloemPaars.svg";
 import arrow from "../assets/images/arrow.svg";
 import "../style/insturen.css";
 import Lottie from "lottie-react";
 import klaar from "../assets/klaar.json";
 import NavForm from "../components/NavForm";
-const Bevestig = () => {
-  const verhaal = localStorage.getItem("story");
-  const locatieNaam = localStorage.getItem("locatieNaam");
+
+export default function Bevestig() {
+  const navigate = useNavigate();
+  console.log("login");
+  console.log(localStorage.getItem("story"));
+      /*useEffect(() => {
+        if (
+          localStorage.getItem("story") == null ||
+          (localStorage.getItem("story") == undefined &&
+            localStorage.getItem("jwt") == null) ||
+          localStorage.getItem("jwt") == undefined
+        ) {
+          console.log("redirect");
+
+          navigate("/schrijfverhaal");
+        }
+      });*/
 
    localStorage.removeItem("locatieNaam");
    localStorage.removeItem("placeId");
@@ -16,10 +31,11 @@ const Bevestig = () => {
    localStorage.removeItem("adres");
    localStorage.removeItem("story");
   return (
-    <>
+    <div className="bevestig">
       <NavForm step={4} />
-      <header className="header--insturen">
-        <h1 className="insturen__titel"> Klaar! </h1>;
+      <div className="bevestig__content">
+      <header className="header--insturen header--bevestig">
+        <h1 className="insturen__titel"> Klaar! </h1>
         <img src={bloemPaars} className="bloemTitel" alt="bloem" />
       </header>
       <section className="section--insturen section--bevestiging">
@@ -31,7 +47,7 @@ const Bevestig = () => {
         </p>
         <Link
           className="button button--white button--verhaal button--bevestig"
-          to="/plant"
+          to="/kaart"
         >
           <img className="arrowButton" src={arrow}></img>
           Bekijk de kaart
@@ -39,10 +55,10 @@ const Bevestig = () => {
         <Link to="/profiel" className="link--bevestig">
           Naar profiel
         </Link>
-        <Lottie animationData={klaar} className="bevestiging__animatie" />
       </section>
-    </>
+      </div>
+      <Lottie animationData={klaar} className="bevestiging__animatie" />
+    </div>
   );
 };
 
-export default Bevestig;

@@ -2,6 +2,11 @@ import { Link, useLoaderData, Form, redirect } from "react-router-dom";
 import { getPersonalStories } from "../entries";
 import { getProfileData } from "../entries";
 import { editStory } from "../entries";
+import bloemPaars from "../assets/images/bloemPaars.svg";
+import location from "../assets/location.svg";
+import edit from "../assets/edit.svg";
+import connectie from "../assets/images/connectie.png";
+import arrow from "../assets/images/arrow.svg";
 
 export async function loader({ request, params }) {
   if (
@@ -70,8 +75,15 @@ export default function Index() {
             {stories.map((story) => {
               if (story.id == editStory) {
                 return (
-                  <li key={story.id}>
-                    <h3>{story.title}</h3>
+                  <li key={story.id} className="list__item--mijnVerhalen--edit">
+                    <div className="item__titel--mijnVerhalen">
+                      <img
+                        src={location}
+                        className="locationIcon"
+                        alt="location marker"
+                      />
+                      <h3>{story.title}</h3>
+                    </div>
                     <Form method="post" id="contact-form">
                       <label className="flexColumn">
                         <span>Verhaal</span>
@@ -80,14 +92,16 @@ export default function Index() {
                           name="verhaal"
                           placeholder="Verhaal"
                           defaultValue={story.verhaal}
+                          className="verhaalEdit__textarea"
+                          required
                         />
                       </label>
-                      <Link to={`/profiel`}
-                      className="button button-white"
-                      >
-                        Annuleer
-                      </Link>
-                      <button type="submit ">Opslaan</button>
+                      <div className="buttonsEdit">
+                        <button type="submit" className="button button--purple">Wijzigingen opslaan</button>
+                        <Link to={`/profiel`} className="button button--white">
+                          Annuleer
+                        </Link>
+                      </div>
                     </Form>
                   </li>
                 );
@@ -168,11 +182,11 @@ export default function Index() {
             </ul>
           </div>
 
-          <Link to="/profielgegevens" className="personalData__edit--mobile">
+          <Link to="/profiel" className="personalData__edit--mobile">
             <img src={edit} alt="edit icon" />
           </Link>
           <Link
-            to="/profielgegevens"
+            to="/profiel"
             className="button button--white personalData__edit--desktop"
           >
             Bewerken

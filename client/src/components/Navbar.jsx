@@ -81,7 +81,7 @@ const Navbar = () => {
             <div className="taalMobile">
               <p className="taalActive">nl</p>
               <p className="fr">fr</p>
-              <p>eng</p>
+              <p>en</p>
             </div>
             <div className="flex socials">
               <img src={facebookPurple} alt="facebook" />
@@ -96,7 +96,7 @@ const Navbar = () => {
         <div className="taalDesktop">
           <p className="taalActive">nl</p>
           <p className="fr">fr</p>
-          <p>eng</p>
+          <p>en</p>
         </div>
       </div>
 
@@ -147,7 +147,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="navbar__item">
-            <NavLink className="navbar__link" to="profiellogin">
+            <NavLink className="navbar__link" to="profiel">
               <img src={profiel} alt="profiel" />
             </NavLink>
           </li>

@@ -349,20 +349,20 @@ const Bloeiend = ({ map, stories }) => {
         let basis;
         let size;
         if (data.length < 25) {
-          basis = 10;
-          size = 0.75;
-        } else if (data.length < 50) {
-          basis = 15;
+          basis = 20;
           size = 0.5;
+        } else if (data.length < 50) {
+          basis = 32.5;
+          size = 0.25;
         } else if (data.length < 100) {
-           basis = 29;
-           size = 0.25;
+           basis = 45;
+           size = 0.125;
         } else if (data.length < 200) {
-          basis = 51;
-          size = 0.125;
-        } else {
-          basis = 62;
+          basis = 57.5;
           size = 0.0625;
+        } else {
+          basis = 70;
+          size = 0.03125;
         }
         const image = {
           url: icon,

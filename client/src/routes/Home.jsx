@@ -30,11 +30,12 @@ let feedbackLoggedIn;
     <>
       <header className="header-home">
         <picture className="header__image">
+          <source media="(min-width: 1000px)" srcSet={headerDesktop} />
           <source
-            media="(min-width: 1000px)"
-            srcSet={headerDesktop}
+            media="(min-width: 250px)"
+            srcSet={headerMobile}
+            className="header__image--mobile"
           />
-          <source media="(min-width: 250px)" srcSet={headerMobile} className="header__image--mobile" />
           <img src={headerMobile} className="header__image" />
         </picture>
 
@@ -48,9 +49,15 @@ let feedbackLoggedIn;
         <div className="headerIntro">
           <p>Plant een bloem voor de toekomst en laat Kortrijk bloeien.</p>
           <p>Benieuwd naar meer?</p>
-          <a href="#" className="button">
+          <Link
+            to="/plant"
+            className="button"
+            onClick={() => {
+              window.scroll(0, 0);
+            }}
+          >
             <img className="arrowButton" src={arrow}></img> Hell yeah !
-          </a>
+          </Link>
         </div>
         <img src={arrowThin} alt="dun pijltje" className="header-home__arrow" />
         <img
@@ -103,7 +110,13 @@ let feedbackLoggedIn;
                   Laat jouw plek b(l)oeien via de website of vind ons gewoonweg
                   op de straten en ontvang een leuke extra.
                 </p>
-                <Link to="/plant" className="button">
+                <Link
+                  to="/plant"
+                  className="button"
+                  onClick={() => {
+                    window.scroll(0, 0);
+                  }}
+                >
                   <img className="arrowButton" src={arrow}></img> Plant een
                   bloem
                 </Link>
@@ -128,7 +141,13 @@ let feedbackLoggedIn;
                   je connecties, ideaal om de stad nog beter te leren kennen én
                   begrijpen.
                 </p>
-                <Link to="/kaart" className="button">
+                <Link
+                  to="/kaart"
+                  className="button"
+                  onClick={() => {
+                    window.scroll(0, 0);
+                  }}
+                >
                   <img className="arrowButton" src={arrow}></img>
                   Bekijk kaart
                 </Link>
@@ -142,7 +161,13 @@ let feedbackLoggedIn;
                   een periode van 5 jaar. Jullie krijgen de kans te bepalen wat
                   we schrijven en op basis hiervan wordt een route bepaald.
                 </p>
-                <Link to="/stadsgids" className="button">
+                <Link
+                  to="/stadsgids"
+                  className="button"
+                  onClick={() => {
+                    window.scroll(0, 0);
+                  }}
+                >
                   <img className="arrowButton" src={arrow} />
                   Ontdek de stadsgids
                 </Link>
