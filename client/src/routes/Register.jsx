@@ -77,7 +77,8 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder="Wachtwoord"
+              placeholder="Wachtwoord (min 6 tekens)"
+              minLength={6}
               required
             />
           </label>

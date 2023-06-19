@@ -30,6 +30,25 @@
   --font-weight-body-copy: 300;
   --font-weight-body-copy-title: 400;
 }
+
+ul::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+ul::-webkit-scrollbar-track {
+  background: #e3daff;
+}
+
+/* Handle */
+ul::-webkit-scrollbar-thumb {
+  background: #5e42ad;
+}
+
+/* Handle on hover */
+ul::-webkit-scrollbar-thumb:hover {
+  background: var(--color-purple-dark);
+}
 .black {
 
   background-color: var(--color-black);
@@ -309,14 +328,17 @@ gm-style-iw-c {
 }
 
 .infoWindow > ul {
+  max-height: 10vh;
   height: 20vh;
+  overflow-y: scroll;
+  width: 80vw;
 }
 
 .infoWindow > ul > li {
   font-size: var(--font-size--footer);
   padding: 0;
   margin: 0;
-  width: 80vw;
+  width: 75vw;
   padding: 0 0 2vh 0;
   border-bottom: #5e42ad 0.5px solid;
 }
@@ -621,12 +643,16 @@ gm-style-iw-c {
   }
 
   .infoWindow > ul {
+    overflow-y: scroll;
+    max-height: 50vh;
     height: 40vh;
+    width: 25vw;
+
   }
 
   .infoWindow > ul > li {
     font-size: var(--font-size--footer);
-    width: 25vw;
+    width: 22.5vw;
     padding: 0 0 3vh 0;
     border-bottom: #5e42ad 0.5px solid;
   }
