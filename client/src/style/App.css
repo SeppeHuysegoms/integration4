@@ -1059,6 +1059,13 @@ input[type="password"] {
     max-width: 30vw;
   }
 
+  .uitroepteken {
+  transform: rotate(11deg)!important;
+  margin-left: -1vw !important;
+  top: 1.75vw !important;
+  }
+}
+
   /*OVER ONS*/
 
   .image-about-2 {
