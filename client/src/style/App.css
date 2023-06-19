@@ -81,18 +81,31 @@ h4 {
   top: 3.75vw;
 }
 
+
+
 .navbar--mobile {
   background-color: var(--color-white);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1vh 8vw;
+  padding: 1vh 2vw;
   top: 0;
   width: 100%;
   z-index: 10;
   border-bottom: var(--color-black) solid 1px;
 }
 
+.navbar--mobile>.navbar__link:nth-child(3){
+  padding: 2vh;
+}
+
+
+.link__profielImg{
+  width: 6vw;
+  height: auto;
+  padding: 3px;
+  margin: 0;
+}
 .navFooter {
   padding: 3vh 10vw;
 }
@@ -737,7 +750,6 @@ textarea {
 
 .header--profielLogin {
   padding: 10vh 0vw 0 0vw;
-  width: 50vw;
 }
 
 .header--profielLogin > p {
@@ -767,12 +779,21 @@ label {
 }
 
 .form__input > input[type="email"],
-.form__input > input[type="password"] {
+.form__input > input[type="password"],
+.form__input>input[type="text"] {
   padding: 1.5vh 3vw;
   border: #2c2c2c solid 1px;
   font-size: var(--font-size--footer);
   font-family: "halyard-display", sans-serif;
   font-weight: var(--font-weight-body-copy);
+}
+
+
+.form__input > input[type="email"]:focus,
+.form__input > input[type="password"]:focus,
+.form__input>input[type="text"]:focus {
+  outline: none;
+  border: #5e42ad solid 1px;
 }
 
 input[type="password"] {
@@ -1047,6 +1068,10 @@ input[type="password"] {
   }
 
   /*LOGIN*/
+
+  .header--profielLogin{
+    width: 50vw;
+  }
 
   form {
     align-items: start;

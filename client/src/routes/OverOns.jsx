@@ -9,7 +9,7 @@ export default function Index() {
 
   return (
     <>
-      <section className="header-about">
+      <header className="header-about">
           <img 
             src={headerOverOnsMobile} 
             className="header-about__image header-about__image--mobile"
@@ -23,7 +23,7 @@ export default function Index() {
           <h1 className="header-about__title"> Over ons 
             <span className="uitroepteken">!</span>
           </h1>
-      </section>
+      </header>
       <section className="section-about">
         <h2>B(l)oeiend 2030</h2>
         <div>

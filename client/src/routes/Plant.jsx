@@ -1,22 +1,37 @@
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import plant from "../assets/plant.json";
+import "../style/insturen.css";
+import bloemPaars from "../assets/images/bloemPaars.svg";
+import arrow from "../assets/images/arrow.svg";
 
 export default function Index() {
   return (
     <>
-      <h1> Hey </h1>
-      <p>Plant hier jouw bloem voor de toekomst</p>
+      <header className="header--insturen">
+        <h1 className="insturen__titel">
+          Plant hier jouw bloem voor de toekomst
+        </h1>
+        <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+      </header>
 
-      <p>
-        Wil jij deel uitmaken van de toekomst van Kortrijk door een virtuele
-        bloemen te planten op de plekken die jou het meest b(l)oeien?
-      </p>
+      <section className="section--insturen section--plant">
+        <p>
+          Wil jij deel uitmaken van de toekomst van Kortrijk door een virtuele
+          bloemen te planten op de plekken die jou het meest b(l)oeien?
+        </p>
 
-      <p>
-        Volg de eenvoudige stappen en plant vandaag nog jouw bloem voor de
-        toekomst.
-      </p>
+        <p>
+          Volg de eenvoudige stappen en plant vandaag nog jouw bloem voor de
+          toekomst.
+        </p>
 
-      <Link to="/selecteerlocatie"> Plant een bloem</Link>
+        <Lottie animationData={plant} className="plant__animatie" />
+        <Link to="/selecteerlocatie" className="button">
+          <img className="arrowButton" src={arrow} alt="arrow"></img>
+          Laten we beginnen!
+        </Link>
+      </section>
     </>
   );
 }

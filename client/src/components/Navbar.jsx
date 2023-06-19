@@ -34,7 +34,7 @@ const Navbar = () => {
           <img src={logo} alt="logo bloeiend" />
         </NavLink>
         <NavLink className="navbar__link" to="profiellogin">
-          <img src={profiel} alt="profiel" />
+          <img src={profiel} alt="profiel" className="link__profielImg" />
         </NavLink>
       </div>
 

@@ -1,0 +1,330 @@
+:root {
+  --color-black: #2c2c2c;
+  --color-white: #ffffff;
+  --color-green: #c6e7d4;
+  --color-purple: #927cd2;
+  --color-purple-dark: #5e42ad;
+
+  --font-size-uitroepteken: clamp(6.5rem, calc(1rem + 15vw), 30rem);
+  --font-size-uitroepteken--overOns: clamp(5.5rem, calc(2.5rem + 10vw), 30rem);
+  --font-size-h1--home: clamp(4.5rem, calc(1rem + 10vw), 14rem);
+  --font-size-h1: clamp(4.5rem, calc(1rem + 2.75vw), 15rem);
+  --font-size-large-h1: clamp(3rem, calc(1rem + 2.25vw), 15rem);
+  --font-size-mid-h1: clamp(1.5rem, calc(0.9rem + 1.5vw), 10rem);
+  --font-size--intro: clamp(1.1rem, calc(0.7rem + 1.25vw), 5rem);
+  --font-size-mid-intro: clamp(1.2rem, calc(0.9rem + 1.2vw), 6rem);
+  --font-size-h2: 20px;
+  /* nog aanpassen ! (voor responsive) */
+  --font-size-overOns: clamp(2.25rem, calc(2rem + 4.5vw), 12rem);
+  --fontsize-h2-span: clamp(2.2rem, calc(2.4rem + 14vw), 10rem);
+  --font-size-h3: clamp(2rem, calc(1.3rem + 5vw), 6rem);
+  --fontsize-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 10rem);
+  --fontsize-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 9rem);
+  --font-size-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
+  --font-size--p: clamp(1rem, calc(0.9rem + 1vw), 1.2rem);
+  --font-size--footer: clamp(1.1rem, calc(0.6rem + 0.5vw), 1.4rem);
+  --font-size-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
+  --font-size--button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
+
+  --font-weight-body-copy: 300;
+  --font-weight-body-copy-title: 400;
+}
+
+.insturen__titel {
+  font-size: var(--font-size-mid-intro);
+  font-weight: var(--font-weight-body-copy-title);
+  color: var(--color-purple-dark);
+  font-family: "halyard-display", sans-serif;
+  max-width: 60vw;
+  border: none;
+  padding: 0;
+}
+
+.header--insturen {
+  margin: 5vh 4vw 0 4vw;
+  padding: 0 0 2vh 0;
+  border-bottom: #5e42ad solid 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section--insturen {
+  margin: 3vh 4vw 8vh 4vw;
+  padding: 0;
+}
+
+.section--insturen > p:first-of-type {
+  margin-bottom: 3vh;
+}
+
+.plant__animatie {
+  height: 20vh;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section--plant,
+.section__gekozenLocatie,
+.section--verhaalTypen,
+.section--bevestiging {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.section--plant > .button {
+  align-self: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section--insturen > p {
+  max-width: 80vw;
+}
+
+.markerBloem {
+  height: 100%;
+}
+
+.kaart--insturen {
+  height: 80vh !important;
+  width: 92vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 0 auto;
+}
+
+.selecteerLocatie__kaart {
+  margin-bottom: 5vh;
+}
+
+.header--selecteerLocatie {
+  align-items: flex-end;
+  margin-top: 2vh;
+}
+
+.section--selecteerLocatie {
+  margin-bottom: 5vh;
+}
+
+.insturen__animatie {
+  width: 40vw;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section__gekozenLocatie {
+  margin: 4vh 4vw 4vh;
+}
+
+.section__gekozenLocatie > p {
+  width: 60vw;
+  margin: 2vh 0 5vh;
+}
+
+.gekozenLocatie__titel,
+.overzicht__titel {
+  padding: 0 0 0.5vh 0;
+  border-bottom: #5e42ad solid 1px;
+}
+
+.section__gekozenLocatie > .button {
+  grid-column: 1;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.section__gekozenLocatie > .button--disabled,
+.section--verhaalTypen > .button--disabled {
+  display: flex;
+  background-color: #e4e4e4b2;
+  color: #afafaf;
+  border: 1px solid #afafaf;
+  cursor: not-allowed;
+}
+
+.section__gekozenLocatie > .button--disabled > img,
+.section--verhaalTypen > .button--disabled > img {
+  filter: invert(75%);
+}
+
+.verhaalSchrijvenAnimatie {
+  width: 70vw;
+  margin: 3vh auto 2vh;
+  padding: 0;
+}
+
+.insturen__form {
+  padding: 0;
+  width: 92vw;
+  font-family: "halyard-display", sans-serif;
+  font-weight: 300;
+  font-size: var(--font-size--p);
+}
+
+.insturen__form > textarea {
+  width: 92vw;
+  font-family: "halyard-display", sans-serif;
+  font-weight: 300;
+}
+
+.section--verhaal {
+  margin: 3vh 4vw 3vh 4vw;
+  padding: 0;
+}
+
+.form__charachters {
+  margin: 0 0 2vh;
+  padding: 0;
+  font-size: var(--font-size--footer);
+  font-weight: var(--font-weight-body-copy);
+  color: var(--color-purple-dark);
+}
+
+textarea:focus {
+  outline: none !important;
+  border: 1px solid #5e42ad;
+}
+
+.button--verhaal {
+  display: flex;
+  margin: 0 auto;
+  grid-column: 1;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+}
+
+.section--overzicht {
+  margin: 3vh 4vw 5vh 4vw;
+  padding: 3vh 15vw 3vh 5vw;
+  border: 1px solid var(--color-black);
+}
+
+.overzicht__titel {
+  max-width: 100%;
+}
+
+.section--overzicht > p {
+  margin: 1vh 0 2vh 0;
+  max-width: 65vw;
+}
+
+.section--register,
+.section--login {
+  margin: 5vh 4vw 3vh 4vw;
+  padding: 4vh 0;
+  border-top: 0.5px solid var(--color-black);
+}
+
+.section--register > h2,
+.section--login > h2 {
+  font-size: var(--font-size-mid-intro);
+  font-weight: var(--font-weight-body-copy-title);
+  color: var(--color-purple-dark);
+  font-family: "halyard-display", sans-serif;
+  margin-bottom: 1.5vh;
+}
+
+#contact-form {
+  margin: 3vh 0;
+}
+
+#contact-form > label > span {
+  font-size: var(--font-size--footer);
+  font-weight: var(--font-weight-body-copy);
+  font-family: "halyard-display", sans-serif;
+  margin-bottom: 0.25vh;
+}
+
+.form__switch > p,
+.form__switch {
+  font-size: 16px;
+}
+
+.form__switch {
+  display: flex;
+  align-items: center;
+  margin: 0 0 2vh 0;
+  padding: 0;
+}
+
+.form__switch > a {
+  padding: 1vh 3vw;
+  text-decoration: underline;
+}
+
+.button--bevestig {
+  margin-top: 4vh;
+}
+
+.link--bevestig {
+  text-decoration: underline;
+  margin: 0 auto;
+  grid-column: 1;
+  padding: 2vh 4vw;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  font-size: var(--font-size--p);
+}
+
+.bevestiging__animatie{
+    width: 90vw;
+    margin: -5vh auto 2vh;
+    padding: 0;
+}
+
+.navPlant{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    justify-items: start;
+    margin: 0 auto;
+    padding: 4vh 4vw;
+    background-color: #2c2c2c;
+}
+
+.navPlant__item{
+    width: 20vw;
+    text-align: center;
+    color: #ffffff;
+}
+
+.navPlant__line{
+    width: 10vw;
+    margin: 0.75vh 0 0
+
+}
+
+.navPlant__description{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 1vh;
+}
+
+.circle{
+    margin: 0 auto;
+    width: 12vw;
+    height: 12vw;
+    padding: 2vw;
+    text-align: center;
+    line-height: 1.65;
+    font-size: var(--font-size--p);
+    font-family: "Anton", sans-serif;
+    border-radius: 50%;
+    color: white;
+    background-color: #927cd2;
+}
+
+.link--non-active{
+    filter: opacity(50%);
+}
+
+.navPlant__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}

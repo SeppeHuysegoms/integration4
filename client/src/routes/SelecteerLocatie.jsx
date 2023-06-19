@@ -1,7 +1,14 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { Link, redirect } from "react-router-dom";
-import icon from "../assets/flower.png";
-//import ZoekVeld from "../components/InputZoek";
+import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import "../style/insturen.css";
+import NavForm from "../components/NavForm";
+
+import locatie from "../assets/locatie.json";
+import markerBloem from "../assets/images/markerBloem.svg";
+import zoek from "../assets/images/zoek.svg";
+import arrow from "../assets/images/arrow.svg";
+import marker from "../assets/marker.svg";
 
 import { createRoot } from "react-dom/client";
 
@@ -9,15 +16,15 @@ const App = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
-  if (localStorage.getItem("locatieNaam") != null) {
-    setSelectedLocation({
-      locatieNaam: localStorage.getItem("locatieNaam"),
-      placeId: localStorage.getItem("placeId"),
-      lat: localStorage.getItem("lat"),
-      lng: localStorage.getItem("lng"),
-      adres: localStorage.getItem("adres"),
-    });
-  }
+    if (localStorage.getItem("locatieNaam") != null) {
+      setSelectedLocation({
+        locatieNaam: localStorage.getItem("locatieNaam"),
+        placeId: localStorage.getItem("placeId"),
+        lat: localStorage.getItem("lat"),
+        lng: localStorage.getItem("lng"),
+        adres: localStorage.getItem("adres"),
+      });
+    }
   }, []);
 
   const handleMapSelectLocation = (location) => {
@@ -40,25 +47,63 @@ const App = () => {
 
   return (
     <>
-      <h1> Locatie kiezen </h1>
-      <p>Duid op de kaart de plek aan die voor jou van groot belang is.</p>
+      <NavForm 
+      step={1}
+       />
+      <header className="header--insturen header--selecteerLocatie">
+        <h1 className="insturen__titel"> Locatie kiezen </h1>
+        <Lottie animationData={locatie} className="insturen__animatie" />
+      </header>
 
-      <p>
-        Denk bijvoorbeeld aan een plek waar je kan ontspannen, een plek waar jij
-        je thuis voelt...
-      </p>
+      <section className="section--insturen section--selecteerLocatie">
+        <p>Duid op de kaart de plek aan die voor jou van groot belang is.</p>
 
-      <p>Gekozen plek</p>
-      <Locatie selectedLocation={selectedLocation} />
-      <MyMap
-        onSelectLocation={handleMapSelectLocation}
-        selectedLocation={selectedLocation}
-      />
+        <p>
+          Denk bijvoorbeeld aan een plek waar je kan ontspannen, een plek waar
+          jij je thuis voelt...
+        </p>
+      </section>
 
-      <Link to="/schrijfverhaal"> Volgende</Link>
+      <section className="selecteerLocatie__kaart">
+        <MyMap
+          onSelectLocation={handleMapSelectLocation}
+          selectedLocation={selectedLocation}
+        />
+      </section>
+
+      <section className="section__gekozenLocatie">
+        <h2 className="insturen__titel gekozenLocatie__titel">Gekozen plek</h2>
+        <Locatie selectedLocation={selectedLocation} />
+
+        <Bevestig selectedLocation={selectedLocation} />
+      </section>
     </>
   );
 };
+
+function Bevestig({ selectedLocation }) {
+  if (selectedLocation) {
+    return (
+      <Link
+        to="/schrijfverhaal"
+        className="button button--white"
+        onClick={() => {
+          window.scroll(0, 0);
+        }}
+      >
+        <img src={arrow} alt="arrow" className="arrowButton" />
+        Naar boodschap
+      </Link>
+    );
+  } else {
+    return (
+      <div className="button button--white button--disabled">
+        <img src={arrow} alt="arrow" className="arrowButton" />
+        <p>Naar boodschap</p>
+      </div>
+    );
+  }
+}
 const KortrijkBounds = {
   north: 50.84316251839117,
   south: 50.80540292260651,
@@ -95,7 +140,7 @@ function MyMap({ onSelectLocation, selectedLocation }) {
   useEffect(() => {
     if (selectedLocation && map) {
       const iconBloem = document.createElement("img");
-      iconBloem.src = icon;
+      iconBloem.src = markerBloem;
       iconBloem.className = "markerBloem";
       // clear all markers from the map
       markersRef.current.forEach((marker) => marker.setMap(null));
@@ -131,7 +176,7 @@ function MyMap({ onSelectLocation, selectedLocation }) {
       markersRef.current = [];
 
       const iconBloem = document.createElement("img");
-      iconBloem.src = icon;
+      iconBloem.src = markerBloem;
       iconBloem.className = "markerBloem";
       let mark = new google.maps.marker.AdvancedMarkerElement({
         position: event.latLng,
@@ -163,7 +208,7 @@ function MyMap({ onSelectLocation, selectedLocation }) {
   }
 
   return (
-    <>
+    <div className="kaart--insturen">
       <ZoekVeld
         input={input}
         setInput={setInput}
@@ -174,8 +219,8 @@ function MyMap({ onSelectLocation, selectedLocation }) {
         onSelectLocation={onSelectLocation}
         markersRef={markersRef}
       />
-      <div ref={ref} className="test" id="map" />
-    </>
+      <div ref={ref} className="map" id="map" />
+    </div>
   );
 }
 
@@ -264,17 +309,21 @@ const ZoekVeld = ({
   }
 
   return (
-    <>
-      <input
-        type="text"
-        placeholder="Zoek een locatie"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
+    <div className="zoekVeld--kaart">
+      <div className="zoekVeld__input">
+        <img src={zoek} alt="zoek" className="zoekVeld__zoek" />
+        <input
+          type="text"
+          placeholder="Zoek hier..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+      </div>
       {voorstellen && input && (
-        <ul>
+        <ul className="voorstellen__list">
           {voorstellen.map((voorstel) => (
             <li
+              className="voorstellen__item"
               key={voorstel.place_id}
               onClick={() =>
                 addMarkerZoek(
@@ -287,12 +336,16 @@ const ZoekVeld = ({
                 )
               }
             >
-              {voorstel.structured_formatting.main_text}
+              <img src={marker} alt="marker" className="marker" />
+              <div>
+                <p>{voorstel.structured_formatting.main_text}</p>
+                <p>{voorstel.structured_formatting.secondary_text}</p>
+              </div>
             </li>
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 
@@ -331,7 +384,7 @@ const addMarkerZoek = async (
   ]);
 
   const iconBloem = document.createElement("img");
-  iconBloem.src = icon;
+  iconBloem.src = markerBloem;
   iconBloem.className = "markerBloem";
   let mark = new google.maps.marker.AdvancedMarkerElement({
     position: location,

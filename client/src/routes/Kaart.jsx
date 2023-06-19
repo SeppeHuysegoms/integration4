@@ -46,8 +46,6 @@ const App = () => {
     }, {})
   );
 
-
-
   const [selectedStory, setSelectedStory] = useState();
   return (
     <>
