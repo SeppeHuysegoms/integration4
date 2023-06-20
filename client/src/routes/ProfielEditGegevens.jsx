@@ -1,6 +1,12 @@
 import { Link, useLoaderData, Form } from "react-router-dom";
 import { getPersonalStories } from "../entries";
 import { getProfileData, editProfile } from "../entries";
+import bloemPaars from "../assets/images/bloemPaars.svg";
+import location from "../assets/location.svg";
+import edit from "../assets/edit.svg";
+import connectie from "../assets/images/connectie.png";
+import arrow from "../assets/images/arrow.svg";
+
 
 export async function loader({ request }) {
   console.log("loader");

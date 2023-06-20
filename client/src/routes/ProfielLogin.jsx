@@ -34,8 +34,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              placeholder="Email"
-              defaultValue="seppe.huysegoms1@student.howest.be"
+              placeholder="E-mail"
               required
             />
           </label>
@@ -45,8 +44,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
-              defaultValue="123456"
+              placeholder="Wachtwoord"
               required
             />
             <p className="wwVergeten">Wachtwoord vergeten?</p>

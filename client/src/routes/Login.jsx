@@ -45,33 +45,37 @@ export async function action({ request, params }) {
 export default function Login() {
   const navigate = useNavigate();
   console.log("login");
-   useEffect(() => {
-     if (
-       localStorage.getItem("story") == null ||
-       localStorage.getItem("story") == undefined
-     ) {
-       console.log("redirect");
+  useEffect(() => {
+    if (
+      localStorage.getItem("story") == null ||
+      localStorage.getItem("story") == undefined
+    ) {
+      console.log("redirect");
 
-       navigate("/schrijfverhaal");
-     }
-   });
+      navigate("/schrijfverhaal");
+    }
+  });
   const verhaal = localStorage.getItem("story");
   const locatieNaam = localStorage.getItem("locatieNaam");
   return (
-    <>
+    <div className="login">
       <NavForm step={3} />
-      <header className="header--insturen">
-        <h1 className="insturen__titel"> Bevestigen</h1>
-        <img src={bloemPaars} className="bloemTitel" alt="bloem" />
-      </header>
-      <section className="section--overzicht">
-        <h2 className="insturen__titel overzicht__titel">Gekozen plek</h2>
-        <p>{locatieNaam}</p>
-        <h2 className="insturen__titel overzicht__titel">
-          Persoonlijk verhaal
-        </h2>
-        <p>{verhaal}</p>
-      </section>
+      <div className="login__content">
+        <header className="header--insturen header--login">
+          <h1 className="insturen__titel"> Bevestigen</h1>
+          <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+        </header>
+        <div className="divider">
+          <section className="section--overzicht">
+            <h2 className="insturen__titel overzicht__titel">Gekozen plek</h2>
+            <p>{locatieNaam}</p>
+            <h2 className="insturen__titel overzicht__titel">
+              Persoonlijk verhaal
+            </h2>
+            <p>{verhaal}</p>
+          </section>
+        </div>
+      </div>
       <section className="section--login">
         <h2>Login</h2>
         <p>Sla jouw verhaal op door je in te loggen</p>
@@ -104,6 +108,6 @@ export default function Login() {
           </button>
         </Form>
       </section>
-    </>
+    </div>
   );
 }

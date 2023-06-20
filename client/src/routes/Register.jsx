@@ -41,21 +41,25 @@ const Login = () => {
   const verhaal = localStorage.getItem("story");
   const locatieNaam = localStorage.getItem("locatieNaam");
   return (
-    <>
+    <div className="register">
       <NavForm step={3} />
-      <header className="header--insturen">
-        <h1 className="insturen__titel"> Bevestigen </h1>;
-        <img src={bloemPaars} className="bloemTitel" alt="bloem" />
-      </header>
+      <div className="register__content">
+        <header className="header--insturen header--register">
+          <h1 className="insturen__titel"> Bevestigen </h1>
+          <img src={bloemPaars} className="bloemTitel" alt="bloem" />
+        </header>
 
-      <section className="section--overzicht">
-        <h2 className="insturen__titel overzicht__titel">Gekozen plek</h2>
-        <p>{locatieNaam}</p>
-        <h2 className="insturen__titel overzicht__titel">
-          Persoonlijk verhaal
-        </h2>
-        <p>{verhaal}</p>
-      </section>
+        <div className="divider">
+          <section className="section--overzicht">
+            <h2 className="insturen__titel overzicht__titel">Gekozen plek</h2>
+            <p>{locatieNaam}</p>
+            <h2 className="insturen__titel overzicht__titel">
+              Persoonlijk verhaal
+            </h2>
+            <p>{verhaal}</p>
+          </section>
+        </div>
+      </div>
       <section className="section--register">
         <h2>Registreren</h2>
         <p>
@@ -97,7 +101,7 @@ const Login = () => {
           </button>
         </Form>
       </section>
-    </>
+    </div>
   );
 };
 

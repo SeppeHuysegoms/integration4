@@ -132,11 +132,11 @@ export default function Index() {
             </ul>
           </div>
 
-          <Link to="/profielgegevens" className="personalData__edit--mobile">
+          <Link to="/profiel" className="personalData__edit--mobile">
             <img src={edit} alt="edit icon" />
           </Link>
           <Link
-            to="/profielgegevens"
+            to="/profiel"
             className="button button--white personalData__edit--desktop"
           >
             Bewerken

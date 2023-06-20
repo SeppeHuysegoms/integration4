@@ -15,7 +15,11 @@ const Navbar = () => {
         <p className="footer__title">Socials</p>
         <div className="footer__socials">
           <a href="https://www.facebook.com/bloeiendkortrijk">
-            <img src={facebook} alt="Facebook logo" className="footer__socials" />
+            <img
+              src={facebook}
+              alt="Facebook logo"
+              className="footer__socials"
+            />
           </a>
           <a href="https://www.instagram.com/bloeiendkortrijk/">
             <img
@@ -31,27 +35,57 @@ const Navbar = () => {
         <p className="footer__title">Navigatie</p>
         <ul className="footerNav__list">
           <li className="footerNav__item">
-            <NavLink className="navbar__link" to="/">
+            <NavLink
+              className="navbar__link"
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+              to="/"
+            >
               Home
             </NavLink>
           </li>
           <li className="footerNav__item">
-            <NavLink className="footerNav__link" to="kaart">
+            <NavLink
+              className="footerNav__link"
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+              to="kaart"
+            >
               Kaart
             </NavLink>
           </li>
           <li className="footerNav__item">
-            <NavLink className="footerNav__link" to="overons">
+            <NavLink
+              className="footerNav__link"
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+              to="overons"
+            >
               Over ons
             </NavLink>
           </li>
           <li className="footerNav__item">
-            <NavLink className="footerNav__link" to="stadsgids">
+            <NavLink
+              className="footerNav__link"
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+              to="stadsgids"
+            >
               Stadsgids
             </NavLink>
           </li>
           <li className="footerNav__item">
-            <NavLink className="footerNav__link" to="profiel">
+            <NavLink
+              className="footerNav__link"
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+              to="profiel"
+            >
               Profiel
             </NavLink>
           </li>
@@ -59,14 +93,10 @@ const Navbar = () => {
       </nav>
       <div className="flex footerInfo">
         <div>
-          <img
-            src={kortrijkLogo}
-            className="kortrijkLogo"
-            alt="Kortrijk"
-          />
+          <img src={kortrijkLogo} className="kortrijkLogo" alt="Kortrijk" />
           <p>© 2023 B(l)oeiend</p>
         </div>
-        <img  src={footerImage} alt="footer image" />
+        <img src={footerImage} alt="footer image" />
       </div>
     </div>
   );

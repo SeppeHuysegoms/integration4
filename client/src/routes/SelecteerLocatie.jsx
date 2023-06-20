@@ -46,38 +46,43 @@ const App = () => {
   };
 
   return (
-    <>
-      <NavForm 
-      step={1}
-       />
-      <header className="header--insturen header--selecteerLocatie">
-        <h1 className="insturen__titel"> Locatie kiezen </h1>
-        <Lottie animationData={locatie} className="insturen__animatie" />
-      </header>
+    <div className="insturen">
+      <NavForm step={1} />
 
-      <section className="section--insturen section--selecteerLocatie">
-        <p>Duid op de kaart de plek aan die voor jou van groot belang is.</p>
+      <div className="insturen__content">
+        <header className="header--insturen header--selecteerLocatie">
+          <h1 className="insturen__titel"> Locatie kiezen </h1>
+          <Lottie animationData={locatie} className="insturen__animatie" />
+        </header>
 
-        <p>
-          Denk bijvoorbeeld aan een plek waar je kan ontspannen, een plek waar
-          jij je thuis voelt...
-        </p>
-      </section>
+        <section className="section--insturen section--selecteerLocatie">
+          <p>Duid op de kaart de plek aan die voor jou van groot belang is.</p>
 
-      <section className="selecteerLocatie__kaart">
-        <MyMap
-          onSelectLocation={handleMapSelectLocation}
-          selectedLocation={selectedLocation}
-        />
-      </section>
+          <p>
+            Denk aan een plek waar jij je thuis voelt, een plek die een
+            belangrijke betekenis voor jou heeft.
+          </p>
+        </section>
 
-      <section className="section__gekozenLocatie">
-        <h2 className="insturen__titel gekozenLocatie__titel">Gekozen plek</h2>
-        <Locatie selectedLocation={selectedLocation} />
+        <section className="selecteerLocatie__kaart">
+          <MyMap
+            onSelectLocation={handleMapSelectLocation}
+            selectedLocation={selectedLocation}
+          />
+        </section>
 
-        <Bevestig selectedLocation={selectedLocation} />
-      </section>
-    </>
+        <section className="section__gekozenLocatie">
+          <h2 className="insturen__titel gekozenLocatie__titel">
+            Gekozen plek
+          </h2>
+          <Locatie selectedLocation={selectedLocation} />
+        </section>
+
+        <div className="centerButton button__selecteerLocatie">
+          <Bevestig selectedLocation={selectedLocation} />
+        </div>
+      </div>
+    </div>
   );
 };
 
