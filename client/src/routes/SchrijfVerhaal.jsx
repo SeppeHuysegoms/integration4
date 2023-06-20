@@ -21,7 +21,7 @@ export default function Index() {
     }
     if (
       localStorage.getItem("story") !== "undefined" ||
-      localStorage.getItem("locatieNaam") !== "null"
+      localStorage.getItem("story") !== "null"
     ) {
       setCharacters(localStorage.getItem("story").length);
     }
