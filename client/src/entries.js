@@ -147,19 +147,7 @@ export async function getProfileData(jwt, authorId) {
   return result.data.user;
 }
 
-export async function editProfile(newData, jwt) {
-  const result = await graphQLRequest(
-    `mutation MyMutation {
-  updateViewer(input: {username: "${newData.username}", email: "${newData.email}"}) {
-    id
-  }
-}`,
-    { newData },
-    jwt
-  );
-  console.log("editGegevens result", result.data.user);
-  return result.data.user;
-}
+
 
 export async function editStory(verhaal, jwt, idVerhaal) {
   const { result } = await graphQLRequest(

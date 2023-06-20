@@ -16,7 +16,6 @@ import OverOns from "./routes/OverOns";
 import Profiel, {loader as personalStoriesLoader} from "./routes/Profiel";
 import ProfielLogin, {action as profielLoginAction} from "./routes/ProfielLogin";
 import ProfielEditSory, {loader as personalStoriesLoaderES, action as editStoryAction,}from "./routes/ProfielEditStory";
-import ProfielEditGegevens,{loader as personalStoriesLoaderEG, action as editPersonalData,} from "./routes/ProfielEditGegevens";
 import Bevestig from "./routes/Bevestig";
 import BevestigVerhaal, {action as bevestigVerhaalAction,} from "./routes/BevestigVerhaal";
 import Stadsgids from "./routes/Stadsgids";
@@ -88,12 +87,6 @@ const router = createBrowserRouter([
             element: <ProfielEditSory />,
             action: editStoryAction,
             loader: personalStoriesLoaderES,
-          },
-          {
-            path: "profielgegevens",
-            element: <ProfielEditGegevens />,
-            action: editPersonalData,
-            loader: personalStoriesLoaderEG,
           },
           {
             path: "bevestig",
