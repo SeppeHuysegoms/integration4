@@ -22,8 +22,6 @@ let feedbackLoggedIn;
 
          feedbackLoggedIn = <p>U moet ingelogd zijn om artwork te saven</p>;
        } else {
-        console.log(localStorage.getItem("jwt"));
-        console.log(localStorage.getItem("user"));
          feedbackLoggedIn = <p>U bent ingelogd</p>;
        }
   return (
@@ -36,7 +34,7 @@ let feedbackLoggedIn;
             srcSet={headerMobile}
             className="header__image--mobile"
           />
-          <img src={headerMobile} className="header__image" />
+          <img src={headerMobile} className="header__image" alt="oog met compositie" />
         </picture>
 
         <h1 className="headerHome__title">
@@ -56,7 +54,7 @@ let feedbackLoggedIn;
               window.scroll(0, 0);
             }}
           >
-            <img className="arrowButton" src={arrow}></img> Hell yeah !
+            <img className="arrowButton" src={arrow} alt="arrow"></img> Hell yeah !
           </Link>
         </div>
         <img src={arrowThin} alt="dun pijltje" className="header-home__arrow" />
@@ -117,7 +115,7 @@ let feedbackLoggedIn;
                     window.scroll(0, 0);
                   }}
                 >
-                  <img className="arrowButton" src={arrow}></img> Plant een
+                  <img className="arrowButton" src={arrow} alt="arrow"></img> Plant een
                   bloem
                 </Link>
               </div>
@@ -148,7 +146,7 @@ let feedbackLoggedIn;
                     window.scroll(0, 0);
                   }}
                 >
-                  <img className="arrowButton" src={arrow}></img>
+                  <img className="arrowButton" src={arrow} alt="arrow"></img>
                   Bekijk kaart
                 </Link>
                 <p>
@@ -168,7 +166,7 @@ let feedbackLoggedIn;
                     window.scroll(0, 0);
                   }}
                 >
-                  <img className="arrowButton" src={arrow} />
+                  <img className="arrowButton" src={arrow} alt="arrow" />
                   Ontdek de stadsgids
                 </Link>
               </div>

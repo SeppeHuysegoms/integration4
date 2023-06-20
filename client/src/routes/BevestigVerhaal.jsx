@@ -5,7 +5,6 @@ import { plantVerhaal } from "../entries";
 
 
 export async function action({ request }) {
-    console.log("action");
     const verhaal = localStorage.getItem("story");
     const locatieNaam = localStorage.getItem("locatieNaam");
     const placeId = localStorage.getItem("placeId");
@@ -18,8 +17,6 @@ export async function action({ request }) {
     const user = localStorage.getItem("user");
     const userObject =JSON.parse(user);
 
-    console.log(latZero, lngZero);
-    console.log(userObject.id);
   const story = await plantVerhaal(
     latZero,
     lngZero,
@@ -30,7 +27,7 @@ export async function action({ request }) {
     userObject.id,
     jwt
   );
-  console.log(jwt, user);
+
 
   return redirect("/bevestig");
 }

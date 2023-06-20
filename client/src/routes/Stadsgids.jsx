@@ -10,11 +10,11 @@ export default function Index() {
         404 page coming soon
         <span className="uitroepteken uitroepteken--stadsgids">!</span>
       </h1>
-      <img className="stadsgids__image" src={stadsgids} alt="compositie" />
+      <img className="stadsgids__image" src={stadsgids} alt="error 404" />
       <img
         className="stadsgids__image--desktop"
         src={stadsgidsDesktop}
-        alt="compositie"
+        alt="error 404"
       />
     </header>
   );

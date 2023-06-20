@@ -230,7 +230,6 @@ function MyMap({ onSelectLocation, selectedLocation }) {
 }
 
 function Locatie({ selectedLocation }) {
-  console.log(selectedLocation);
   if (selectedLocation) {
     return <p>{selectedLocation.locatieNaam}</p>;
   }
@@ -248,7 +247,6 @@ const nearbySearch = async (position, map) => {
         rankby: RankBy.DISTANCE,
       },
       (results) => {
-        // console.log(results);
         for (let result of results) {
           if (
             result.name !== "Kortrijk" &&
@@ -305,7 +303,6 @@ const ZoekVeld = ({
         prediction.predictions.map((prediction) => {
           arrayPrediction.push(prediction);
         });
-        // console.log(arrayPrediction);
         setVoorstellen(arrayPrediction);
       };
 

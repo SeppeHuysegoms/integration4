@@ -42,6 +42,7 @@ export default function Index() {
             media="(min-width: 1000px)"
             srcSet={plantDesktop}
             className="plant__image"
+            alt="plant"
           />
           <img src={plantDesktop} alt="plant" className="plant__image" />
         </picture>
