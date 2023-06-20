@@ -13,22 +13,22 @@ export async function loader({ request, params }) {
     localStorage.getItem("jwt") == null ||
     localStorage.getItem("user") == null
   ) {
-    console.log("redirect");
+
     redirect(`/login`);
   }
   const jwt = localStorage.getItem("jwt");
-  console.log(jwt);
+
   const user = localStorage.getItem("user");
   const userObject = JSON.parse(user);
   const stories = await getPersonalStories(jwt, userObject.id);
   const profileData = await getProfileData(jwt, userObject.id);
   const editStory = params.id;
-  console.log(profileData);
+
   return { stories, profileData, editStory };
 }
 
 export async function action({ request, params }) {
-  console.log("action - deze werkt");
+
   try {
     const jwt = localStorage.getItem("jwt");
     const user = localStorage.getItem("user");
@@ -40,15 +40,11 @@ export async function action({ request, params }) {
     console.log(e);
   }
 
-  console.log("we zijn al hier");
   return redirect(`/profiel`);
 }
 
 export default function Index() {
   const { stories, profileData, editStory } = useLoaderData();
-  console.log(stories);
-  console.log(profileData);
-  console.log(editStory);
   return (
     <div className="profiel">
       <header className="header--profiel">
@@ -153,7 +149,7 @@ export default function Index() {
             Bekijk hun verhalen via de kaart.
           </p>
           <Link to="/kaart" className="button button--white">
-            <img className="arrowButton" src={arrow}></img>
+            <img className="arrowButton" src={arrow} alt="arrow"></img>
             Bekijk de kaart
           </Link>
           <img src={connectie} className="connectie__image" alt="connectie" />

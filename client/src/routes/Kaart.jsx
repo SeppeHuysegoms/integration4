@@ -34,12 +34,10 @@ let difference = (Math.ceil(timeinmilisec / (1000 * 60 * 60 * 24)));
 
 const App = () => {
   const { stories } = useLoaderData();
-  console.log(stories);
-  //plaatsen
   const locations = Object.values(
     stories.reduce((group, story) => {
       const { placeid } = story;
-      console.log(placeid);
+
       group[placeid] = group[placeid] ?? [];
       group[placeid].push(story);
       return group;
@@ -180,7 +178,6 @@ const mapOptions = {
 };
 
 function MyMap({stories}) {
-  console.log(stories);
   const [map, setMap] = useState();
     const [input, setInput] = useState("");
     const [voorstellen, setVoorstellen] = useState([]);
@@ -189,7 +186,6 @@ function MyMap({stories}) {
   useEffect(() => {
     setMap(new window.google.maps.Map(ref.current, mapOptions));
   }, []);
-  console.log(ref);
   return (
     <div className="kaart">
       <ZoekVeld
@@ -238,7 +234,6 @@ const ZoekVeld = ({
         prediction.predictions.map((prediction) => {
           arrayPrediction.push(prediction);
         });
-        // console.log(arrayPrediction);
         setVoorstellen(arrayPrediction);
       };
 
@@ -324,21 +319,21 @@ const getPos = async (placeID, map) => {
 
 
 const Bloeiend = ({ map, stories }) => {
-  console.log(stories);
+
   const [data, setData] = useState();
   useEffect(() => {
-    console.log(map);
+
     const groupByPlaceId = Object.values(
       stories.reduce((group, story) => {
         const {placeid} = story;
-        console.log(placeid);
+
         group[placeid] = group[placeid] ?? [];
         group[placeid].push(story);
         return group;
       }, {})
     );
     setData(groupByPlaceId);
-    console.log(groupByPlaceId);
+
 
     const setMarkers = async (data) => {
       const { Marker } = await google.maps.importLibrary("marker");
@@ -372,7 +367,7 @@ const Bloeiend = ({ map, stories }) => {
           ),
           className: "markerBloem",
         };
-        console.log(data);
+
         let position = new google.maps.LatLng(
           data[0].latitude,
           data[0].longitude
@@ -397,7 +392,6 @@ const Bloeiend = ({ map, stories }) => {
             } else {
               infoWindow.setOptions({ pixelOffset: new google.maps.Size(-500, 300), anchor: marker });
             }
-           console.log(data);
            infoWindow.setContent(
              `<div class="infoWindow"><h2>${marker.title}</h2> <div class="info__zaadjes"> <img class="infoWindowZaadjes" src="${infoWindowZaadjes}" alt="icon zaadjes"
             className="header__image header__image--kaart" /> <p>${data.length} geplante zaadjes </p> </div> <h3> Uitgelichte verhalen voor deze plek </h3>  <ul>` +
@@ -414,16 +408,15 @@ const Bloeiend = ({ map, stories }) => {
              lat: position.lat(),
              lng: position.lng(),
            });
-          console.log("click");
-          console.log(marker.placeId);
+
         });
         return marker;
       });
-      console.log(markers);
+
       return markers;
     };
 
-    console.log(data);
+
     setMarkers(groupByPlaceId);
   }, [stories]);
 };

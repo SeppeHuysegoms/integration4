@@ -7,12 +7,9 @@ import bloemPaars from "../assets/images/bloemPaars.svg";
 import NavForm from "../components/NavForm";
 
 export async function action({ request, params }) {
-  console.log("action");
   const formData = await request.formData();
   const { email, password } = Object.fromEntries(formData);
-  console.log(email, password);
   const { jwt, user } = await authenticate(email, password);
-  console.log(jwt, user);
   localStorage.setItem("jwt", jwt);
   localStorage.setItem("user", JSON.stringify(user));
 
@@ -44,13 +41,11 @@ export async function action({ request, params }) {
 
 export default function Login() {
   const navigate = useNavigate();
-  console.log("login");
   useEffect(() => {
     if (
       localStorage.getItem("story") == null ||
       localStorage.getItem("story") == undefined
     ) {
-      console.log("redirect");
 
       navigate("/schrijfverhaal");
     }

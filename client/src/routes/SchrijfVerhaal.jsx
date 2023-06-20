@@ -10,16 +10,20 @@ import NavForm from "../components/NavForm";
 
 export default function Index() {
   const [characters, setCharacters] = useState(0);
-  console.log(localStorage.getItem("story"));
+
   const navigate = useNavigate();
   useEffect(() => {
     if (
       localStorage.getItem("locatieNaam") == null ||
       localStorage.getItem("locatieNaam") == undefined
     ) {
-      console.log("redirect");
-
       navigate("/selecteerlocatie");
+    }
+    if (
+      localStorage.getItem("story") !== "undefined" ||
+      localStorage.getItem("locatieNaam") !== "null"
+    ) {
+      setCharacters(localStorage.getItem("story").length);
     }
   }, );
 
@@ -97,7 +101,6 @@ export default function Index() {
 }
 
 function Bevestig({ story }) {
-  console.log(story);
   if (story == undefined || story == null || story == "") {
     return (
       <div className="button button--white button--verhaal button--disabled button--bevestigVerhaal">
@@ -109,7 +112,6 @@ function Bevestig({ story }) {
     return (
       <Link
         onClick={(verhaal) => {
-          console.log(verhaal);
           localStorage.setItem("story", story);
           window.scroll(0, 0);
         }}

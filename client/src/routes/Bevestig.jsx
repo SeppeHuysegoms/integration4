@@ -9,20 +9,7 @@ import NavForm from "../components/NavForm";
 
 export default function Bevestig() {
   const navigate = useNavigate();
-  console.log("login");
-  console.log(localStorage.getItem("story"));
-      /*useEffect(() => {
-        if (
-          localStorage.getItem("story") == null ||
-          (localStorage.getItem("story") == undefined &&
-            localStorage.getItem("jwt") == null) ||
-          localStorage.getItem("jwt") == undefined
-        ) {
-          console.log("redirect");
 
-          navigate("/schrijfverhaal");
-        }
-      });*/
 
    localStorage.removeItem("locatieNaam");
    localStorage.removeItem("placeId");
@@ -49,7 +36,7 @@ export default function Bevestig() {
           className="button button--white button--verhaal button--bevestig"
           to="/kaart"
         >
-          <img className="arrowButton" src={arrow}></img>
+          <img className="arrowButton" src={arrow} alt="arrow"></img>
           Bekijk de kaart
         </Link>
         <Link to="/profiel" className="link--bevestig">

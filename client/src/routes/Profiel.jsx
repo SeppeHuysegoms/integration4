@@ -8,31 +8,26 @@ import connectie from "../assets/images/connectie.png";
 import arrow from "../assets/images/arrow.svg";
 
 export async function loader({ request, params }) {
-  console.log("loader");
+
   if (
     localStorage.getItem("jwt") == null ||
     localStorage.getItem("user") == null
   ) {
-    console.log("redirect");
+
     throw redirect(`/profiellogin`);
   }
   const jwt = localStorage.getItem("jwt");
-  console.log(jwt);
+
   const user = localStorage.getItem("user");
   const userObject = JSON.parse(user);
   const stories = await getPersonalStories(jwt, userObject.id);
   const profileData = await getProfileData(jwt, userObject.id);
-  console.log(profileData);
-  console.log(stories);
-  console.log(params.id);
+
   return { stories, profileData };
 }
 
 export default function Index() {
   const { stories, profileData, editStory } = useLoaderData();
-  console.log(stories);
-  console.log(profileData);
-  console.log(editStory);
   return (
     <div className="profiel">
       <header className="header--profiel">
@@ -103,7 +98,7 @@ export default function Index() {
             Bekijk hun verhalen via de kaart.
           </p>
           <Link to="/kaart" className="button button--white">
-            <img className="arrowButton" src={arrow}></img>
+            <img className="arrowButton" src={arrow} alt="arrow"></img>
             Bekijk de kaart
           </Link>
           <img src={connectie} className="connectie__image" alt="connectie" />

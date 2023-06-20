@@ -27,13 +27,11 @@ export async function action({ request, params }) {
 
 const Login = () => {
    const navigate = useNavigate();
-   console.log("login");
    useEffect(() => {
      if (
        localStorage.getItem("story") == null ||
        localStorage.getItem("story") == undefined
      ) {
-       console.log("redirect");
 
        navigate("/schrijfverhaal");
      }

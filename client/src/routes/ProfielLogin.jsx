@@ -7,12 +7,9 @@ import bloemWit from "../assets/images/bloemWit.svg";
 import bloemPaars from "../assets/images/bloemPaars.svg";
 
 export async function action({ request, params }) {
-  console.log("action");
   const formData = await request.formData();
   const { email, password } = Object.fromEntries(formData);
-  console.log(email, password);
   const { jwt, user } = await authenticate(email, password);
-  console.log(jwt, user);
   localStorage.setItem("jwt", jwt);
   localStorage.setItem("user", JSON.stringify(user));
   return redirect("/profiel");
@@ -51,7 +48,7 @@ const Login = () => {
           </label>
 
           <button type="submit" className="button">
-            <img className="arrowButton" src={arrow}></img> Aanmelden
+            <img className="arrowButton" alt="arrow" src={arrow}></img> Aanmelden
           </button>
         </Form>
       </header>
@@ -63,7 +60,7 @@ const Login = () => {
 
         <p>Plant een bloem om een profiel aan te maken</p>
         <Link className="button button--white" to="/plant">
-          <img className="arrowButton" src={arrow}></img>Plant een bloem
+          <img className="arrowButton" src={arrow} alt="arrow"></img>Plant een bloem
         </Link>
         <picture className="login__eindbeeld">
           <source
