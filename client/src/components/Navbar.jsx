@@ -33,7 +33,7 @@ const Navbar = () => {
         <NavLink className="navbar__link"  to="/">
           <img src={logo} alt="logo bloeiend" />
         </NavLink>
-        <NavLink className="navbar__link" to="profiellogin">
+        <NavLink className="navbar__link" to="profiel">
           <img src={profiel} alt="profiel" className="link__profielImg" />
         </NavLink>
       </div>
@@ -66,7 +66,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="navbar__item">
-            <NavLink className="navbar__link" to="profiellogin">
+            <NavLink className="navbar__link" to="profiel">
               Profiel
             </NavLink>
           </li>
