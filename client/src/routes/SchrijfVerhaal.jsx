@@ -20,9 +20,10 @@ export default function Index() {
       navigate("/selecteerlocatie");
     }
     if (
-      localStorage.getItem("story") !== "undefined" ||
-      localStorage.getItem("story") !== "null"
+      localStorage.getItem("story") !== undefined &&
+      localStorage.getItem("story") !== null
     ) {
+      console.log(localStorage.getItem("story").length);
       setCharacters(localStorage.getItem("story").length);
     }
   }, );
